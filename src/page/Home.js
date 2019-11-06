@@ -1,9 +1,12 @@
-import React, {Component} from 'react';
+import React,{Component} from 'react';
 
-export default class Content extends Component {
+
+class Home extends Component{
     render(){
-        return (
-        <div>
+        return(
+            
+            <div >
+                 <div>
           <section class="py-3 bg-image-ful">
             <img style={{width: "2048px"}} class="img-fluid d-block mx-auto" src="img/gadaiku/bannerFix.png"/>
           </section>
@@ -52,6 +55,9 @@ export default class Content extends Component {
             </div>
           </div>
         </div>
+          </div>
         );
     }
 }
+
+export default Home;

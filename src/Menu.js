@@ -6,39 +6,48 @@ import {
   Switch,
   Link,
 } from "react-router-dom";
-import ReactDOM from 'react-dom';
-import FormSimulasi from '../page/FormSimulasi';
 
-export default class Header extends Component {
+
+class Menu extends Component{
     render(){
-        return (
-        <Router>
+        return(
+          <Router>
           <nav class="navbar navbar-light navbar-expand-lg navbar-white bg-white fixed-top">
             <div class="container">
-              <img class="navbar-brand" src="logoFix.png" width={150}/>
+              <img class="navbar-brand" src="../img/logoFix.png" width={150}/>
               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
               <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                   <li class="nav-item active">
-                    <Link to="/" class="nav-link">Home</Link>
+                    <a href="../" class="nav-link">Home</a>
+                    
                       <span class="sr-only"></span>
                   </li>
-                  <li class="nav-item">
-                    <Link to="/FormSimulasi" class="nav-link">Simulasi</Link>
+
+                  <li class="nav-item active">
+                    <a href="../Other"  class="nav-link">Simulation</a>
+                    
+                      <span class="sr-only"></span>
                   </li>
-                  <li class="nav-item">
-                    <Link to="/" class="nav-link">Form Loan</Link>
+
+                  <li class="nav-item active">
+                    <a href="/" class="nav-link">Other</a>
+                    
+                      <span class="sr-only"></span>
                   </li>
+                  
+                 
                 </ul>
-                <Switch>
-                  <Route path="/FormSimulasi"><FormSimulasi /></Route>
-                </Switch>
+               
               </div>
             </div>
           </nav>
         </Router>
+        
         );
     }
 }
+
+export default Menu;
