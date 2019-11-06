@@ -174,7 +174,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #hero .btn-services {
-  border: 2px solid #fff;
+  border: 2px solid #000;
   color: #fff;
 }
 
@@ -540,11 +540,11 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 #services .service-icon {
   float: left;
-  background: #03C4EB;
+  background: #ffbe4f;
   padding: 16px;
-  border-radius: 50%;
+  border-radius: 20%;
   transition: 0.5s;
-  border: 1px solid #03C4EB;
+  border: 2px solid #ffbe4f;
 }
 
 #services .service-icon i {
@@ -557,7 +557,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 #services .service-item:hover .service-icon i {
-  color: #03C4EB;
+  color: #ffbe4f;
 }
 
 #services .service-title {
