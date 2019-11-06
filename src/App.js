@@ -6,6 +6,7 @@ import Menu from './Menu';
 import Home from './Page/Home';
 import About from './Page/About';
 import Other from './Page/Other';
+import Footer from './Page/Footer';
 
 
 class App extends Component{
@@ -17,6 +18,8 @@ class App extends Component{
           <Route path="/" exact component={Home}/>
           <Route path="/Other" component={Other}/>
           <Route path="/About" component={About}/>
+          <Footer />
+          
         </div>
       </Router>
     
