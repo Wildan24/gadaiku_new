@@ -7,11 +7,12 @@ import {
   Link,
 } from "react-router-dom";
 import ReactDOM from 'react-dom';
-
+import FormSimulasi from '../page/FormSimulasi';
 
 export default class Header extends Component {
     render(){
         return (
+        <Router>
           <nav class="navbar navbar-light navbar-expand-lg navbar-white bg-white fixed-top">
             <div class="container">
               <img class="navbar-brand" src="logoFix.png" width={150}/>
@@ -21,24 +22,23 @@ export default class Header extends Component {
               <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                   <li class="nav-item active">
-                    <a class="nav-link" href="#">Home
-                      <span class="sr-only">(current)</span>
-                    </a>
+                    <Link to="/" class="nav-link">Home</Link>
+                      <span class="sr-only"></span>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#">About</a>
+                    <Link to="/FormSimulasi" class="nav-link">Simulasi</Link>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#">Services</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">Contact</a>
+                    <Link to="/" class="nav-link">Form Loan</Link>
                   </li>
                 </ul>
+                <Switch>
+                  <Route path="/FormSimulasi"><FormSimulasi /></Route>
+                </Switch>
               </div>
             </div>
           </nav>
-
+        </Router>
         );
     }
 }

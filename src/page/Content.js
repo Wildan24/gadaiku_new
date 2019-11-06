@@ -4,18 +4,19 @@ export default class Content extends Component {
     render(){
         return (
         <div>
-          <section class="py-6 bg-image-full">
-            <img class="img-fluid d-block mx-auto" src="img/gadaiku/bannerFix.png"/>
+          <section class="py-3 bg-image-ful">
+            <img style={{width: "2048px"}} class="img-fluid d-block mx-auto" src="img/gadaiku/bannerFix.png"/>
           </section>
-          <div id="services">
+
             <div class="container wow fadeInUp">
               <div class="row">
                 <div class="col-md-12">
-                  <h3 class="section-title">Our Services</h3>
+                <h3 class="section-title">Our Services</h3>
                 <div class="section-title-divider"></div>
                 <p class="section-description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium</p>
               </div>
             </div>
+            <div id="services">
               <div class="row">
                 <div class="col-md-4 service-item">
                   <div class="service-icon"><i class="fa fa-desktop"></i></div>

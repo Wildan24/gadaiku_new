@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
 import Header from './page/Header';
-import Footer from './page/Footer';
 import Content from './page/Content';
+import Footer from './page/Footer';
 
 class App extends Component {
 
