@@ -4,7 +4,7 @@ import React,{Component} from 'react';
 class Home extends Component{
     render(){
         return(
-            
+
             <div >
                  <div>
           <section class="py-3 bg-image-ful">
@@ -14,7 +14,7 @@ class Home extends Component{
             <div class="container wow fadeInUp">
               <div class="row">
                 <div class="col-md-12">
-                <h3 class="section-title">Our Services</h3>
+                <h3 class="section-title">Kenapa memilih <strong>GADAIKU ?</strong></h3>
                 <div class="section-title-divider"></div>
                 <p class="section-description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium</p>
               </div>

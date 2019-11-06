@@ -1,0 +1,52 @@
+[33mcommit 821f26e977819f8531ebed78d1d216321cbb7c59[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: wildan24 <wildanabdurrohman11@gmail.com>
+Date:   Wed Nov 6 15:20:51 2019 +0700
+
+    updatedeskripsidanview
+
+[33mcommit 81587b7d3278ba674bf4f26610a6816d3daddc5f[m
+Author: M Hafiz Bukhari <hafiz.bukhar@hotmail.com>
+Date:   Wed Nov 6 14:42:16 2019 +0700
+
+    AddFooter
+
+[33mcommit 7f8a3b4b5c0bcdfe0fd87d2840f27ce402ae7fe1[m
+Author: wildan24 <wildanabdurrohman11@gmail.com>
+Date:   Wed Nov 6 14:38:45 2019 +0700
+
+    addFooter
+
+[33mcommit 1fa62cc14be39bd6fd4925c2a7c4963a3e102941[m
+Author: M Hafiz Bukhari <hafiz.bukhar@hotmail.com>
+Date:   Wed Nov 6 14:12:50 2019 +0700
+
+    Update
+
+[33mcommit 1f8fdeed3b10b53b984f6fe74d7476e42a92de99[m
+Merge: 325485b f503814
+Author: wildan24 <wildanabdurrohman11@gmail.com>
+Date:   Wed Nov 6 11:45:51 2019 +0700
+
+    Merge branch 'master' of https://github.com/Wildan24/gadaiku_new
+
+[33mcommit 325485bcaee13f38d196d73e73c593bf45d891ea[m
+Author: wildan24 <wildanabdurrohman11@gmail.com>
+Date:   Wed Nov 6 11:42:15 2019 +0700
+
+    Upload ke 2
+    
+    Tampilan sudah oke tinggal form
+
+[33mcommit f5038141e61210d6ee4330bf1a27ffa0c50c6358[m
+Author: Wildan Abdurrohman <50132349+Wildan24@users.noreply.github.com>
+Date:   Wed Nov 6 11:02:43 2019 +0700
+
+    Create SECURITY.md
+
+[33mcommit 79aa9fef1a8509168c8d36e7ef6ec32c915f1f27[m
+Author: wildan24 <wildanabdurrohman11@gmail.com>
+Date:   Wed Nov 6 08:35:17 2019 +0700
+
+    Upload Pertama
+    
+    Update web gadaiku dengan reactJS dan update tampilan.
