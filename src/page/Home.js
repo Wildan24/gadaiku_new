@@ -8,15 +8,13 @@ class Home extends Component{
             <div >
                  <div>
           <section class="py-3 bg-image-ful">
-            <img style={{width: "2048px"}} class="img-fluid d-block mx-auto" src="img/gadaiku/bannerFix.png"/>
+            <img style={{width: "2048px"}} class="img-fluid d-block mx-auto" src="img/gadaiku/bannerFix.png" alt="Gadaiku.Com"/>
           </section>
 
-            <div class="container wow fadeInUp">
+            <div class="container wow fadeInUp" >
               <div class="row">
                 <div class="col-md-12">
-                <h3 class="section-title">Kenapa memilih <strong>GADAIKU ?</strong></h3>
-                <div class="section-title-divider"></div>
-                <p class="section-description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium</p>
+                <h3 style={{margin:"none"}} class="section-title">Kenapa memilih <strong>GADAIKU ?</strong></h3>
               </div>
             </div>
             <div id="services">
