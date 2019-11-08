@@ -38,7 +38,7 @@ class FormSimulasi extends Component{
                                                 <div class="form-group row" style={{ margin: "10px" }}>
                                                     <label for="totalpjm" class="col-sm-4 col-form-label">Total Pinjaman</label>
                                                     <div>
-                                                        <input type="number" class="form-control" id="totalpjm" placeholder="Total Pinjaman" />
+                                                        <input type="number" class="form-control" id="totalpjm" placeholder="Total Pinjaman" disabled />
                                                     </div>
                                                 </div>
                                             </Col>
@@ -48,7 +48,7 @@ class FormSimulasi extends Component{
                                                 <div class="form-group row" style={{ margin: "10px" }}>
                                                     <label for="admin" class="col-sm-4 col-form-label">Admin</label>
                                                     <div>
-                                                        <input type="number" class="form-control" id="adm" placeholder="Admin" />
+                                                        <input type="number" class="form-control" id="adm" placeholder="Admin" disabled />
                                                     </div>
                                                 </div>
                                             </Col>
@@ -58,20 +58,33 @@ class FormSimulasi extends Component{
                                                 <div class="form-group row" style={{ margin: "10px" }}>
                                                     <label for="fee" class="col-sm-4 col-form-label">Fee</label>
                                                     <div>
-                                                        <input type="number" class="form-control" id="fee" placeholder="Fee" />
+                                                        <input type="number" class="form-control" id="fee" placeholder="Fee" disabled/>
                                                     </div>
+                                                </div>
+                                            </Col>
+                                        </Row>
+                                        
+                                        <Row>
+                                            <Col lg={12}>
+                                                <div class="form-group row" style={{ margin:"15px" }}>
+                                                    <label for="total_terima" class="col-sm-4 col-form-label">Total Yang Diterima</label>
+                                                    <div>
+                                                        <input type="number" class="form-control" id="total_terima" placeholder="Total Yang Diterima" disabled />
+                                                    </div>
+                                                    <label class="control-label center" >&#160;</label>
+                                                    <p style={{ fontSize: "11px" }}> Maksimal Yang Bisa Di Approve</p>
                                                 </div>
                                             </Col>
                                         </Row>
                                         <Row>
                                             <Col lg={12}>
                                                 <div class="form-group row" style={{ margin:"15px" }}>
-                                                    <label for="total_terima" class="col-sm-4 col-form-label">Total Yang Diterima</label>
+                                                    <label for="total_terima" class="col-sm-4 col-form-label">Bunga per Bulan</label>
                                                     <div>
-                                                        <input type="number" class="form-control" id="total_terima" placeholder="Total Yang Diterima" />
+                                                        <input type="number" class="form-control" id="BungaPerBulan" placeholder="Bunga per bulan" disabled />
                                                     </div>
                                                     <label class="control-label center" >&#160;</label>
-                                                    <p style={{ fontSize: "11px" }}> Maksimal Yang Bisa Di Approve</p>
+                                                    
                                                 </div>
                                             </Col>
                                         </Row>
@@ -79,9 +92,10 @@ class FormSimulasi extends Component{
                                   </Container>      
                                 </form>
                                 <div style={{ margin: "25px" }}>
-                                    <Button variant="outline-warning" size="md" block>
+                                <button type="button" class="btn btn-primary">Primary</button>
+                                    {/* <Button variant="outline-warning" size="md" block>
                                         <b>Form Pengajuan</b>
-                                    </Button>
+                                    </Button> */}
                                 </div>
                             </div>
                         </div>
