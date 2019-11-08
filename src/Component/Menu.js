@@ -26,8 +26,6 @@ class Menu extends Component{
                     <a href="../FormLoan" class="nav-link">Form</a>
                     <span class="sr-only"></span>
                   </li>
-
-
                 </ul>
               </div>
             </div>
