@@ -4,6 +4,7 @@ import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import { Button } from 'react-bootstrap';
 
+
 class FormSimulasi extends Component{
     render(){
         return(
@@ -14,15 +15,14 @@ class FormSimulasi extends Component{
                       <p>Gunakan Kalkulator KPR untuk mendapatkan kemudahan pinjaman kredit rumah, perbandingan suku bunga cicilan bank di Indonesia</p>
                     </div>
                   </div>
-
                 <div class="container">
                     <div class="column is-two-quarters">
                         <div class="card">
                             <div class="card-content">
                                 <form class="form-inline">
+                                    <Container>
                                     <h3 class="center">KALKULATOR SIMULASI</h3>
-                                    <hr />
-                                  <Container>
+                                    <hr/>
                                         <Row>
                                             <Col lg={12}>
                                                 <div class="form-group row" style={{ margin: "10px" }}>
@@ -67,35 +67,31 @@ class FormSimulasi extends Component{
                                         <Row>
                                             <Col lg={12}>
                                                 <div class="form-group row" style={{ margin:"15px" }}>
-                                                    <label for="total_terima" class="col-sm-4 col-form-label">Total Yang Diterima</label>
+                                                    <label for="total_terima" class="col-sm-4 col-form-label">Total Diterima</label>
                                                     <div>
                                                         <input type="number" class="form-control" id="total_terima" placeholder="Total Yang Diterima" disabled />
                                                     </div>
-                                                    <label class="control-label center" >&#160;</label>
                                                     <p style={{ fontSize: "11px" }}> Maksimal Yang Bisa Di Approve</p>
                                                 </div>
                                             </Col>
                                         </Row>
                                         <Row>
                                             <Col lg={12}>
-                                                <div class="form-group row" style={{ margin:"15px" }}>
+                                                <div class="form-group row" style={{ margin:"10px" }}>
                                                     <label for="total_terima" class="col-sm-4 col-form-label">Bunga per Bulan</label>
                                                     <div>
-                                                        <input type="number" class="form-control" id="BungaPerBulan" placeholder="Bunga per bulan" disabled />
-                                                    </div>
-                                                    <label class="control-label center" >&#160;</label>
-                                                    
+                                                        <input type="number" class="form-control" id="BungaPerBulan" placeholder="Bunga perbulan" disabled />
+                                                    </div>                                               
                                                 </div>
                                             </Col>
                                         </Row>
-                                    
                                   </Container>      
                                 </form>
-                                <div style={{ margin: "25px" }}>
-                                <button type="button" class="btn btn-primary">Primary</button>
-                                    {/* <Button variant="outline-warning" size="md" block>
+                                <div style={{ margin: "50px" }}>
+                               {/*<button type="button" class="btn btn-primary">Primary</button>*/}
+                                    <Button href="./FormPengajuan" variant="outline-warning" size="md" block>
                                         <b>Form Pengajuan</b>
-                                    </Button> */}
+                                    </Button> 
                                 </div>
                             </div>
                         </div>

@@ -1,10 +1,11 @@
-import React,{Component} from 'react';
+import React,{Component, Fragment} from 'react';
 
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 import Menu from './Component/Menu';
 import Home from './Page/Home';
 import FormLoan from './Page/FormLoan';
 import FormSimulasi from './Page/FormSimulasi';
+import FormPengajuan from './Page/FormPengajuan';
 import Footer from './Component/Footer';
 
 
@@ -12,13 +13,14 @@ class App extends Component{
   render(){
     return(
       <Router>
-        <div >
+        <Fragment>
           <Menu />
-          <Route path="/" exact component={Home}/>
-          <Route path="/FormSimulasi" component={FormSimulasi}/>
-          <Route path="/FormLoan" component={FormLoan}/>
+          <Route path="/" activeClassName="active" exact component={Home}/>
+          <Route path="/FormSimulasi" exact component={FormSimulasi}/>
+          <Route path="/FormLoan" exact component={FormLoan}/>
+          <Route path="/FormPengajuan" exact component={FormPengajuan}/>
           <Footer />
-        </div>
+        </Fragment>
       </Router>
 
     );

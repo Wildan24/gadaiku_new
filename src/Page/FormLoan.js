@@ -8,8 +8,7 @@ class FormLoan extends Component{
                 <div class="card">
                 <h5 class="card-header">Other</h5>
                 <div class="card-body">
-                    <h5 class="card-title">Special title treatment</h5>
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                    <h5 class="card-title">Form LOAN</h5>
 
                 </div>
                 </div>

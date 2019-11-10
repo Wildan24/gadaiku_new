@@ -19,35 +19,31 @@ class Home extends Component{
             </div>
             <div id="services">
               <div class="row">
-                <div class="col-md-4 service-item">
-                  <div class="service-icon"><i class="fa fa-desktop"></i></div>
-                  <h4 class="service-title">Lorem Ipsum</h4>
-                  <p class="service-description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
+                <div class="col-md-7 service-item">
+                  <div class="service-icon"><i class="fa fa-clock-o fa-5x"></i></div>
+                  <h4 class="service-title"><strong>Simulasi Pinjaman Online 24 Jam</strong></h4>
+                  <p class="service-description">anda dapat mengetahui estimasi angsuran bulanan sesuai dengan pinjaman yang anda ajukan atas aset jaminan
+                   anda secara online 24 Jam setiap hari, dengan begitu anda bisa merencanakan dan mengatur keuangan jadi lebih baik.</p>
                 </div>
-                <div class="col-md-4 service-item">
-                  <div class="service-icon"><i class="fa fa-bar-chart"></i></div>
-                  <h4 class="service-title"><a href="">Dolor Sitema</a></h4>
-                  <p class="service-description">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata</p>
-                </div>
-                <div class="col-md-4 service-item">
+                <div class="col-md-5 service-item">
                   <div class="service-icon"><i class="fa fa-paper-plane"></i></div>
-                  <h4 class="service-title"><a href="">Sed ut perspiciatis</a></h4>
-                  <p class="service-description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
+                  <h4 class="service-title"><strong>Proses Cepat</strong></h4>
+                  <p class="service-description">kami pastikan bahwa proses pengajuan pinjaman anda akan diproses cepat dan dilakukan paling lambat 2 hari kerja.</p>
                 </div>
                 <div class="col-md-4 service-item">
-                  <div class="service-icon"><i class="fa fa-photo"></i></div>
-                  <h4 class="service-title"><a href="">Magni Dolores</a></h4>
-                  <p class="service-description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+                  <div class="service-icon"><i class="fa fa-refresh"></i></div>
+                  <h4 class="service-title"><strong>Proses Lebih Mudah</strong></h4>
+                  <p class="service-description">Ajukan Pinjaman anda dimana pun dan kapan pun, GadaiKu.com hadir untuk anda.</p>
                 </div>
                 <div class="col-md-4 service-item">
-                  <div class="service-icon"><i class="fa fa-road"></i></div>
-                  <h4 class="service-title"><a href="">Nemo Enim</a></h4>
-                  <p class="service-description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque</p>
+                  <div class="service-icon"><i class="fas fa-hand-holding-usd"></i></div>
+                  <h4 class="service-title"><strong>Bunga Bersaing</strong></h4>
+                  <p class="service-description">Kami menawarkan bunga yang sangat kompetitif pinjaman/kredit dana tunai anda.</p>
                 </div>
                 <div class="col-md-4 service-item">
-                  <div class="service-icon"><i class="fa fa-shopping-bag"></i></div>
-                  <h4 class="service-title"><a href="">Eiusmod Tempor</a></h4>
-                  <p class="service-description">Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi</p>
+                  <div class="service-icon"><i class="fas fa-lock"></i></div>
+                  <h4 class="service-title"><strong>Aman</strong></h4>
+                  <p class="service-description">GadaiKu adalah layanan bantuan dana tunai yang dapat membantu apapun kebutuhan anda.</p>
                 </div>
               </div>
             </div>
