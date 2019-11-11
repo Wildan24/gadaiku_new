@@ -1,12 +1,13 @@
 import React,{Component} from 'react';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form'
+
 import { Button, Container, } from 'react-bootstrap';
 
 class FormPengajuan extends Component{
     render(){
         return(
-        <div className="section">
+        <div className="section" id="formPengajuan" style={{display:"none"}}>
             <Container>
                 <div class="container">
                     <div class="content">
@@ -16,6 +17,8 @@ class FormPengajuan extends Component{
                 <hr/>
                 <Form>
                     <Form.Row>
+                        <input type="hidden" name="" id="totPinjaman_submit"/>
+                        
                         <Form.Group as={Col} controlId="formGridNama">
                         <Form.Label>Nama</Form.Label>
                         <Form.Control type="text" placeholder="Nama Lengkap" />

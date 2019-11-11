@@ -18,7 +18,6 @@ class App extends Component{
           <Route path="/" activeClassName="active" exact component={Home}/>
           <Route path="/FormSimulasi" exact component={FormSimulasi}/>
           <Route path="/FormLoan" exact component={FormLoan}/>
-          <Route path="/FormPengajuan" exact component={FormPengajuan}/>
           <Footer />
         </Fragment>
       </Router>

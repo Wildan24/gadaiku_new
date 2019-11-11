@@ -48,5 +48,10 @@ $(document).ready(function () {
         
         document.getElementById("BungaPerBulan").value = BungaPerBulan;
     });
+
+    $("#show_formPengajuan").click(function (e) { 
+        $("#formPengajuan").css("display", "block");
+        
+    });
     
 });
