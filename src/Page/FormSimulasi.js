@@ -8,13 +8,13 @@ import { Button } from 'react-bootstrap';
 class FormSimulasi extends Component{
     render(){
         return(
-            <div className="section">
-                  <div class="container">
+            <div class="section">
+                <div class="container">
                     <div class="content">
                       <h2>Kalkulator Simulasi Pinjaman Dengan Jaminan Rumah</h2>
                       <p>Gunakan Kalkulator KPR untuk mendapatkan kemudahan pinjaman kredit rumah, perbandingan suku bunga cicilan bank di Indonesia</p>
                     </div>
-                  </div>
+                </div>
                 <div class="container">
                     <div class="column is-two-quarters">
                         <div class="card">

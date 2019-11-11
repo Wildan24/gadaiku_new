@@ -4,8 +4,8 @@ import { BrowserRouter as Router, } from "react-router-dom";
 
 class Menu extends Component{
     render(){
-        return(
-          <Router>
+      return(
+        <Router>
           <nav class="navbar navbar-light navbar-expand-lg navbar-white bg-white fixed-top">
             <div class="container">
               <img class="navbar-brand" src="../img/logoFix.png" width={250} height={50} alt="GadaiKu.com"/>
