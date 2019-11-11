@@ -1,0 +1,43 @@
+@media screen and (max-width: 1200px){
+    h3{
+        text-align: center;
+        padding-top: 2%;
+        margin-bottom: 2%;
+    }
+    *{
+        margin: 0px;
+    }
+    .form-row{
+        display: block;
+    }
+    .section .card{
+        width: 100%;
+        margin:0px;
+        
+    }
+
+    .card>.card-content{
+        margin: 0px;
+        width: 100%;
+        padding: 0px;
+        
+    }
+
+    .card-content .form-inline{
+        
+        width: 100%;
+        margin: 0px;
+    }
+
+    .form-inline .container{
+        
+        margin: 0px;
+        width: 100%;
+        padding: 0px;
+    }
+
+    .row .col-lg-12{
+        width: 100%;
+        margin: 0px;
+    }
+}

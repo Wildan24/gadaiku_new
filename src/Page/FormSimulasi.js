@@ -2,6 +2,8 @@ import React,{Component} from 'react';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
+import FormPengajuan from '../Page/FormPengajuan';
+
 import { Button } from 'react-bootstrap';
 
 
@@ -19,7 +21,7 @@ class FormSimulasi extends Component{
                     <div class="column is-two-quarters">
                         <div class="card">
                             <div class="card-content">
-                                <form class="form-inline">
+                                <form class="form-inline" >
                                     <Container>
                                     <h3 class="center">KALKULATOR SIMULASI</h3>
                                     <hr/>
@@ -85,18 +87,17 @@ class FormSimulasi extends Component{
                                                 </div>
                                             </Col>
                                         </Row>
-                                  </Container>      
+                                  </Container>
+                                  <Button variant="outline-primary" type="button" size="md"  id="show_formPengajuan" block>
+                                    Tampilkan Form
+                                  </Button>
                                 </form>
-                                <div style={{ margin: "50px" }}>
-                               {/*<button type="button" class="btn btn-primary">Primary</button>*/}
-                                    <Button href="./FormPengajuan" variant="outline-warning" size="md" block>
-                                        <b>Form Pengajuan</b>
-                                    </Button> 
-                                </div>
+                               
                             </div>
                         </div>
                     </div>
                 </div>
+                <FormPengajuan />
             </div>
 
         )
