@@ -14,13 +14,11 @@ export default function App() {
   return (
 <Router>
     <Container>
-    <div style={{ marginTop:"50px", marginBottom:"180px"}}>
-    <div class="container">
-    <div class="content">
-      <h2>Client Preliminary Assessment</h2>
-      <p>Pilih form yang sesuai untuk pengajuan kredit perorangan atau badan hukum atau lainnya.</p>
+    <div>
+        <section class="py-3 bg-image-ful">
+            <img style={{width: "2048px"}} class="img-fluid d-block mx-auto" src="img/gadaiku/bannerFix.png" alt="Gadaiku.Com"/>
+        </section>
     </div>
-</div>
         <CardGroup>
             <Card border="primary" style={{ width: '18rem' }}>
                 <Card.Header>Form Perorangan</Card.Header>
@@ -52,8 +50,7 @@ export default function App() {
                 </Card.Text>
                 </Card.Body>
             </Card>
-        </CardGroup> 
-        </div>   
+        </CardGroup>   
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
         <Switch>
@@ -176,50 +173,51 @@ function Karyawan() {
                     </div>
                     <hr/>
                     <Form.Row>
-                        <Form.Group as={Col} controlId="formGridWaktu">
-                            <Form.Label>Jangka Waktu :</Form.Label>
-                            <Form.Control type="text" placeholder="Jangka Waktu" />
-                        </Form.Group>
-
-                        <Form.Group as={Col} controlId="formGridWaktu">
-                            <Form.Label>Jangka Waktu :</Form.Label>
-                            <Form.Control type="text" placeholder="Jangka Waktu" />
+                        <Form.Group as={Col} controlId="formGrid1">
+                            <Form.Label>Berapa nilai angsuran yang ingin bapak/ibu bayar perbulannya ?</Form.Label>
+                            <Form.Control type="text" />
                         </Form.Group>
                     </Form.Row>
                     
+                        <Form.Group as={Col} controlId="formGrid2">
+                            <Form.Label>Apakah ada pilihan bank yang ingin digunakan oleh bapak/ibu ?</Form.Label>
+                            <Form.Control type="text"/>
+                        </Form.Group>
+                    
+                    
                     <Form.Row>
-                        <Form.Group as={Col} controlId="formGridWaktu">
-                            <Form.Label>Jangka Waktu :</Form.Label>
-                            <Form.Control type="text" placeholder="Jangka Waktu" />
+                        <Form.Group as={Col} controlId="formGrid3">
+                            <Form.Label>Apakah pernah ada pengalaman yang tidak menyenangkan dengan bank yang pernah dialami oleh bapak/ibu ?</Form.Label>
+                            <Form.Control type="text" />
                         </Form.Group>
 
-                        <Form.Group as={Col} controlId="formGridWaktu">
-                            <Form.Label>Jangka Waktu :</Form.Label>
-                            <Form.Control type="text" placeholder="Jangka Waktu" />
+                        <Form.Group as={Col} controlId="formGrid4">
+                            <Form.Label>Berapa total penjualan (omset) bapak/ibu perbulannya ?</Form.Label>
+                            <Form.Control type="text" />
                         </Form.Group>
                     </Form.Row>
 
                     <Form.Row>
-                        <Form.Group as={Col} controlId="formGridWaktu">
-                            <Form.Label>Jangka Waktu :</Form.Label>
-                            <Form.Control type="text" placeholder="Jangka Waktu" />
+                        <Form.Group as={Col} controlId="formGrid5">
+                            <Form.Label>Ekspansi bisnis apa yang sedang direncanakan bapak/ibu ?</Form.Label>
+                            <Form.Control type="text"/>
                         </Form.Group>
 
-                        <Form.Group as={Col} controlId="formGridWaktu">
-                            <Form.Label>Jangka Waktu :</Form.Label>
-                            <Form.Control type="text" placeholder="Jangka Waktu" />
+                        <Form.Group as={Col} controlId="formGrid6">
+                            <Form.Label>Berapa lama terms of payment dari customer dan terms of payment ke supplier ?</Form.Label>
+                            <Form.Control type="text" />
                         </Form.Group>
                     </Form.Row>
 
                     <Form.Row>
-                        <Form.Group as={Col} controlId="formGridWaktu">
-                            <Form.Label>Jangka Waktu :</Form.Label>
-                            <Form.Control type="text" placeholder="Jangka Waktu" />
+                        <Form.Group as={Col} controlId="formGrid7">
+                            <Form.Label>Berapa total pendapatan gaji dan tunjangan bapak/ibu perbulannya ?</Form.Label>
+                            <Form.Control type="text"/>
                         </Form.Group>
 
-                        <Form.Group as={Col} controlId="formGridWaktu">
-                            <Form.Label>Jangka Waktu :</Form.Label>
-                            <Form.Control type="text" placeholder="Jangka Waktu" />
+                        <Form.Group as={Col} controlId="formGrid8">
+                            <Form.Label>Apakah ada pendapatan lain seperti pendapatan sewa ataupun bisnis lain ?</Form.Label>
+                            <Form.Control type="text" />
                         </Form.Group>
                     </Form.Row>
                     
@@ -247,9 +245,7 @@ function Karyawan() {
                             <Form.Label>KK</Form.Label>
                             <Form.Control type="file" placeholder="Kartu Keluarga"/>
                         </Form.Group>
-                    </Form.Row>
-
-                    <Form.Row>
+                   
                         <Form.Group as={Col} controlId="pbb">
                             <Form.Label>PBB</Form.Label>
                             <Form.Control type="file" placeholder="PBB"/>
