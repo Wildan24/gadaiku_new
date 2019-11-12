@@ -18,7 +18,7 @@ export default function App() {
             <img style={{width: "2048px"}} src="img/gadaiku/bannerFix.png" alt="Gadaiku.Com"/>
         </section>
     </div>
-        <CardGroup style={{width:"60%", display:"inlineBlock", marginBottom:"20px"}}>
+        <CardGroup style={{width:"70%",marginLeft:"15%", marginRight:"15%" , marginBottom:"20px"}}>
             <Card border="primary" style={{ width: '18rem' }}>
                 <Card.Header>Form Perorangan</Card.Header>
                 <Card.Body>
