@@ -6,6 +6,38 @@ import { Button, Container, } from 'react-bootstrap';
 import FormPengajuan_css from '../Css/FormPengajuan_css.css';
 
 class FormPengajuan extends Component{
+    constructor(props){
+        super(props);
+
+        this.state ={
+            nama :'',
+
+        };
+        
+        this.HandleSubmit = this.HandleSubmit.bind(this);
+        this.HandleInput = this.HandleInput.bind(this);
+
+    }
+
+    
+
+    HandleInput(event){
+        this.setState({
+             nama :event.target.nama
+        });
+        console.log(this.state.nama);
+        
+    }
+
+    HandleSubmit(event){
+        
+        
+        alert(this.state.nama);
+        event.preventDefault();
+    
+   
+    }
+
     render(){
         return(
         <div className="section" id="formPengajuan" style={{display:"none"}}>
@@ -22,7 +54,7 @@ class FormPengajuan extends Component{
                         
                         <Form.Group as={Col} controlId="formGridNama">
                         <Form.Label>Nama</Form.Label>
-                        <Form.Control type="text" placeholder="Nama Lengkap" />
+                        <Form.Control type="text" placeholder="Nama Lengkap" value={this.state.nama} onChange={this.HandleInput} />
                         </Form.Group>
 
                         <Form.Group as={Col} controlId="formGridNoHp">
@@ -120,7 +152,7 @@ class FormPengajuan extends Component{
 
                     <br/>
                     <br/>
-                    <Button variant="outline-primary" type="submit" size="md" block>
+                    <Button variant="outline-primary" type="button" size="md" onClick={this.HandleSubmit} block>
                         AJUKAN
                     </Button>
                 </Form>

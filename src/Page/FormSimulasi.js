@@ -20,74 +20,48 @@ class FormSimulasi extends Component{
                 <div class="container">
                     <div class="column is-two-quarters">
                         <div class="card">
+                        
+                            
                             <div class="card-content">
-                                <form class="form-inline" >
-                                    <Container>
-                                    <h3 class="center">KALKULATOR SIMULASI</h3>
-                                    <hr/>
-                                        <Row>
-                                            <Col lg={12}>
-                                                <div class="form-group row" style={{ margin: "10px" }}>
-                                                    <label for="njop" class="col-sm-4 col-form-label">NJOP</label>
-                                                    <div>
-                                                        <input type="number" class="form-control" id="njop" placeholder="NJOP" />
-                                                    </div>
-                                                </div>
-                                            </Col>
-                                        </Row>
-                                        <Row>
-                                            <Col lg={12}>
-                                                <div class="form-group row" style={{ margin: "10px" }}>
-                                                    <label for="totalpjm" class="col-sm-4 col-form-label">Total Pinjaman</label>
-                                                    <div>
-                                                        <input type="number" class="form-control" id="totalpjm" placeholder="Total Pinjaman" disabled />
-                                                    </div>
-                                                </div>
-                                            </Col>
-                                        </Row>
-                                        <Row>
-                                            <Col lg={12}>
-                                                <div class="form-group row" style={{ margin: "10px" }}>
-                                                    <label for="admin" class="col-sm-4 col-form-label">Admin</label>
-                                                    <div>
-                                                        <input type="number" class="form-control" id="adm" placeholder="Admin" disabled />
-                                                    </div>
-                                                </div>
-                                            </Col>
-                                        </Row>
-                                        <Row>
-                                            <Col lg={12}>
-                                                <div class="form-group row" style={{ margin: "10px" }}>
-                                                    <label for="fee" class="col-sm-4 col-form-label">Fee</label>
-                                                    <div>
-                                                        <input type="number" class="form-control" id="fee" placeholder="Fee" disabled/>
-                                                    </div>
-                                                </div>
-                                            </Col>
-                                        </Row>
+                                <form class="">
+                                <h3 class="center">KALKULATOR SIMULASI</h3>
+                                <hr/>
+                                    
+                                
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">NJOP</label>
+                                        <input type="email" class="form-control" id="njop" aria-describedby="emailHelp" placeholder="NJOP"/>
+                                    </div>
+                                    
+                                    <div className="formRow" >
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">Total Pinjaman</label>
+                                            <input type="email" class="form-control" id="totalpjm" aria-describedby="emailHelp" placeholder="Total Pinjaman" disabled/>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">Admin</label>
+                                            <input type="email" class="form-control" id="adm" aria-describedby="emailHelp" placeholder="Admin" disabled/>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">Fee</label>
+                                            <input type="email" class="form-control" id="fee" aria-describedby="emailHelp" placeholder="Fee" disabled/>
+                                        </div>
                                         
-                                        <Row>
-                                            <Col lg={12}>
-                                                <div class="form-group row" style={{ margin:"15px" }}>
-                                                    <label for="total_terima" class="col-sm-4 col-form-label">Total Diterima</label>
-                                                    <div>
-                                                        <input type="number" class="form-control" id="total_terima" placeholder="Total Yang Diterima" disabled />
-                                                    </div>
-                                                    <p style={{ fontSize: "11px" }}> Maksimal Yang Bisa Di Approve</p>
-                                                </div>
-                                            </Col>
-                                        </Row>
-                                        <Row>
-                                            <Col lg={12}>
-                                                <div class="form-group row" style={{ margin:"10px" }}>
-                                                    <label for="total_terima" class="col-sm-4 col-form-label">Bunga per Bulan</label>
-                                                    <div>
-                                                        <input type="number" class="form-control" id="BungaPerBulan" placeholder="Bunga perbulan" disabled />
-                                                    </div>                                               
-                                                </div>
-                                            </Col>
-                                        </Row>
-                                  </Container>
+                                    </div>
+
+                                    <div className="formRow2" >
+                                        <div class="form-group">
+                                                <label for="exampleInputEmail1">Total Yang Diterima</label>
+                                                <input type="email" class="form-control" id="total_terima" aria-describedby="emailHelp" placeholder="Total Yang Diterima" disabled/>
+                                        </div>
+                                        <div class="form-group">
+                                                <label for="exampleInputEmail1">Bunga Per Bulan</label>
+                                                <input type="email" class="form-control" id="BungaPerBulan" aria-describedby="emailHelp" placeholder="Bunga Per Bulan" disabled/>
+                                        </div>
+                                    </div>
+                                  
                                   <Button variant="outline-primary" type="button" size="md"  id="show_formPengajuan" block>
                                     Tampilkan Form
                                   </Button>

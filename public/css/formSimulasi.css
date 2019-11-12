@@ -1,0 +1,40 @@
+.formRow{
+    display: flex;
+    justify-content: space-between;
+}
+
+.form-group{
+    margin-top: 3%;
+}
+.formRow .form-group{
+    
+    width: 28%;
+    
+    
+}
+
+.formRow2{
+    display: flex;
+    
+}
+
+.formRow2 .form-group{
+    
+    width: 28%;
+    margin-right: 8%;
+    
+    
+}
+
+@media screen and (max-width: 1200px){
+    .formRow, .formRow2{
+        display: block;
+        
+    }
+
+    .formRow2 .form-group,.formRow .form-group{
+        width: 100%;
+        
+    }
+     
+}

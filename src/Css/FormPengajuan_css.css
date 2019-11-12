@@ -16,28 +16,5 @@
         
     }
 
-    .card>.card-content{
-        margin: 0px;
-        width: 100%;
-        padding: 0px;
-        
-    }
-
-    .card-content .form-inline{
-        
-        width: 100%;
-        margin: 0px;
-    }
-
-    .form-inline .container{
-        
-        margin: 0px;
-        width: 100%;
-        padding: 0px;
-    }
-
-    .row .col-lg-12{
-        width: 100%;
-        margin: 0px;
-    }
+    
 }
