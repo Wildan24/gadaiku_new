@@ -6,8 +6,8 @@ class Home extends Component{
     render(){
         return(
 
-      <Container>
-        <div>
+      
+        <div class="homeWrapper">
           <section class="py-3 bg-image-ful">
             <img style={{width: "2048px"}} class="img-fluid d-block mx-auto" src="img/gadaiku/bannerFix.png" alt="Gadaiku.Com"/>
           </section>
@@ -72,7 +72,7 @@ class Home extends Component{
             
           </div>
         </div>
-      </Container>
+      
 
 
         );
