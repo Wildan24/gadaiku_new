@@ -13,13 +13,12 @@ import {
 export default function App() {
   return (
 <Router>
-    <Container>
     <div>
         <section class="py-3 bg-image-ful">
-            <img style={{width: "2048px"}} class="img-fluid d-block mx-auto" src="img/gadaiku/bannerFix.png" alt="Gadaiku.Com"/>
+            <img style={{width: "2048px"}} src="img/gadaiku/bannerFix.png" alt="Gadaiku.Com"/>
         </section>
     </div>
-        <CardGroup>
+        <CardGroup style={{width:"60%", display:"inlineBlock", marginBottom:"20px"}}>
             <Card border="primary" style={{ width: '18rem' }}>
                 <Card.Header>Form Perorangan</Card.Header>
                 <Card.Body>
@@ -64,7 +63,6 @@ export default function App() {
                 <CV />
             </Route>
         </Switch>
-    </Container>
 </Router>
   );
 }
