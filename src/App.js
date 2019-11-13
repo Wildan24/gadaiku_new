@@ -9,6 +9,8 @@ import Footer from './Component/Footer';
 
 
 class App extends Component{
+  
+
   render(){
     return(
       <Router>
@@ -32,6 +34,6 @@ export default App;
 
 class mailer{
 
-  
+
 
 }
