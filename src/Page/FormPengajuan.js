@@ -3,7 +3,6 @@ import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 
 import { Button, Container, } from 'react-bootstrap';
-import FormPengajuan_css from '../Css/FormPengajuan_css.css';
 
 class FormPengajuan extends Component{
     constructor(props){

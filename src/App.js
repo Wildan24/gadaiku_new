@@ -5,7 +5,6 @@ import Menu from './Component/Menu';
 import Home from './Page/Home';
 import FormLoan from './Page/FormLoan';
 import FormSimulasi from './Page/FormSimulasi';
-import FormPengajuan from './Page/FormPengajuan';
 import Footer from './Component/Footer';
 
 

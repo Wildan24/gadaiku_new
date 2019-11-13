@@ -18,7 +18,7 @@ export default function App() {
             <img style={{width: "2048px"}} src="img/gadaiku/bannerFix.png" alt="Gadaiku.Com"/>
         </section>
     </div>
-        <CardGroup style={{width:"70%",marginLeft:"15%", marginRight:"15%" , marginBottom:"20px"}}>
+        <CardGroup style={{width:"70%",marginLeft:"15%", marginRight:"15%" , marginBottom:"50px"}}>
             <Card border="primary" style={{ width: '18rem' }}>
                 <Card.Header>Form Perorangan</Card.Header>
                 <Card.Body>
@@ -91,7 +91,7 @@ function Karyawan() {
 
                     <Form.Row>
                         <Form.Group as={Col} controlId="formGridAlamat">
-                            <Form.Label>Alamat Tempat Tinggal :</Form.Label>
+                            <Form.Label>Alamat:</Form.Label>
                             <Form.Control type="text" placeholder="Alamat Tempat Tinggal" />
                         </Form.Group>
 
@@ -176,43 +176,43 @@ function Karyawan() {
                             <Form.Control type="text" />
                         </Form.Group>
                     </Form.Row>
-                    
+                    <Form.Row>
                         <Form.Group as={Col} controlId="formGrid2">
                             <Form.Label>Apakah ada pilihan bank yang ingin digunakan oleh bapak/ibu ?</Form.Label>
                             <Form.Control type="text"/>
                         </Form.Group>
-                    
-                    
+                    </Form.Row>
                     <Form.Row>
                         <Form.Group as={Col} controlId="formGrid3">
                             <Form.Label>Apakah pernah ada pengalaman yang tidak menyenangkan dengan bank yang pernah dialami oleh bapak/ibu ?</Form.Label>
                             <Form.Control type="text" />
                         </Form.Group>
-
+                    </Form.Row>
+                    <Form.Row>
                         <Form.Group as={Col} controlId="formGrid4">
                             <Form.Label>Berapa total penjualan (omset) bapak/ibu perbulannya ?</Form.Label>
                             <Form.Control type="text" />
                         </Form.Group>
                     </Form.Row>
-
                     <Form.Row>
                         <Form.Group as={Col} controlId="formGrid5">
                             <Form.Label>Ekspansi bisnis apa yang sedang direncanakan bapak/ibu ?</Form.Label>
                             <Form.Control type="text"/>
                         </Form.Group>
-
+                    </Form.Row>
+                    <Form.Row>
                         <Form.Group as={Col} controlId="formGrid6">
                             <Form.Label>Berapa lama terms of payment dari customer dan terms of payment ke supplier ?</Form.Label>
                             <Form.Control type="text" />
                         </Form.Group>
                     </Form.Row>
-
                     <Form.Row>
                         <Form.Group as={Col} controlId="formGrid7">
                             <Form.Label>Berapa total pendapatan gaji dan tunjangan bapak/ibu perbulannya ?</Form.Label>
                             <Form.Control type="text"/>
                         </Form.Group>
-
+                    </Form.Row>
+                    <Form.Row>
                         <Form.Group as={Col} controlId="formGrid8">
                             <Form.Label>Apakah ada pendapatan lain seperti pendapatan sewa ataupun bisnis lain ?</Form.Label>
                             <Form.Control type="text" />
@@ -231,58 +231,59 @@ function Karyawan() {
                     <Form.Row>
                         <Form.Group as={Col} controlId="ktppemohon">
                             <Form.Label>Fotocopy KTP Pemohon</Form.Label>
-                            <Form.Control type="file" placeholder="KTP Pemohon"/>
+                            <Form.Control type="file"/>
                         </Form.Group>
-
-                        <Form.Group as={Col} controlId="ktpistri">
-                            <Form.Label>KTP Istri</Form.Label>
-                            <Form.Control type="file" placeholder="KTP Istri"/>
+                        <Form.Group as={Col} controlId="pasutri">
+                            <Form.Label>Fotocopy KTP Suami/Istri</Form.Label>
+                            <Form.Control type="file"/>
                         </Form.Group>
-
+                    </Form.Row>
+                    
+                    <Form.Row>
                         <Form.Group as={Col} controlId="kartukeluarga">
-                            <Form.Label>KK</Form.Label>
-                            <Form.Control type="file" placeholder="Kartu Keluarga"/>
+                            <Form.Label>Fotocopy KK</Form.Label>
+                            <Form.Control type="file"/>
                         </Form.Group>
-                   
-                        <Form.Group as={Col} controlId="pbb">
-                            <Form.Label>PBB</Form.Label>
-                            <Form.Control type="file" placeholder="PBB"/>
-                        </Form.Group>
-
-                        <Form.Group as={Col} controlId="shm">
-                            <Form.Label>SHM</Form.Label>
-                            <Form.Control type="file" placeholder="SHM"/>
-                        </Form.Group>
-
-                        <Form.Group as={Col} controlId="imb">
-                            <Form.Label>IMB</Form.Label>
-                            <Form.Control type="file" placeholder="imb"/>
+                        <Form.Group as={Col} controlId="aktenikah">
+                            <Form.Label>Fotocopy Akte Nikah/Cerai</Form.Label>
+                            <Form.Control type="file"/>
                         </Form.Group>
                     </Form.Row>
 
                     <Form.Row>
-                        <Form.Group as={Col} controlId="pendukung1">
-                            <Form.Label>Lampiran Pendukung 1</Form.Label>
-                            <Form.Control type="file" placeholder="Lampiran Pendukung 1"/>
+                        <Form.Group as={Col} controlId="npwp">
+                            <Form.Label>Fotocopy NPWP (pemohon)</Form.Label>
+                            <Form.Control type="file"/>
                         </Form.Group>
-
-                        <Form.Group as={Col} controlId="pendukung2">
-                            <Form.Label>Lampiran Pendukung 2</Form.Label>
-                            <Form.Control type="file" placeholder="Lampiran Pendukung 2"/>
+                        <Form.Group as={Col} controlId="pph">
+                            <Form.Label>Fotocopy SPT/PPh21</Form.Label>
+                            <Form.Control type="file"/>
                         </Form.Group>
+                    </Form.Row>
 
+                    <Form.Row>
+                        <Form.Group as={Col} controlId="slipgaji">
+                            <Form.Label>Asli Slip Gaji (1 bulan terakhir)</Form.Label>
+                            <Form.Control type="file"/>
+                        </Form.Group>
+                        <Form.Group as={Col} controlId="tabungan">
+                            <Form.Label>Fotocopy Tabungan (6 bulan terakhir)</Form.Label>
+                            <Form.Control type="file"/>
+                        </Form.Group>
+                    </Form.Row>
+
+                    <Form.Row>
                         <Form.Group as={Col} controlId="pendukung3">
                             <Form.Label>Lampiran Pendukung 3</Form.Label>
                             <Form.Control type="file" placeholder="Lampiran Pendukung 3"/>
-                        </Form.Group>
-                    </Form.Row>
-
-                    <Form.Row>
+                        </Form.Group>                    
                         <Form.Group as={Col} controlId="pendukung1">
                             <Form.Label>Lampiran Pendukung 1</Form.Label>
                             <Form.Control type="file" placeholder="Lampiran Pendukung 1"/>
                         </Form.Group>
+                    </Form.Row>
 
+                    <Form.Row>
                         <Form.Group as={Col} controlId="pendukung2">
                             <Form.Label>Lampiran Pendukung 2</Form.Label>
                             <Form.Control type="file" placeholder="Lampiran Pendukung 2"/>

@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-import { Container, Button, Row, Col, } from 'react-bootstrap';
+import { Button, Row, Col, } from 'react-bootstrap';
 
 
 class Home extends Component{
@@ -60,11 +60,11 @@ class Home extends Component{
                 </div>
               </div>
 
-              <Row style={{paddingTop: '10px', paddingBottom:'20px'}}>
-                <Col md={{ span:3, offset: 3}}>
+              <Row style={{width:"100%",marginLeft:"15%", marginRight:"15%", marginBottom:"20px"}}>
+                <Col md>
                   <Button variant="outline-warning" size="sm"> <a href="../FormSimulasi"  className="nav-link"><b>Simulation</b></a></Button>
                 </Col>
-                <Col>
+                <Col md>
                   <Button variant="outline-warning" size="sm"> <a href="../FormLoan"  class="nav-link"><b>Form Loan</b></a></Button>
                 </Col>
               </Row>
