@@ -1,42 +1,10 @@
-import React,{Component} from 'react';
+import React,{ Component } from 'react';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
-
 import { Button, Container, } from 'react-bootstrap';
 
+
 class FormPengajuan extends Component{
-    constructor(props){
-        super(props);
-
-        this.state ={
-            nama :'',
-
-        };
-        
-        this.HandleSubmit = this.HandleSubmit.bind(this);
-        this.HandleInput = this.HandleInput.bind(this);
-
-    }
-
-    
-
-    HandleInput(event){
-        this.setState({
-             nama :event.target.nama
-        });
-        console.log(this.state.nama);
-        
-    }
-
-    HandleSubmit(event){
-        
-        
-        alert(this.state.nama);
-        event.preventDefault();
-    
-   
-    }
-
     render(){
         return(
         <div className="section" id="formPengajuan" style={{display:"none"}}>
@@ -47,23 +15,23 @@ class FormPengajuan extends Component{
                     </div>
                 </div>
                 <hr/>
-                <Form>
+                <Form onSubmit={this.handleSubmit} noValidate>
                     <Form.Row>
                         <input type="hidden" name="" id="totPinjaman_submit"/>
                         
-                        <Form.Group as={Col} controlId="formGridNama">
-                        <Form.Label>Nama</Form.Label>
-                        <Form.Control type="text" placeholder="Nama Lengkap" value={this.state.nama} onChange={this.HandleInput} />
+                        <Form.Group as={Col} controlId="nama">
+                            <Form.Label>Nama</Form.Label>
+                            <Form.Control type="text" placeholder="Nama Lengkap" name='name' onChange={this.handleChange} noValidate />
                         </Form.Group>
 
                         <Form.Group as={Col} controlId="formGridNoHp">
-                        <Form.Label>No.HP</Form.Label>
-                        <Form.Control type="number" placeholder="No.HP" />
+                            <Form.Label>No.HP</Form.Label>
+                            <Form.Control type="number" placeholder="No.HP" />
                         </Form.Group>
 
                         <Form.Group as={Col} controlId="formGridEmail">
-                        <Form.Label>Email</Form.Label>
-                        <Form.Control type="email" placeholder="Email" />
+                            <Form.Label>Email</Form.Label>
+                            <Form.Control type="email" name='email' placeholder="Email" onChange={this.handleChange} noValidate />
                         </Form.Group>
                     </Form.Row>
 
@@ -151,7 +119,7 @@ class FormPengajuan extends Component{
 
                     <br/>
                     <br/>
-                    <Button variant="outline-primary" type="button" size="md" onClick={this.HandleSubmit} block>
+                    <Button variant="outline-primary" type="button" size="md" id="submit" value="Submit" block>
                         AJUKAN
                     </Button>
                 </Form>

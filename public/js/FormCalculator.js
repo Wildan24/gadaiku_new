@@ -1,5 +1,4 @@
 
-
 $(document).ready(function () {
    
     $("#njop").on('input', function () {
