@@ -1,3 +1,7 @@
+import $ from 'jquery';
+
+
+
 (function ($) {
 	$.fn.simpleMoneyFormat = function() {
 		this.each(function(index, el) {		
@@ -52,4 +56,4 @@
 			}
 		}
 	};
-}(jQuery));
+}(jquery));

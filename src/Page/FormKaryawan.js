@@ -7,7 +7,7 @@ export default class FormKaryawan extends Component {
     render(){
         return(
             <Fragment>
-            <Container style={{marginBottom:"50px"}}>
+            <Container style={{marginBottom:"20px"}}>
             <div class="container">
                 <div class="content">
                     <h5>Form Pengajuan Karyawan</h5>

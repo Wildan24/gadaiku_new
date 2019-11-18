@@ -1,11 +1,9 @@
 import $ from 'jquery';
-import React from 'react';
-import ReactDOM from 'react-dom';
-
 
 $(document).ready(function () {
    
     $("#calculate").on('click', function () {
+
 
         var njop = $("#njop").val();
         
@@ -18,8 +16,6 @@ $(document).ready(function () {
         fee = fee.toFixed(0);
         fee= fee.toString();
         
-
-
         var admin = totPinjaman*0.1;
         admin = admin.toFixed(0);
         admin = admin.toString();
@@ -28,9 +24,6 @@ $(document).ready(function () {
         BungaPerBulan = BungaPerBulan.toFixed(0);
         BungaPerBulan = BungaPerBulan.toString();
         
-        var totPinjaman_fix = totPinjaman;
-        totPinjaman_fix = totPinjaman_fix.toFixed(0);
-        totPinjaman_fix = totPinjaman_fix.toString();
 
 
         document.getElementById("totalpjm").value = totPinjaman;
@@ -49,5 +42,16 @@ $(document).ready(function () {
         
         });
 
-    })
+
+
+
+
+
+
+
+
+
+
+
+})
 

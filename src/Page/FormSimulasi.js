@@ -8,6 +8,8 @@ import {
   } from "react-router-dom";
 import FormPengajuan from "./FormPengajuan";
 import FormCalculator from "./FormCalculator";
+import NumberFormat from 'react-number-format';
+
 
 class FormSimulasi extends Component{
     render(){
@@ -33,7 +35,7 @@ class FormSimulasi extends Component{
                                     <div className="formRow" >
                                     <div class="form-group col-md-9">
                                         <label for="exampleInputEmail1">NJOP</label>
-                                        <input type="email" class="form-control" id="njop" aria-describedby="emailHelp" placeholder="NJOP"/>
+                                        <input type="text" class="form-control" id="njop" aria-describedby="Njop" placeholder="NJOP"/>
                                     </div>
                                     <div class="form-group col-md-3">
                                         <Button style={{marginTop:"31px"}} id="calculate" variant="outline-primary" type="button" size="md" block>Calculate</Button>
@@ -44,29 +46,29 @@ class FormSimulasi extends Component{
 
                                     <div className="formRow" >
                                         <div class="form-group">
-                                            <label for="exampleInputEmail1">Total Pinjaman</label>
-                                            <input type="email" class="form-control" id="totalpjm" aria-describedby="emailHelp" placeholder="Total Pinjaman" disabled/>
+                                            <label for="exampleInputTotalpjm">Total Pinjaman</label> 
+                                            <input type="text" class="form-control" id="totalpjm" aria-describedby="Pinjaman" placeholder="Total Pinjaman" />
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="exampleInputEmail1">Admin</label>
-                                            <input type="email" class="form-control" id="adm" aria-describedby="emailHelp" placeholder="Admin" disabled/>
+                                            <label for="exampleInputAdmin">Admin</label>
+                                            <input type="text" class="form-control" id="adm" aria-describedby="Admin" placeholder="Admin" disabled/>
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="exampleInputEmail1">Fee</label>
-                                            <input type="email" class="form-control" id="fee" aria-describedby="emailHelp" placeholder="Fee" disabled/>
+                                            <label for="exampleInputFee">Fee</label>
+                                            <input type="text" class="form-control" id="fee" aria-describedby="Fee" placeholder="Fee" disabled/>
                                         </div>
                                     </div>
 
                                     <div className="formRow2" >
                                         <div class="form-group">
-                                                <label for="exampleInputEmail1">Total Yang Diterima</label>
-                                                <input type="email" class="form-control" id="total_terima" aria-describedby="emailHelp" placeholder="Total Yang Diterima" disabled/>
+                                                <label for="exampleInputTerima">Total Yang Diterima</label>
+                                                <input type="text" class="form-control" id="total_terima" aria-describedby="totalTerima" placeholder="Total Yang Diterima" disabled/>
                                         </div>
                                         <div class="form-group">
-                                                <label for="exampleInputEmail1">Bunga Per Bulan</label>
-                                                <input type="email" class="form-control" id="BungaPerBulan" aria-describedby="emailHelp" placeholder="Bunga Per Bulan" disabled/>
+                                                <label for="exampleInputBunga">Bunga Per Bulan</label>
+                                                <input type="text" class="form-control" id="BungaPerBulan" aria-describedby="Bunga" placeholder="Bunga Per Bulan" disabled/>
                                         </div>
                                     </div>
 
