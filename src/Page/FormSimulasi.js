@@ -6,7 +6,8 @@ import {
     Route,
     Switch
   } from "react-router-dom";
-  import FormPengajuan from "./FormPengajuan";
+import FormPengajuan from "./FormPengajuan";
+import FormCalculator from "./FormCalculator";
 
 class FormSimulasi extends Component{
     render(){
@@ -35,7 +36,7 @@ class FormSimulasi extends Component{
                                         <input type="email" class="form-control" id="njop" aria-describedby="emailHelp" placeholder="NJOP"/>
                                     </div>
                                     <div class="form-group col-md-3">
-                                        <Button style={{marginTop:"31px"}} variant="outline-primary" type="button" size="md" block>Calculate</Button>
+                                        <Button style={{marginTop:"31px"}} id="calculate" variant="outline-primary" type="button" size="md" block>Calculate</Button>
                                     </div>
                                     </div>
 
