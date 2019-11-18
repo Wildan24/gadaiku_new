@@ -7,6 +7,7 @@ import {
     Switch
   } from "react-router-dom";
   import FormPengajuan from "./FormPengajuan";
+  import FormCalculator from "./FormCalculator.js"
 
 class FormSimulasi extends Component{
     render(){
