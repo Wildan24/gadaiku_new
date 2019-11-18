@@ -1,8 +1,13 @@
 import $ from 'jquery';
 
+
+
+
 $(document).ready(function () {
    
     $("#calculate").on('click', function () {
+        var fc = require("format-currency");
+        var opts = { format: '%s%v ', symbol: 'Rp. ' };
 
 
         var njop = $("#njop").val();
@@ -26,15 +31,15 @@ $(document).ready(function () {
         
 
 
-        document.getElementById("totalpjm").value = totPinjaman;
-        
-        document.getElementById("adm").value = admin;
+        document.getElementById("totalpjm").value = fc(totPinjaman_fix,opts);
+            
+        document.getElementById("adm").value = fc(admin,opts);
 
-        document.getElementById("fee").value = fee;
+        document.getElementById("fee").value = fc(fee,opts);
 
-        document.getElementById("total_terima").value = totalKeluar;
+        document.getElementById("total_terima").value = fc(totalKeluar,opts);
         
-        document.getElementById("BungaPerBulan").value = BungaPerBulan;
+        document.getElementById("BungaPerBulan").value = fc(BungaPerBulan,opts);
     });
 
         $("#show_formPengajuan").click(function (e) { 
@@ -43,15 +48,4 @@ $(document).ready(function () {
         });
 
 
-
-
-
-
-
-
-
-
-
-
 })
-
