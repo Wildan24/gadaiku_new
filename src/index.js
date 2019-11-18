@@ -10,7 +10,7 @@ ReactDOM.render(<App />, document.getElementById('root'));
 // Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();
 
-
+{
 // // const express = require('express');
 // // const bodyParser = require('body-parser');
 // // const cookieParser = require('cookie-parser');
@@ -25,9 +25,9 @@ serviceWorker.unregister();
 
 // })
 
-
-
-
 // app.listen(5000, () => {
 //     console.log("server Running at 5000");
 // })
+
+}
+
