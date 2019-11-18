@@ -531,19 +531,19 @@ body.mobile-nav-active #mobile-nav-toggle {
 #services {
   background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url("img/services-bg.jpg") fixed center center;
   background-size: cover;
-  padding: 40px 0 20px 0;
 }
 
 #services .service-item {
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 #services .service-icon {
-  float: left;
+  display:inline-block;
+  margin-bottom: 20px;
   background: #ffbe4f;
   padding: 16px;
   border-radius: 20%;
-  transition: 0.5s;
+  /* transition: 0.5s; */
   border: 2px solid #ffbe4f;
 }
 
@@ -561,7 +561,6 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 #services .service-title {
-  margin-left: 80px;
   font-weight: 700;
   margin-bottom: 15px;
   text-transform: uppercase;
@@ -572,7 +571,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 #services .service-description {
-  margin-left: 80px;
+  /* margin-left: 80px; */
   line-height: 24px;
 }
 

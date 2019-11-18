@@ -20,18 +20,11 @@ class App extends Component{
           <Footer />
         </Fragment>
       </Router>
-
     );
+
   }
 }
 
 
 
 export default App;
-
-
-class mailer{
-
-  
-
-}
