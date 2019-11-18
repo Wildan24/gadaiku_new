@@ -33,6 +33,7 @@ $(document).ready(function () {
         BungaPerBulan = BungaPerBulan.toFixed(0);
         BungaPerBulan = BungaPerBulan.toString();
         
+       
         var totPinjaman_fix = totPinjaman;
         totPinjaman_fix = totPinjaman_fix.toFixed(0);
         totPinjaman_fix = totPinjaman_fix.toString();
