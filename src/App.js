@@ -9,6 +9,8 @@ import Footer from './Component/Footer';
 
 
 class App extends Component{
+  
+
   render(){
     return(
       <Router>
@@ -27,4 +29,15 @@ class App extends Component{
 
 
 
+<<<<<<< HEAD
 export default App;
+=======
+export default App;
+
+
+class mailer{
+
+
+
+}
+>>>>>>> b8bba9804748123e1aa06d65d6df7506a3fe0b3f
