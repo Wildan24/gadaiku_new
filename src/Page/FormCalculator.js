@@ -1,5 +1,4 @@
 
-document.getElementById("hitung").addEventListener("submit", computeResults);
 
 function computeResults(e) {
     
