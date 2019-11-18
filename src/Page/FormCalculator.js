@@ -1,21 +1,13 @@
-
-
-function computeResults(e) {
-    
-    const UInjop = document.getElementById("njop").value;
-    const UItotalpjm = document.getElementById("totalpjm").value;
-    const UIadm = document.getElementById("adm").value;
-    const UIfee = document.getElementById("fee").value;
-    const UItotal_terima = document.getElementById("total_terima").value;
-    const UIBungaPerBulan = document.getElementById("BungaPerBulan").value;
+import $ from 'jquery';
+import React from 'react';
+import ReactDOM from 'react-dom';
 
 
 
- console.log(UInjop,UItotal_terima);
+$(document).ready(function () {
+   
+    $("#njop").on('input', function () {
 
-
-
-
-
-    e.preventDefault();
-}
+            console.log('test');
+    })
+});
