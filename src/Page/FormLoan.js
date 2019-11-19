@@ -20,30 +20,33 @@ export default function App() {
         </section>
     </div>
         <CardGroup style={{width:"70%",marginLeft:"15%", marginRight:"15%" , marginBottom:"50px"}}>
-            <Card border="primary" style={{ width: '18rem' }}>
-                <Card.Header>Form Perorangan</Card.Header>
+            <Card style={{ width: '18rem' }}>
                 <Card.Body>
-                <Card.Title><Link to="/Karyawan">Karyawan</Link></Card.Title>
+                <Link to="/Karyawan">
+                    <img class="img-fluid rounded" src="./img/worker.png"/>
+                </Link>
                 <Card.Text>
                     Some quick example text to build on the card title and make up the bulk
                     of the card's content.
                 </Card.Text>
                 </Card.Body>
             </Card>
-            <Card border="warning" style={{ width: '18rem' }}>
-                <Card.Header>Form Perseroan Terbatas (PT)</Card.Header>
+            <Card style={{ width: '18rem' }}>
                 <Card.Body>
-                <Card.Title><Link to="/PT">Perseroan Terbatas (PT)</Link></Card.Title>
+                <Link to="/PT">
+                    <img class="img-fluid rounded" src="./img/company.png"/>
+                </Link>
                 <Card.Text>
                     Some quick example text to build on the card title and make up the bulk
                     of the card's content.
                 </Card.Text>
                 </Card.Body>
             </Card>
-            <Card border="info" style={{ width: '18rem' }}>
-                <Card.Header>Form CV</Card.Header>
+            <Card style={{ width: '18rem' }}>
                 <Card.Body>
-                <Card.Title><Link to="/CV">Persekutuan Komaditer (CV)</Link></Card.Title>
+                <Link to="/CV">
+                    <img class="img-fluid rounded" src="./img/cv.png" />
+                </Link>
                 <Card.Text>
                     Some quick example text to build on the card title and make up the bulk
                     of the card's content.

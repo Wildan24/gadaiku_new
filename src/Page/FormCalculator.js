@@ -29,13 +29,10 @@ $(document).ready(function () {
         BungaPerBulan = BungaPerBulan.toFixed(0);
         BungaPerBulan = BungaPerBulan.toString();
         
-<<<<<<< HEAD
-=======
-       
         var totPinjaman_fix = totPinjaman;
         totPinjaman_fix = totPinjaman_fix.toFixed(0);
         totPinjaman_fix = totPinjaman_fix.toString();
->>>>>>> 6eb05b21c780fefb290673fd7e7c4221a148b47b
+
 
 
         document.getElementById("totalpjm").value = fc(totPinjaman_fix,opts);
@@ -47,12 +44,17 @@ $(document).ready(function () {
         document.getElementById("total_terima").value = fc(totalKeluar,opts);
         
         document.getElementById("BungaPerBulan").value = fc(BungaPerBulan,opts);
+
+
+
+      
+
+
+
     });
-
-        $("#show_formPengajuan").click(function (e) { 
+      $("#show_formPengajuan").click(function (e) { 
         $("#formPengajuan").css("display", "block");
-        
+                
         });
-
 
 })
