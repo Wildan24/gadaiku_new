@@ -1,10 +1,9 @@
 import React,{Component} from 'react';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
-
 import { Button, Container, } from 'react-bootstrap';
 
-class FormPengajuan extends Component{
+export default class FormPengajuan extends Component {
     state = {
         nama: '', 
         email:'',
@@ -86,111 +85,119 @@ class FormPengajuan extends Component{
 
     render(){
         return(
-        <div className="section" id="formPengajuan" style={{display:"none"}}>
-            <Container>
-                <div class="container">
-                    <div class="content">
-                        <h2>Form Pengajuan</h2>
-                    </div>
+
+            <Container id="formPengajuan" style={{display:"none"}}>
+                <div class="content" style={{marginTop:"50px"}}>
+                    <h2>Form Pengajuan</h2>
                 </div>
+            
                 <hr/>
-                <Form onSubmit={this.hanldeSubmit}>
+
+                <Form onSubmit={this.hanldeSubmit} style={{display:"block"}}>
                     <Form.Row>
-                        <input type="hidden" name="" id="totPinjaman_submit"/>
-                        
-                        <Form.Group as={Col} controlId="formGridNama">
-                        <Form.Label>Nama</Form.Label>
-                        <Form.Control type="text" placeholder="Nama Lengkap" value={this.state.nama} onChange={this.handleChange_nama}  />
+                        <input type="hidden" name="" id="totPinjaman_submit"/> 
+
+                        <Form.Group as={Col} controlId="formGridNama" style={{marginTop:"10px"}}>
+                            <Form.Label><strong>Nama</strong></Form.Label>
+                            <Form.Control type="text" placeholder="Nama Lengkap" value={this.state.nama} onChange={this.handleChange_nama}  />
                         </Form.Group>
 
-                        <Form.Group as={Col} controlId="formGridNoHp">
-                        <Form.Label>No.HP</Form.Label>
-                        <Form.Control type="number" value={this.state.noHp} onChange={this.handleChange_noHp} placeholder="No.HP" />
-                        </Form.Group>
-
-                        <Form.Group as={Col} controlId="formGridEmail">
-                        <Form.Label>Email</Form.Label>
-                        <Form.Control type="email" placeholder="Email" value={this.state.email} onChange={this.handleChange_email}/>
+                        <Form.Group as={Col} controlId="formGridNoHp" style={{marginTop:"10px"}}>
+                            <Form.Label><strong>No.HP</strong></Form.Label>
+                            <Form.Control type="number" value={this.state.noHp} onChange={this.handleChange_noHp} placeholder="No.HP" />
                         </Form.Group>
                     </Form.Row>
 
-                    <Form.Group controlId="formGridAddress1">
-                        <Form.Label>Alamat</Form.Label>
-                        <Form.Control placeholder="1234 Main St" value={this.state.alamat} onChange={this.handleChange_alamat} />
-                    </Form.Group>
+                    <Form.Row>
+                        <Form.Group as={Col} controlId="formGridAddress1" style={{marginTop:"10px"}}>
+                            <Form.Label><strong>Alamat</strong></Form.Label>
+                            <Form.Control placeholder="1234 Main St" value={this.state.alamat} onChange={this.handleChange_alamat} />
+                        </Form.Group>
+                        <Form.Group as={Col} controlId="formGridEmail" style={{marginTop:"10px"}}>
+                            <Form.Label>Email</Form.Label>
+                            <Form.Control type="email" placeholder="Email" value={this.state.email} onChange={this.handleChange_email}/>
+                        </Form.Group>
+                    </Form.Row>
 
                     <Form.Row>
-                        <Form.Group as={Col} controlId="formGridKtp">
+                        <Form.Group as={Col} controlId="formGridKtp" style={{marginTop:"10px"}}>
                         <Form.Label>No.KTP</Form.Label>
                         <Form.Control type="text" placeholder="No.KTP/SIM" value={this.state.noKtp} onChange={this.handleChange_noKtp}/>
                         </Form.Group>
 
-                        <Form.Group as={Col} controlId="formGridPengajak">
-                        <Form.Label>Nama Pengajak</Form.Label>
+                        <Form.Group as={Col} controlId="formGridPengajak" style={{marginTop:"10px"}}>
+                        <Form.Label>Refferal</Form.Label>
                         <Form.Control type="text" placeholder="Nama Pengajak (Refferal)" value={this.state.namaPengajak} onChange={this.handleChange_namaPengajak} />
                         </Form.Group>
                     </Form.Row>
 
                     <br/>
-                    <div class="container">
+
                         <div class="content">
                             <h2>Lampiran</h2>
                         </div>
-                    </div>
+                    
                     <hr/>
                     <Form.Row>
-                        <Form.Group as={Col} controlId="ktpsuami">
+                        <Form.Group as={Col} controlId="ktpsuami" style={{marginTop:"10px"}}>
                         <Form.Label>KTP Suami</Form.Label>
                         <Form.Control type="file" placeholder="KTP Suami"/>
                         </Form.Group>
 
-                        <Form.Group as={Col} controlId="ktpistri">
+                        <Form.Group as={Col} controlId="ktpistri" style={{marginTop:"10px"}}>
                         <Form.Label>KTP Istri</Form.Label>
                         <Form.Control type="file" placeholder="KTP Istri"/>
                         </Form.Group>
+                    </Form.Row>
+                    
 
-                        <Form.Group as={Col} controlId="kartukeluarga">
+                    <Form.Row>
+                        <Form.Group as={Col} controlId="kartukeluarga" style={{marginTop:"10px"}}>
                         <Form.Label>KK</Form.Label>
                         <Form.Control type="file" placeholder="Kartu Keluarga"/>
+                        </Form.Group>
+
+                        <Form.Group as={Col} controlId="pbb" style={{marginTop:"10px"}}>
+                        <Form.Label>PBB</Form.Label>
+                        <Form.Control type="file" placeholder="PBB"/>
                         </Form.Group>
                     </Form.Row>
 
                     <Form.Row>
-                        <Form.Group as={Col} controlId="pbb">
-                        <Form.Label>PBB</Form.Label>
-                        <Form.Control type="file" placeholder="PBB"/>
-                        </Form.Group>
-
-                        <Form.Group as={Col} controlId="shm">
+                        <Form.Group as={Col} controlId="shm" style={{marginTop:"10px"}}>
                         <Form.Label>SHM</Form.Label>
                         <Form.Control type="file" placeholder="SHM"/>
                         </Form.Group>
 
-                        <Form.Group as={Col} controlId="imb">
+                        <Form.Group as={Col} controlId="imb" style={{marginTop:"10px"}}>
                         <Form.Label>IMB</Form.Label>
                         <Form.Control type="file" placeholder="imb"/>
                         </Form.Group>
                     </Form.Row>
 
                     <Form.Row>
-                        <Form.Group as={Col} controlId="pendukung1">
+                        <Form.Group as={Col} controlId="pendukung1" style={{marginTop:"10px"}}>
                         <Form.Label>Lampiran Pendukung 1</Form.Label>
                         <Form.Control type="file" placeholder="Lampiran Pendukung 1"/>
                         </Form.Group>
 
-                        <Form.Group as={Col} controlId="pendukung2">
+                        <Form.Group as={Col} controlId="pendukung2" style={{marginTop:"10px"}}>
                         <Form.Label>Lampiran Pendukung 2</Form.Label>
                         <Form.Control type="file" placeholder="Lampiran Pendukung 2"/>
                         </Form.Group>
+                    </Form.Row>
 
-                        <Form.Group as={Col} controlId="pendukung3">
+                    <Form.Row>
+                        <Form.Group as={Col} controlId="pendukung3" style={{marginTop:"10px"}}>
                         <Form.Label>Lampiran Pendukung 3</Form.Label>
                         <Form.Control type="file" placeholder="Lampiran Pendukung 3"/>
                         </Form.Group>
                     </Form.Row>
+
                     <br/>
+
                     <Form.Row>
-                        <Form.Group as={Col} controlId="tujuanpeminjaman">
+                        <Form.Group as={Col} controlId="tujuanpeminjaman" style={{marginTop:"10px"}}>
                         <Form.Label>Tujuan Pengajuan Peminjaman</Form.Label>
                         <Form.Control type="text" placeholder="Tujuan Pengajuan Peminjaman" value={this.state.tujuanPeminjaman} onChange={this.handleChange_tujuanPeminjaman} />
                         </Form.Group>
@@ -198,14 +205,14 @@ class FormPengajuan extends Component{
 
                     <br/>
                     <br/>
+                    
                     <Button variant="outline-primary" type="submit" size="md"  block>
                         AJUKAN
                     </Button>
                 </Form>
             </Container>
-        </div>
+
+
         )
     }
 }
-
-export default FormPengajuan;

@@ -15,15 +15,15 @@ class Menu extends Component{
               <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                   <li class="nav-item active">
-                    <a href="../" class="nav-link">Home</a>
+                    <a href="../" class="nav-link"><strong>Home</strong></a>
                       <span class="sr-only"></span>
                   </li>
                   <li class="nav-item active">
-                    <a href="../FormSimulasi"  class="nav-link">Simulation</a>
+                    <a href="../FormSimulasi"  class="nav-link"><strong>Simulation</strong></a>
                       <span class="sr-only"></span>
                   </li>
                   <li class="nav-item active">
-                    <a href="../FormLoan" class="nav-link">Form</a>
+                    <a href="../FormLoan" class="nav-link"><strong>Form</strong></a>
                     <span class="sr-only"></span>
                   </li>
                 </ul>

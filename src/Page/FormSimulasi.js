@@ -1,18 +1,22 @@
-import React,{Component} from 'react';
-import { Button } from 'react-bootstrap';
-import {
-    BrowserRouter as Router,
-    Link,
-    Route,
-    Switch
-  } from "react-router-dom";
-import FormPengajuan from "./FormPengajuan";
+import React, { Component } from "react";
+import { Card, InputGroup, Button} from 'react-bootstrap';
 import FormCalculator from "./FormCalculator";
+import NumberFormat from 'react-number-format';
+import FormPengajuan from '../Page/FormPengajuan.js';
 
-class FormSimulasi extends Component{
-    render(){
-        return(
-        <Router>
+export default function App() {
+
+    const smalltext = {
+        color : "lightblue",
+        fontSize: "14px",
+        fontWeight:"bold"
+    },
+     card = {
+        width:"300px", height:"150px", marginTop:"10%"
+     }
+
+  return (
+
             <div class="section">
                 <div class="container">
                     <div class="content" id="hitung">
@@ -26,17 +30,18 @@ class FormSimulasi extends Component{
                         
                             <div class="card-content">
                                 <form class="">
-                                    <h3 class="center">KALKULATOR SIMULASI</h3>
-                                    
+                                    <h3 class="center">KALKULATOR SIMULASI</h3>        
                                     <hr/>
-                                
                                     <div className="formRow" >
                                     <div class="form-group col-md-9">
                                         <label for="exampleInputEmail1">NJOP</label>
-                                        <input type="email" class="form-control" id="njop" aria-describedby="emailHelp" placeholder="NJOP"/>
+                                        <InputGroup.Prepend>
+                                            <InputGroup.Text>Rp</InputGroup.Text>
+                                            <input type="text" class="form-control" id="njop" aria-describedby="Njop" placeholder="NJOP"/>
+                                        </InputGroup.Prepend>
                                     </div>
                                     <div class="form-group col-md-3">
-                                        <Button style={{marginTop:"31px"}} id="calculate" variant="outline-primary" type="button" size="md" block>Calculate</Button>
+                                        <Button style={{marginTop:"37px"}} id="calculate" variant="outline-primary" type="button" size="md" block>Calculate</Button>
                                     </div>
                                     </div>
 
@@ -44,48 +49,53 @@ class FormSimulasi extends Component{
 
                                     <div className="formRow" >
                                         <div class="form-group">
-                                            <label for="exampleInputEmail1">Total Pinjaman</label>
-                                            <input type="email" class="form-control" id="totalpjm" aria-describedby="emailHelp" placeholder="Total Pinjaman" disabled/>
+                                            <label for="exampleInputTotalpjm">Total Pinjaman</label> 
+                                            <input type="text" class="form-control" id="totalpjm" aria-describedby="Pinjaman" placeholder="Total Pinjaman" disabled/>
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="exampleInputEmail1">Admin</label>
-                                            <input type="email" class="form-control" id="adm" aria-describedby="emailHelp" placeholder="Admin" disabled/>
+                                            <label for="exampleInputAdmin">Admin</label>
+                                            <input type="text" class="form-control" id="adm" aria-describedby="Admin" placeholder="Admin" disabled/>
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="exampleInputEmail1">Fee</label>
-                                            <input type="email" class="form-control" id="fee" aria-describedby="emailHelp" placeholder="Fee" disabled/>
+                                            <label for="exampleInputFee">Fee</label>
+                                            <input type="text" class="form-control" id="fee" aria-describedby="Fee" placeholder="Fee" disabled/>
                                         </div>
                                     </div>
 
                                     <div className="formRow2" >
                                         <div class="form-group">
-                                                <label for="exampleInputEmail1">Total Yang Diterima</label>
-                                                <input type="email" class="form-control" id="total_terima" aria-describedby="emailHelp" placeholder="Total Yang Diterima" disabled/>
+                                                <label for="exampleInputTerima">Total Yang Diterima</label>
+                                                <input type="text" style={{fontWeight:"bold", backgroundColor:"#fee8c4"}} class="form-control" id="total_terima" placeholder="Total Yang Diterima" disabled/>
+                                                <small style={smalltext} class="form-text text-muted">*Maksimal yang bisa diapprove</small>
                                         </div>
-                                        <div class="form-group">
-                                                <label for="exampleInputEmail1">Bunga Per Bulan</label>
-                                                <input type="email" class="form-control" id="BungaPerBulan" aria-describedby="emailHelp" placeholder="Bunga Per Bulan" disabled/>
+                                        <div>
+                                            <Card border="danger" style={card}>
+                                            <Card.Body>
+                                            <label for="exampleInputBunga">Bunga Per Bulan</label>
+                                            <input type="text" style={{fontWeight:"bold", backgroundColor:"#fdc66c"}} class="form-control" id="BungaPerBulan" placeholder="Bunga Per Bulan" disabled/>
+                                                <p style={{fontSize:"12px"}}>
+                                                    Note: Perhitungan ini sifatnya simulasi belaka. Untuk lebih jelasnya silakan hubungi pemberi kredit
+                                                </p> 
+                                            </Card.Body>
+                                            </Card>
                                         </div>
                                     </div>
 
-                                    <Link to="/FormPengajuan">Form Pengajuan</Link>
+
+
+                                
+                                    <Button variant="outline-warning" style={{marginTop:"60px", fontWeight:"bolder", fontSize:"20px"}} type="button" id="show_formPengajuan" size="md" block>Form Pengajuan</Button>
+                                    
+                                    <FormPengajuan />
 
                                 </form>
-                                <Switch>
-                                    <Route path="/FormPengajuan">
-                                        <FormPengajuan />
-                                    </Route>
-                                </Switch>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </Router>    
-        )
-    }
-}
 
-export default FormSimulasi;
+  );
+}

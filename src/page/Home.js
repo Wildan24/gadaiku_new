@@ -1,12 +1,20 @@
 import React,{Component} from 'react';
-import { Button, Row, Col, } from 'react-bootstrap';
-
+import { Link } from 'react-router-dom';
+import FormSimulasi from './FormSimulasi';
+import { Button } from 'react-bootstrap';
 
 class Home extends Component{
+
     render(){
+
+      const iconButton = {
+        marginLeft: 'auto',
+        marginRight: 'auto',
+        width: '40%'
+        }
+
         return(
 
-      
         <div class="homeWrapper">
 
           <section class="py-3 bg-image-ful">
@@ -24,7 +32,7 @@ class Home extends Component{
 
                 <div class="row">
                   <div class="col-lg-12">
-                    <div class="service-icon"><i class="fa fa-clock-o fa-5x"></i></div>
+                    <div class="service-icon"><i class="far fa-clock"></i></div>
                     <h4 class="service-title"><strong>Simulasi Pinjaman Online 24 Jam</strong></h4>
                     <p class="service-description">anda dapat mengetahui estimasi angsuran bulanan sesuai dengan pinjaman yang anda ajukan atas aset jaminan
                     anda secara online 24 Jam setiap hari, dengan begitu anda bisa merencanakan dan mengatur keuangan jadi lebih baik.</p>
@@ -39,7 +47,7 @@ class Home extends Component{
                 <h4 class="service-title"><strong>Proses Cepat</strong></h4>
                 <p class="service-description">kami pastikan bahwa proses pengajuan pinjaman anda akan diproses cepat dan dilakukan paling lambat 2 hari kerja.</p>
                     
-                <div class="service-icon"><i class="fa fa-refresh"></i></div>
+                <div class="service-icon"><i class="fas fa-sync-alt"></i></div>
                 <h4 class="service-title"><strong>Proses Lebih Mudah</strong></h4>
                 <p class="service-description">Ajukan Pinjaman anda dimana pun dan kapan pun, GadaiKu.com hadir untuk anda.</p>
                 </div>
@@ -64,22 +72,26 @@ class Home extends Component{
             <div class="row mt-5">
 
               <div class="col-md-12">
-                <p style={{margin:"none", textAlign:"center"}}>Kami memiliki Loan Adviser yang selalu siap membantu Anda
+                <p style={{margin:"none", textAlign:"center"}}><strong>Kami memiliki Loan Adviser yang selalu siap membantu Anda
                 Dengan lebih 100 Loan Adviser di seluruh Indonesia, 
                 kami selalu memiliki seseorang yang selalu siap membantu Anda. 
-                Loan Adviser kami akan menghubungi dan bertemu Anda kapan pun Anda mau.</p>
+                Loan Adviser kami akan menghubungi dan bertemu Anda kapan pun Anda mau.</strong></p>
               </div>
 
-              <div class="col-md-2 mx-auto">
-                <img class="img-fluid rounded" style={{width: "250px"}} src="./img/b1gr.png"  alt=""/>
-                <p class="text-center">The Modern Business template by Start Bootstrap includes</p>
-                <br/>
-                <br/>
+              <div class="col-md-2" style={iconButton}>
+              <Link to="/FormSimulasi">
+                <img class="img-fluid rounded" style={{width: "200px"}} src="./img/Calculator.png"  alt=""/>
+              </Link>
+              <p class="text-center">Simulasi Kalkulator</p>
+              <br/>
+              <br/>
               </div>
               
-              <div class="col-md-2 mx-auto">
-                <img class="img-fluid rounded" style={{width: "250px"}} src="./img/b1rp.png" alt=""/>
-                <p class="text-center">The Modern Business template by Start Bootstrap includes</p>
+              <div class="col-md-2" style={iconButton}>
+                <Link to="/FormLoan">
+                  <img class="img-fluid rounded" style={{width: "200px"}} src="./img/form.png" alt="Simulasi"/>
+                  <p class="text-center">Form Loan</p>
+                </Link>
                 <br/>
                 <br/>
               </div>

@@ -4,7 +4,7 @@ import React, {Component} from 'react';
 export default class Footer extends Component {
     render(){
         return (
-        <footer class="py-5 bg-light-gray" style={{backgroundColor: "lightslategrey"}}>
+        <footer class="py-5 bg-light-gray" style={{backgroundColor: "lightslategrey", paddingLeft:'10%', paddingRight:'10%'}}>
           <div class="container">
             <div class="row" style={{color: "white"}}>
               <div class="col-md-6 service-item" style={{paddingBottom:"20px"}}>
