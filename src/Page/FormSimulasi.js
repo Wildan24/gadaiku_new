@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Card, InputGroup, Button} from 'react-bootstrap';
 import FormCalculator from "./FormCalculator";
-import NumberFormat from 'react-number-format';
+// import NumberFormat from 'react-number-format';
 import FormPengajuan from '../Page/FormPengajuan.js';
 
 export default function App() {

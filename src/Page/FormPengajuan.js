@@ -2,6 +2,7 @@ import React,{Component} from 'react';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import { Button, Container, } from 'react-bootstrap';
+import {Redirect} from 'react-router-dom';
 
 export default class FormPengajuan extends Component {
     state = {
@@ -11,7 +12,8 @@ export default class FormPengajuan extends Component {
         alamat:'',
         noKtp:'',
         namaPengajak:'',
-        tujuanPeminjaman:''
+        tujuanPeminjaman:'',
+        file_ktpSuami:null
     };
 
 
@@ -63,21 +65,36 @@ export default class FormPengajuan extends Component {
         });
     };
 
+    handleChange_fileKtpSuami= event =>{
+        // this.setState({
+                
+        // });
+
+        console.log(event.target.files[0]);
+        // if(event.target.files[0].size > 2097152){
+        //     alert("kegedean");
+        // }
+    };
+
 
 
     hanldeSubmit = event =>{
-        event.preventDefault();
-        if(this.state.nama==''||this.state.email==''||this.state.noHp==''||this.state.alamat==''||this.state.noKtp==''||this.state.namaPengajak==''||this.state.tujuanPeminjaman==''){
-            alert("masih ada yang kosong")
-        }
+        const { redirect } = this.state;
+        // if(this.state.nama==''||this.state.email==''||this.state.noHp==''||this.state.alamat==''||this.state.noKtp==''||this.state.namaPengajak==''||this.state.tujuanPeminjaman==''){
+        //     alert("masih ada yang kosong")
+        // }
 
-        else if(this.state.noKtp.length !=16){
-            alert("ktp 16 karakter")
-        }
+        // else if(this.state.noKtp.length !=16){
+        //     alert("ktp 16 karakter")
+        // }
 
-        else{
-            alert("OK");
-        }
+        // else{
+        //     return <Redirect to = "/FormLoan" />;
+        // }
+
+        return <Redirect to = "/FormLoan" />;
+
+        
      
     };
  
@@ -93,7 +110,7 @@ export default class FormPengajuan extends Component {
             
                 <hr/>
 
-                <Form onSubmit={this.hanldeSubmit} style={{display:"block"}}>
+                <Form  style={{display:"block"}}>
                     <Form.Row>
                         <input type="hidden" name="" id="totPinjaman_submit"/> 
 
@@ -118,12 +135,14 @@ export default class FormPengajuan extends Component {
                             <Form.Control type="email" placeholder="Email" value={this.state.email} onChange={this.handleChange_email}/>
                         </Form.Group>
                     </Form.Row>
+                    
 
                     <Form.Row>
                         <Form.Group as={Col} controlId="formGridKtp" style={{marginTop:"10px"}}>
                         <Form.Label>No.KTP</Form.Label>
                         <Form.Control type="text" placeholder="No.KTP/SIM" value={this.state.noKtp} onChange={this.handleChange_noKtp}/>
                         </Form.Group>
+                        
 
                         <Form.Group as={Col} controlId="formGridPengajak" style={{marginTop:"10px"}}>
                         <Form.Label>Refferal</Form.Label>
@@ -141,7 +160,7 @@ export default class FormPengajuan extends Component {
                     <Form.Row>
                         <Form.Group as={Col} controlId="ktpsuami" style={{marginTop:"10px"}}>
                         <Form.Label>KTP Suami</Form.Label>
-                        <Form.Control type="file" placeholder="KTP Suami"/>
+                        <Form.Control type="file" placeholder="KTP Suami" onChange={this.handleChange_fileKtpSuami} />
                         </Form.Group>
 
                         <Form.Group as={Col} controlId="ktpistri" style={{marginTop:"10px"}}>
@@ -206,7 +225,7 @@ export default class FormPengajuan extends Component {
                     <br/>
                     <br/>
                     
-                    <Button variant="outline-primary" type="submit" size="md"  block>
+                    <Button variant="outline-primary" onClick={this.hanldeSubmit}  size="md"  block>
                         AJUKAN
                     </Button>
                 </Form>
