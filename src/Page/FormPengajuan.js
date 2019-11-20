@@ -2,9 +2,10 @@ import React,{Component} from 'react';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import { Button, Container, } from 'react-bootstrap';
-import {Redirect} from 'react-router-dom';
+import {Redirect} from 'react-router';
+import {withRouter} from 'react-router-dom';
 
-export default class FormPengajuan extends Component {
+class FormPengajuan extends Component {
     state = {
         nama: '', 
         email:'',
@@ -74,25 +75,32 @@ export default class FormPengajuan extends Component {
         // if(event.target.files[0].size > 2097152){
         //     alert("kegedean");
         // }
+
+        
     };
 
 
 
     hanldeSubmit = event =>{
-        const { redirect } = this.state;
-        // if(this.state.nama==''||this.state.email==''||this.state.noHp==''||this.state.alamat==''||this.state.noKtp==''||this.state.namaPengajak==''||this.state.tujuanPeminjaman==''){
-        //     alert("masih ada yang kosong")
-        // }
+        
+        if(this.state.nama==''||this.state.email==''||this.state.noHp==''||this.state.alamat==''||this.state.noKtp==''||this.state.namaPengajak==''||this.state.tujuanPeminjaman==''){
+            alert("masih ada yang kosong")
+        }
 
-        // else if(this.state.noKtp.length !=16){
-        //     alert("ktp 16 karakter")
-        // }
+        else if(this.state.noKtp.length !=16){
+            alert("ktp 16 karakter")
+        }
 
-        // else{
-        //     return <Redirect to = "/FormLoan" />;
-        // }
+        else{
+            this.props.history.push({
+                pathname: "/FormLoan",
+                search :'?message=success',
+               
 
-        return <Redirect to = "/FormLoan" />;
+            });
+        }
+
+        
 
         
      
@@ -110,7 +118,7 @@ export default class FormPengajuan extends Component {
             
                 <hr/>
 
-                <Form  style={{display:"block"}}>
+                <Form onSubmit={this.hanldeSubmit} style={{display:"block"}}>
                     <Form.Row>
                         <input type="hidden" name="" id="totPinjaman_submit"/> 
 
@@ -225,7 +233,7 @@ export default class FormPengajuan extends Component {
                     <br/>
                     <br/>
                     
-                    <Button variant="outline-primary" onClick={this.hanldeSubmit}  size="md"  block>
+                    <Button variant="outline-primary" type="submit" size="md"  block>
                         AJUKAN
                     </Button>
                 </Form>
@@ -235,3 +243,5 @@ export default class FormPengajuan extends Component {
         )
     }
 }
+
+export default withRouter (FormPengajuan);
