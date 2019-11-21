@@ -100,7 +100,10 @@ export default class FormPengajuan extends Component {
             from_name : "Admin.Gadaiku",
             to_name : "wildanabdurrohman11@gmail.com",
             subject : "test",
-            message_html:'<h1> '+this.state.nama+'</h1>',
+            message_html:
+            '<div>'+this.state.nama+'<br/>'+this.state.email'</div>'+,
+            
+
         }
         
         emailjs.send(
