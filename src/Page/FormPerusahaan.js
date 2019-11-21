@@ -200,12 +200,23 @@ export default class FormPerusahaan extends Component {
             </Form.Row>
 
             <Form.Row>
-                <Form.Group as={Col} controlId="slipgaji">
-                    <Form.Label>Asli Slip Gaji (1 bulan terakhir)</Form.Label>
+                <Form.Group as={Col} controlId="siup">
+                    <Form.Label>Fotocopy SIUP</Form.Label>
                     <Form.Control type="file"/>
                 </Form.Group>
-                <Form.Group as={Col} controlId="tabungan">
-                    <Form.Label>Fotocopy Tabungan (6 bulan terakhir)</Form.Label>
+                <Form.Group as={Col} controlId="tdp">
+                <Form.Label>Fotocopy TDP**</Form.Label>
+                <Form.Control type="file"/>
+            </Form.Group>
+            </Form.Row>
+
+            <Form.Row>
+                <Form.Group as={Col} controlId="akta">
+                    <Form.Label>Fotocopy Akta Pendirian/Perubahan Terkini **</Form.Label>
+                    <Form.Control type="file"/>
+                </Form.Group>
+                <Form.Group as={Col} controlId="menkeh">
+                    <Form.Label>Fotocopy Akta Pengesehan Menkeh **</Form.Label>
                     <Form.Control type="file"/>
                 </Form.Group>
             </Form.Row>

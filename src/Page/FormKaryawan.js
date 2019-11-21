@@ -29,7 +29,7 @@ export default class FormKaryawan extends Component {
 
             <Form.Row>
                 <Form.Group as={Col} controlId="formGridAlamat" style={{marginTop:"10px"}}>
-                    <Form.Label><strong>Alamat:</strong></Form.Label>
+                    <Form.Label><strong>Alamat :</strong></Form.Label>
                     <Form.Control type="text" placeholder="Alamat Tempat Tinggal" />
                 </Form.Group>
 
