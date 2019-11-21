@@ -3,6 +3,7 @@ import { Card, InputGroup, Button} from 'react-bootstrap';
 import FormCalculator from "./FormCalculator";
 import NumberFormat from 'react-number-format';
 import FormPengajuan from '../Page/FormPengajuan.js';
+import * as emailjs from 'emailjs-com';
 
 export default function App() {
 

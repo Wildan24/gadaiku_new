@@ -2,6 +2,9 @@ import React,{Component} from 'react';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import { Button, Container, } from 'react-bootstrap';
+import ImageUploader from 'react-images-upload';
+import * as emailjs from 'emailjs-com';
+
 
 export default class FormPengajuan extends Component {
     state = {
@@ -11,7 +14,7 @@ export default class FormPengajuan extends Component {
         alamat:'',
         noKtp:'',
         namaPengajak:'',
-        tujuanPeminjaman:''
+        tujuanPeminjaman:'',
     };
 
 
@@ -57,140 +60,178 @@ export default class FormPengajuan extends Component {
         });
     };
 
-    handleChange_tujuanPeminjaman= event =>{
+    handleChange_tujuanPeminjaman = event =>{
         this.setState({
             tujuanPeminjaman: event.target.value  
         });
     };
 
 
+    sendEmail() {
+        // e.preventDefault();
 
-    hanldeSubmit = event =>{
+        // emailjs.sendForm('gmail','template_eHuNelJK',e.target, 'user_aXb6zX3p81Aj1sksy3ZPG')
+        // .then((result) => {
+        //     console.log(result.text);
+        // }, (error) => {
+        //     console.log(error.text);
+        // });
+    }
+
+
+    handleSubmit = event =>{
         event.preventDefault();
-        if(this.state.nama==''||this.state.email==''||this.state.noHp==''||this.state.alamat==''||this.state.noKtp==''||this.state.namaPengajak==''||this.state.tujuanPeminjaman==''){
-            alert("masih ada yang kosong")
-        }
+        // if
+        //     (this.state.nama==''||this.state.email==''||this.state.noHp==''||this.state.alamat==''||this.state.noKtp==''||this.state.namaPengajak==''||this.state.tujuanPeminjaman==''){
+        //     alert("masih ada yang kosong")
+        // }
 
-        else if(this.state.noKtp.length !=16){
-            alert("ktp 16 karakter")
-        }
+        // else if(this.state.noKtp.length !=16){
+        //     alert("ktp 16 karakter")
+        // }
 
-        else{
-            alert("OK");
+        // else{
+        //     alert("OK");
+        //     this.sendEmail();
+        // }
+
+        this.sendEmail();
+        let templateParams = {
+            from_name : "Admin.Gadaiku",
+            to_name : "wildanabdurrohman11@gmail.com",
+            subject : "test",
+            message_html:'<h1> '+this.state.nama+'</h1>',
         }
-     
+        
+        emailjs.send(
+            'gmail',
+            'template_eHuNelJK',
+            templateParams,
+            'user_aXb6zX3p81Aj1sksy3ZPG'
+        )
+
     };
  
+    constructor(props) {
+        super(props);
+        this.onHome = this.onHome.bind(this);
+    }
+    onHome() {
+        this.props.history.push('/');
+    }
+    
 
 
     render(){
+
         return(
 
             <Container id="formPengajuan" style={{display:"none"}}>
+
                 <div class="content" style={{marginTop:"50px"}}>
-                    <h2>Form Pengajuan</h2>
+                    <h3>Form Pengajuan</h3>
                 </div>
-            
+                
                 <hr/>
 
-                <Form onSubmit={this.hanldeSubmit} style={{display:"block"}}>
+                <Form onSubmit={this.handleSubmit} style={{display:"block"}}>
                     <Form.Row>
                         <input type="hidden" name="" id="totPinjaman_submit"/> 
 
-                        <Form.Group as={Col} controlId="formGridNama" style={{marginTop:"10px"}}>
+                        <Form.Group as={Col} controlId="formGridNama" style={{marginTop:"30px"}}>
                             <Form.Label><strong>Nama</strong></Form.Label>
                             <Form.Control type="text" placeholder="Nama Lengkap" value={this.state.nama} onChange={this.handleChange_nama}  />
                         </Form.Group>
 
-                        <Form.Group as={Col} controlId="formGridNoHp" style={{marginTop:"10px"}}>
+                        <Form.Group as={Col} controlId="formGridNoHp" style={{marginTop:"30px"}}>
                             <Form.Label><strong>No.HP</strong></Form.Label>
                             <Form.Control type="number" value={this.state.noHp} onChange={this.handleChange_noHp} placeholder="No.HP" />
                         </Form.Group>
                     </Form.Row>
 
                     <Form.Row>
-                        <Form.Group as={Col} controlId="formGridAddress1" style={{marginTop:"10px"}}>
+                        <Form.Group as={Col} controlId="formGridAddress1" style={{marginTop:"30px"}}>
                             <Form.Label><strong>Alamat</strong></Form.Label>
                             <Form.Control placeholder="1234 Main St" value={this.state.alamat} onChange={this.handleChange_alamat} />
                         </Form.Group>
-                        <Form.Group as={Col} controlId="formGridEmail" style={{marginTop:"10px"}}>
-                            <Form.Label>Email</Form.Label>
-                            <Form.Control type="email" placeholder="Email" value={this.state.email} onChange={this.handleChange_email}/>
+                        <Form.Group as={Col} controlId="formGridEmail" style={{marginTop:"30px"}}>
+                            <Form.Label><strong>Email</strong></Form.Label>
+                            <Form.Control type="email" placeholder="Email" value={this.state.email} onChange={this.handleChange_email} />
                         </Form.Group>
                     </Form.Row>
 
                     <Form.Row>
-                        <Form.Group as={Col} controlId="formGridKtp" style={{marginTop:"10px"}}>
-                        <Form.Label>No.KTP</Form.Label>
-                        <Form.Control type="text" placeholder="No.KTP/SIM" value={this.state.noKtp} onChange={this.handleChange_noKtp}/>
+                        <Form.Group as={Col} controlId="formGridKtp" style={{marginTop:"30px"}}>
+                        <Form.Label><strong>No.KTP</strong></Form.Label>
+                        <Form.Control type="text" placeholder="No.KTP/SIM" value={this.state.noKtp} onChange={this.handleChange_noKtp} />
                         </Form.Group>
 
-                        <Form.Group as={Col} controlId="formGridPengajak" style={{marginTop:"10px"}}>
-                        <Form.Label>Refferal</Form.Label>
+                        <Form.Group as={Col} controlId="formGridPengajak" style={{marginTop:"30px"}}>
+                        <Form.Label><strong>Refferal</strong></Form.Label>
                         <Form.Control type="text" placeholder="Nama Pengajak (Refferal)" value={this.state.namaPengajak} onChange={this.handleChange_namaPengajak} />
                         </Form.Group>
                     </Form.Row>
 
                     <br/>
-
+                    <hr/>
                         <div class="content">
-                            <h2>Lampiran</h2>
+                            <h3>Lampiran</h3>
                         </div>
                     
                     <hr/>
                     <Form.Row>
                         <Form.Group as={Col} controlId="ktpsuami" style={{marginTop:"10px"}}>
-                        <Form.Label>KTP Suami</Form.Label>
-                        <Form.Control type="file" placeholder="KTP Suami"/>
+                        <Form.Label><strong>KTP Suami</strong></Form.Label>
+                        <ImageUploader withIcon={true} withPreview={true} buttonText='Choose Images' imgExtension={['.jpg','.png']} maxFileSize={2097152} />
                         </Form.Group>
 
                         <Form.Group as={Col} controlId="ktpistri" style={{marginTop:"10px"}}>
-                        <Form.Label>KTP Istri</Form.Label>
-                        <Form.Control type="file" placeholder="KTP Istri"/>
+                        <Form.Label><strong>KTP Istri</strong></Form.Label>
+                        <ImageUploader withIcon={true} withPreview={true} buttonText='Choose Images' imgExtension={['.jpg','.png']} maxFileSize={2097152} />
                         </Form.Group>
                     </Form.Row>
                     
 
                     <Form.Row>
                         <Form.Group as={Col} controlId="kartukeluarga" style={{marginTop:"10px"}}>
-                        <Form.Label>KK</Form.Label>
-                        <Form.Control type="file" placeholder="Kartu Keluarga"/>
+                        <Form.Label><strong>Kartu Keluarga</strong></Form.Label>
+                        <ImageUploader withIcon={true} withPreview={true} buttonText='Choose Images' imgExtension={['.jpg','.png']} maxFileSize={2097152} />
                         </Form.Group>
 
                         <Form.Group as={Col} controlId="pbb" style={{marginTop:"10px"}}>
-                        <Form.Label>PBB</Form.Label>
-                        <Form.Control type="file" placeholder="PBB"/>
+                        <Form.Label><strong>PBB</strong></Form.Label>
+                        <ImageUploader withIcon={true} withPreview={true} buttonText='Choose Images' imgExtension={['.jpg','.png']} maxFileSize={2097152} />
                         </Form.Group>
                     </Form.Row>
 
                     <Form.Row>
                         <Form.Group as={Col} controlId="shm" style={{marginTop:"10px"}}>
-                        <Form.Label>SHM</Form.Label>
-                        <Form.Control type="file" placeholder="SHM"/>
+                        <Form.Label><strong>SHM</strong></Form.Label>
+                        <ImageUploader withIcon={true} withPreview={true} buttonText='Choose Images' imgExtension={['.jpg','.png']} maxFileSize={2097152} />
                         </Form.Group>
 
                         <Form.Group as={Col} controlId="imb" style={{marginTop:"10px"}}>
-                        <Form.Label>IMB</Form.Label>
-                        <Form.Control type="file" placeholder="imb"/>
+                        <Form.Label><strong>IMB</strong></Form.Label>
+                        <ImageUploader withIcon={true} withPreview={true} buttonText='Choose Images' imgExtension={['.jpg','.png']} maxFileSize={2097152} />
                         </Form.Group>
                     </Form.Row>
 
                     <Form.Row>
                         <Form.Group as={Col} controlId="pendukung1" style={{marginTop:"10px"}}>
-                        <Form.Label>Lampiran Pendukung 1</Form.Label>
-                        <Form.Control type="file" placeholder="Lampiran Pendukung 1"/>
+                        <Form.Label><strong>Lampiran Pendukung 1</strong></Form.Label>
+                        <ImageUploader withIcon={true} withPreview={true} buttonText='Choose Images' imgExtension={['.jpg','.png']} maxFileSize={2097152} />
                         </Form.Group>
 
                         <Form.Group as={Col} controlId="pendukung2" style={{marginTop:"10px"}}>
-                        <Form.Label>Lampiran Pendukung 2</Form.Label>
-                        <Form.Control type="file" placeholder="Lampiran Pendukung 2"/>
+                        <Form.Label><strong>Lampiran Pendukung 2</strong></Form.Label>
+                        <ImageUploader withIcon={true} withPreview={true} buttonText='Choose Images' imgExtension={['.jpg','.png']} maxFileSize={2097152} />
                         </Form.Group>
                     </Form.Row>
 
                     <Form.Row>
                         <Form.Group as={Col} controlId="pendukung3" style={{marginTop:"10px"}}>
-                        <Form.Label>Lampiran Pendukung 3</Form.Label>
-                        <Form.Control type="file" placeholder="Lampiran Pendukung 3"/>
+                        <Form.Label><strong>Lampiran Pendukung 3</strong></Form.Label>
+                        <ImageUploader withIcon={true} withPreview={true} buttonText='Choose Images' imgExtension={['.jpg','.png']} maxFileSize={2097152} />
                         </Form.Group>
                     </Form.Row>
 
@@ -198,21 +239,20 @@ export default class FormPengajuan extends Component {
 
                     <Form.Row>
                         <Form.Group as={Col} controlId="tujuanpeminjaman" style={{marginTop:"10px"}}>
-                        <Form.Label>Tujuan Pengajuan Peminjaman</Form.Label>
+                        <Form.Label><strong>Tujuan Pengajuan Peminjaman</strong></Form.Label>
                         <Form.Control type="text" placeholder="Tujuan Pengajuan Peminjaman" value={this.state.tujuanPeminjaman} onChange={this.handleChange_tujuanPeminjaman} />
                         </Form.Group>
                     </Form.Row>
 
                     <br/>
-                    <br/>
                     
-                    <Button variant="outline-primary" type="submit" size="md"  block>
+                    <Button variant="outline-warning" style={{marginTop:"30px", fontWeight:"bolder", fontSize:"15px"}} type="submit" size="md" block>
                         AJUKAN
                     </Button>
                 </Form>
             </Container>
 
 
-        )
+        );
     }
 }

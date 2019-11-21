@@ -1,7 +1,5 @@
 import React,{Component} from 'react';
 import { Link } from 'react-router-dom';
-import FormSimulasi from './FormSimulasi';
-import { Button } from 'react-bootstrap';
 
 class Home extends Component{
 
