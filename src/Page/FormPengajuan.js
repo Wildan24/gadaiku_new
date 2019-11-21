@@ -78,7 +78,358 @@ export default class FormPengajuan extends Component {
     }
 
 
+<<<<<<< HEAD
     
+=======
+    handleSubmit = event =>{
+        event.preventDefault();
+        // if
+        //     (this.state.nama==''||this.state.email==''||this.state.noHp==''||this.state.alamat==''||this.state.noKtp==''||this.state.namaPengajak==''||this.state.tujuanPeminjaman==''){
+        //     alert("masih ada yang kosong")
+        // }
+
+        // else if(this.state.noKtp.length !=16){
+        //     alert("ktp 16 karakter")
+        // }
+
+        // else{
+        //     alert("OK");
+        //     this.sendEmail();
+        // }
+
+        this.sendEmail();
+
+        this.state.form = 
+        `<table border="0" cellpadding="0" cellspacing="0" width="100%">
+            <tr>
+                <td bgcolor="#ffffff" align="center">
+                    <!--[if (gte mso 9)|(IE)]>
+                    <table align="center" border="0" cellspacing="0" cellpadding="0" width="500">
+                    <tr>
+                    <td align="center" valign="top" width="500">
+                    <![endif]-->
+                    <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 500px;" class="wrapper">
+                        <tr>
+                            <td align="center" valign="top" style="padding: 15px 0;" class="logo">
+                                <a href="http://litmus.com" target="_blank">
+                                    <img alt="Logo" src="logo-2.jpg" width="60" height="60" style="display: block; font-family: Helvetica, Arial, sans-serif; color: #ffffff; font-size: 16px;" border="0">
+                                </a>
+                            </td>
+                        </tr>
+                    </table>
+                    <!--[if (gte mso 9)|(IE)]>
+                    </td>
+                    </tr>
+                    </table>
+                    <![endif]-->
+                </td>
+            </tr>
+            <tr>
+                <td bgcolor="#ffffff" align="center" style="padding: 15px;">
+                    <!--[if (gte mso 9)|(IE)]>
+                    <table align="center" border="0" cellspacing="0" cellpadding="0" width="500">
+                    <tr>
+                    <td align="center" valign="top" width="500">
+                    <![endif]-->
+                    <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 500px;" class="responsive-table">
+                        <tr>
+                            <td>
+                                <!-- COPY -->
+                                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td align="center" style="font-size: 32px; font-family: Helvetica, Arial, sans-serif; color: #333333; padding-top: 30px;" class="padding-copy">Your order is on its way!</td>
+                                    </tr>
+                                    <tr>
+                                        <td align="left" style="padding: 20px 0 0 0; font-size: 16px; line-height: 25px; font-family: Helvetica, Arial, sans-serif; color: #666666;" class="padding-copy">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed varius, leo a ullamcorper feugiat, ante purus sodales justo, a faucibus libero lacus a est. Aenean at mollis ipsum.</td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                    <!--[if (gte mso 9)|(IE)]>
+                    </td>
+                    </tr>
+                    </table>
+                    <![endif]-->
+                </td>
+            </tr>
+            <tr>
+                <td bgcolor="#ffffff" align="center" style="padding: 15px;" class="padding">
+                    <!--[if (gte mso 9)|(IE)]>
+                    <table align="center" border="0" cellspacing="0" cellpadding="0" width="500">
+                    <tr>
+                    <td align="center" valign="top" width="500">
+                    <![endif]-->
+                    <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 500px;" class="responsive-table">
+                        <tr>
+                            <td style="padding: 10px 0 0 0; border-top: 1px dashed #aaaaaa;">
+                                <!-- TWO COLUMNS -->
+                                <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                                    <tr>
+                                        <td valign="top" class="mobile-wrapper">
+                                            <!-- LEFT COLUMN -->
+                                            <table cellpadding="0" cellspacing="0" border="0" width="47%" style="width: 47%;" align="left">
+                                                <tr>
+                                                    <td style="padding: 0 0 10px 0;">
+                                                        <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                                            <tr>
+                                                                <td align="left" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">Nama (1)</td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                            <!-- RIGHT COLUMN -->
+                                            <table cellpadding="0" cellspacing="0" border="0" width="47%" style="width: 47%;" align="right">
+                                                <tr>
+                                                    <td style="padding: 0 0 10px 0;">
+                                                        <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                                            <tr>
+                                                                <td align="right" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">`+this.state.nama+`</td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <!-- TWO COLUMNS -->
+                                <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                                    <tr>
+                                        <td valign="top" style="padding: 0;" class="mobile-wrapper">
+                                            <!-- LEFT COLUMN -->
+                                            <table cellpadding="0" cellspacing="0" border="0" width="47%" style="width: 47%;" align="left">
+                                                <tr>
+                                                    <td style="padding: 0 0 10px 0;">
+                                                        <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                                            <tr>
+                                                                <td align="left" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">Shipping + Handling</td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                            <!-- RIGHT COLUMN -->
+                                            <table cellpadding="0" cellspacing="0" border="0" width="47%" style="width: 47%;" align="right">
+                                                <tr>
+                                                    <td style="padding: 0 0 10px 0;">
+                                                        <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                                            <tr>
+                                                                <td align="right" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">$X.XX</td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <!-- TWO COLUMNS -->
+                                <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                                    <tr>
+                                        <td valign="top" style="padding: 0;" class="mobile-wrapper">
+                                            <!-- LEFT COLUMN -->
+                                            <table cellpadding="0" cellspacing="0" border="0" width="47%" style="width: 47%;" align="left">
+                                                <tr>
+                                                    <td style="padding: 0 0 10px 0;">
+                                                        <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                                            <tr>
+                                                                <td align="left" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">Sales Tax</td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                            <!-- RIGHT COLUMN -->
+                                            <table cellpadding="0" cellspacing="0" border="0" width="47%" style="width: 47%;" align="right">
+                                                <tr>
+                                                    <td style="padding: 0 0 10px 0;">
+                                                        <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                                            <tr>
+                                                                <td align="right" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">$X.XX</td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px 0 0px 0; border-top: 1px solid #eaeaea; border-bottom: 1px dashed #aaaaaa;">
+                                <!-- TWO COLUMNS -->
+                                <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                                    <tr>
+                                        <td valign="top" class="mobile-wrapper">
+                                            <!-- LEFT COLUMN -->
+                                            <table cellpadding="0" cellspacing="0" border="0" width="47%" style="width: 47%;" align="left">
+                                                <tr>
+                                                    <td style="padding: 0 0 10px 0;">
+                                                        <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                                            <tr>
+                                                                <td align="left" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px; font-weight: bold;">Total</td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                            <!-- RIGHT COLUMN -->
+                                            <table cellpadding="0" cellspacing="0" border="0" width="47%" style="width: 47%;" align="right">
+                                                <tr>
+                                                    <td>
+                                                        <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                                            <tr>
+                                                                <td align="right" style="font-family: Arial, sans-serif; color: #7ca230; font-size: 16px; font-weight: bold;">$XX.XX</td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                    <!--[if (gte mso 9)|(IE)]>
+                    </td>
+                    </tr>
+                    </table>
+                    <![endif]-->
+                </td>
+            </tr>
+            <tr>
+                <td bgcolor="#ffffff" align="center" style="padding: 15px;">
+                    <!--[if (gte mso 9)|(IE)]>
+                    <table align="center" border="0" cellspacing="0" cellpadding="0" width="500">
+                    <tr>
+                    <td align="center" valign="top" width="500">
+                    <![endif]-->
+                    <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 500px;" class="responsive-table">
+                        <tr>
+                            <td>
+                                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td>
+                                            <!-- COPY -->
+                                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                <tr>
+                                                    <td align="left" style="padding: 0 0 0 0; font-size: 14px; line-height: 18px; font-family: Helvetica, Arial, sans-serif; color: #aaaaaa; font-style: italic;" class="padding-copy">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed varius, leo a ullamcorper feugiat, ante purus sodales justo, a faucibus libero lacus a est. Aenean at mollis ipsum.</td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                    <!--[if (gte mso 9)|(IE)]>
+                    </td>
+                    </tr>
+                    </table>
+                    <![endif]-->
+                </td>
+            </tr>
+            <tr>
+                <td bgcolor="#ffffff" align="center" style="padding: 15px;">
+                    <table border="0" cellpadding="0" cellspacing="0" width="500" class="responsive-table">
+                        <tr>
+                            <td>
+                                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <!-- COPY -->
+                                        <td align="center" style="font-size: 32px; font-family: Helvetica, Arial, sans-serif; color: #333333; padding-top: 30px;" class="padding-copy">How did we do?</td>
+                                    </tr>
+                                    <tr>
+                                        <td align="left" style="padding: 20px 0 0 0; font-size: 16px; line-height: 25px; font-family: Helvetica, Arial, sans-serif; color: #666666;" class="padding-copy">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed varius, leo a ullamcorper feugiat, ante purus sodales justo, a faucibus libero lacus a est. Aenean at mollis ipsum.</td>
+                                    </tr>
+                                    <tr>
+                                        <td align="center">
+                                            <!-- BULLETPROOF BUTTON -->
+                                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                <tr>
+                                                    <td align="center" style="padding-top: 25px;" class="padding">
+                                                        <table border="0" cellspacing="0" cellpadding="0" class="mobile-button-container">
+                                                            <tr>
+                                                                <td align="center" style="border-radius: 3px;" bgcolor="#256F9C"><a href="https://litmus.com" target="_blank" style="font-size: 16px; font-family: Helvetica, Arial, sans-serif; color: #ffffff; text-decoration: none; color: #ffffff; text-decoration: none; border-radius: 3px; padding: 15px 25px; border: 1px solid #256F9C; display: inline-block;" class="mobile-button">Let Us Know</a></td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                    <!--[if (gte mso 9)|(IE)]>
+                    </td>
+                    </tr>
+                    </table>
+                    <![endif]-->
+                </td>
+            </tr>
+            <tr>
+                <td bgcolor="#ffffff" align="center" style="padding: 20px 0px;">
+                    <!--[if (gte mso 9)|(IE)]>
+                    <table align="center" border="0" cellspacing="0" cellpadding="0" width="500">
+                    <tr>
+                    <td align="center" valign="top" width="500">
+                    <![endif]-->
+                    <!-- UNSUBSCRIBE COPY -->
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center" style="max-width: 500px;" class="responsive-table">
+                        <tr>
+                            <td align="center" style="font-size: 12px; line-height: 18px; font-family: Helvetica, Arial, sans-serif; color:#666666;">
+                                1234 Main Street, Anywhere, MA 01234, USA
+                                <br>
+                                <a href="http://litmus.com" target="_blank" style="color: #666666; text-decoration: none;">Unsubscribe</a>
+                                <span style="font-family: Arial, sans-serif; font-size: 12px; color: #444444;">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+                                <a href="http://litmus.com" target="_blank" style="color: #666666; text-decoration: none;">View this email in your browser</a>
+                            </td>
+                        </tr>
+                    </table>
+                    <!--[if (gte mso 9)|(IE)]>
+                    </td>
+                    </tr>
+                    </table>
+                    <![endif]-->
+                </td>
+            </tr>
+        </table>`;
+
+        
+        let templateParams = {
+            from_name : "Admin.Gadaiku",
+            to_name : "wildanabdurrohman11@gmail.com",
+            subject : "test",
+            message_html: this.state.form
+            
+                       
+            
+
+        };
+        
+        emailjs.send(
+            'gmail',
+            'template_DuQL4fJ4',
+            templateParams,
+            'user_ZzTqxX8Pvcd9Vonr4z8pd'
+        )
+
+    };
+>>>>>>> f783de5cbb73b97f5396323b5277c7744e028975
  
     constructor(props) {
         super(props);
