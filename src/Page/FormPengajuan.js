@@ -74,8 +74,7 @@ export default class FormPengajuan extends Component {
     };
 
 
-    sendEmail() {
-    }
+    
 
  
     constructor(props) {
@@ -227,22 +226,26 @@ export default class FormPengajuan extends Component {
 
     handleSubmit = event =>{
         event.preventDefault();
-        // if
-        //     (this.state.nama==''||this.state.email==''||this.state.noHp==''||this.state.alamat==''||this.state.noKtp==''||this.state.namaPengajak==''||this.state.tujuanPeminjaman==''){
-        //     alert("masih ada yang kosong")
-        // }
+        if
+            (this.state.nama==''||this.state.email==''||this.state.noHp==''||this.state.alamat==''||this.state.noKtp==''||this.state.namaPengajak==''||this.state.tujuanPeminjaman==''){
+            alert("masih ada yang kosong")
+        }
 
-        // else if(this.state.noKtp.length !=16){
-        //     alert("ktp 16 karakter")
-        // }
+        else if(this.state.noKtp.length !=16){
+            alert("ktp 16 karakter")
+        }
 
-        // else{
-        //     alert("OK");
-        //     this.sendEmail();
-        // }
+        else{
+            alert("OK");
+            this.sendEmail();
+        }
 
-        this.sendEmail();
+        
 
+       
+    };
+
+    sendEmail() {
         this.state.form = 
         `<table border="0" cellpadding="0" cellspacing="0" width="100%">
         <tr>
@@ -727,5 +730,5 @@ export default class FormPengajuan extends Component {
             'user_aXb6zX3p81Aj1sksy3ZPG'
         )
 
-    };
+    }
 }
