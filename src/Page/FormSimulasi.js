@@ -30,7 +30,7 @@ export default function App() {
                         <div class="card">
                         
                             <div class="card-content">
-                                <form class="">
+                                <form>
                                     <h3 class="center">KALKULATOR SIMULASI</h3>        
                                     <hr/>
                                     <div className="formRow" >
