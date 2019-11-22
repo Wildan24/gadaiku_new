@@ -2,5 +2,21 @@
     .homeWrapper{
         margin: 5%;
     }
+
+    .form-row{
+        display: block;
+    }
      
+
+    .card-content,.section,.card{
+        width: 100%;
+        margin: 0px;
+        padding: 0px;
+    }
+
+    .card{
+        
+        padding-left: 20px;
+        padding-right: 20px;
+    }
 }
