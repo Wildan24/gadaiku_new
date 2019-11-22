@@ -241,7 +241,7 @@ export default class FormPengajuan extends Component {
         }
 
         
-     //asd
+     //as
        
     };
 
