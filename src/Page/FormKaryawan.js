@@ -14,6 +14,8 @@ export default class FormKaryawan extends Component {
                 </div>
             </div>
             <hr/>
+<div class="card">
+    <div class="card-content">
         <Form>
             <Form.Row>
                 <Form.Group as={Col} controlId="formGridNama" style={{marginTop:"10px"}}>
@@ -28,12 +30,12 @@ export default class FormKaryawan extends Component {
             </Form.Row>
 
             <Form.Row>
-                <Form.Group as={Col} controlId="formGridAlamat" style={{marginTop:"10px"}}>
+                <Form.Group as={Col} controlId="formGridAlamat1" style={{marginTop:"10px"}}>
                     <Form.Label><strong>Alamat :</strong></Form.Label>
                     <Form.Control type="text" placeholder="Alamat Tempat Tinggal" />
                 </Form.Group>
 
-                <Form.Group as={Col} controlId="formGridAlamat" style={{marginTop:"10px"}}>
+                <Form.Group as={Col} controlId="formGridAlamat2" style={{marginTop:"10px"}}>
                     <Form.Label><strong>Alamat Kantor :</strong></Form.Label>
                     <Form.Control type="text" placeholder="Alamat Kantor" />
                 </Form.Group>
@@ -46,7 +48,7 @@ export default class FormKaryawan extends Component {
                 </Form.Group>
 
                 <Form.Group as={Col} controlId="formGridTelp" style={{marginTop:"10px"}}>
-                    <Form.Label><strong>No. Telp/Handphone :</strong></Form.Label>
+                    <Form.Label><strong>No. Telp/Hp :</strong></Form.Label>
                     <Form.Control type="text" placeholder="No.Telp/Handphone" />
                 </Form.Group>
             </Form.Row>
@@ -88,7 +90,7 @@ export default class FormKaryawan extends Component {
             </Form.Row>
 
             <Form.Row>
-                <Form.Group as={Col} style={{marginTop:"10px"}}>
+                <Form.Group as={Col} style={{marginTop:"30px"}}>
                     <Form.Label><strong>Status :</strong></Form.Label>
                     {['checkbox'].map(type => (
                         <div key={`inline-${type}`} className="mb-3">
@@ -102,12 +104,14 @@ export default class FormKaryawan extends Component {
             <br/>
             <br/>
 
+            <hr/>
             <div class="container">
                 <div class="content">
-                    <h5>Latar Belakang Calon Debitur :</h5>
+                    <h5>Latar Belakang Calon Debitur</h5>
                 </div>
             </div>
             <hr/>
+
             <Form.Row>
                 <Form.Group as={Col} controlId="formGrid1" style={{marginTop:"10px"}}>
                     <Form.Label>Berapa nilai angsuran yang ingin bapak/ibu bayar perbulannya ?</Form.Label>
@@ -160,12 +164,14 @@ export default class FormKaryawan extends Component {
             <br/>
             <br/>
 
+            <hr/>
             <div class="container">
                 <div class="content">
                     <h5>Persyaratan Dokumen Pemohon :</h5>
                 </div>
             </div>
             <hr/>
+
             <Form.Row>
                 <Form.Group as={Col} controlId="ktppemohon" style={{marginTop:"10px"}}>
                     <Form.Label>Fotocopy KTP Pemohon</Form.Label>
@@ -209,18 +215,16 @@ export default class FormKaryawan extends Component {
                     <Form.Control type="file"/>
                 </Form.Group>
             </Form.Row>
-
             <Form.Row>
-                <Form.Group as={Col} controlId="pendukung3">
+                <Form.Group as={Col} controlId="pendukung3" style={{marginTop:"10px"}}>
                     <Form.Label>Lampiran Pendukung 3</Form.Label>
                     <Form.Control type="file" placeholder="Lampiran Pendukung 3"/>
                 </Form.Group>                    
-                <Form.Group as={Col} controlId="pendukung1">
+                <Form.Group as={Col} controlId="pendukung1" style={{marginTop:"10px"}}>
                     <Form.Label>Lampiran Pendukung 1</Form.Label>
                     <Form.Control type="file" placeholder="Lampiran Pendukung 1"/>
                 </Form.Group>
             </Form.Row>
-
             <Form.Row>
                 <Form.Group as={Col} controlId="pendukung2" style={{marginTop:"10px"}}>
                     <Form.Label>Lampiran Pendukung 2</Form.Label>
@@ -231,12 +235,14 @@ export default class FormKaryawan extends Component {
             <br/>
             <br/>
 
+            <hr/>
             <div class="container">
                 <div class="content">
-                    <h5>Dokumen Jaminan :</h5>
+                    <h5>Dokumen Jaminan</h5>
                 </div>
             </div>
             <hr/>
+
             <Form.Row>
                 <Form.Group as={Col} controlId="hm" style={{marginTop:"10px"}}>
                     <Form.Label>Fotocopy Sertifikat HM/HGB/Strata Title</Form.Label>
@@ -258,10 +264,13 @@ export default class FormKaryawan extends Component {
 
             <br/>
             <br/>
+
             <Button variant="outline-primary" type="submit" size="md" block>
                 AJUKAN
             </Button>
         </Form>
+    </div>
+</div>
         </Container>
         </Fragment>
 

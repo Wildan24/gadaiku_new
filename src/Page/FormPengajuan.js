@@ -77,10 +77,6 @@ export default class FormPengajuan extends Component {
     sendEmail() {
     }
 
-
-
-    
-
  
     constructor(props) {
         super(props);
