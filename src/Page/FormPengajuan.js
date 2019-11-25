@@ -15,7 +15,9 @@ export default class FormPengajuan extends Component {
         noKtp:'',
         namaPengajak:'',
         tujuanPeminjaman:'',
-        Form:''
+        Form:'',
+
+        njop_pass:''
     };
 
 
@@ -73,6 +75,12 @@ export default class FormPengajuan extends Component {
         });
     };
 
+    handleChange_njop_pass = event =>{
+        this.setState({
+            njop_pass: event.target.value  
+        });
+    };
+
 
     
 
@@ -102,7 +110,12 @@ export default class FormPengajuan extends Component {
                 <hr/>
 
                     <Form.Row>
-                        <input type="hidden" id="totPinjaman_submit"/> 
+                        <input type="text" id="njop_pass" value={this.state.njop_pass} onChange={this.handleChange_njop_pass} />
+                        <input type="hidden" id="totPinjaman_pass" value=""  /> 
+                        <input type="hidden" id="admin_pass" value="" /> 
+                        <input type="hidden" id="fee_pass" value="" /> 
+                        <input type="hidden" id="totYgDtrm_pass" value="" /> 
+                        <input type="hidden" id="bpr_pass" value="" />  
 
                         <Form.Group as={Col} controlId="formGridNama" style={{marginTop:"30px"}}>
                             <Form.Label><strong>Nama</strong></Form.Label>
@@ -286,7 +299,7 @@ export default class FormPengajuan extends Component {
                             <!-- COPY -->
                             <table width="100%" border="0" cellspacing="0" cellpadding="0">
                                 <tr>
-                                    <td align="center" style="font-size: 32px; font-family: Helvetica, Arial, sans-serif; color: #333333; padding-top: 30px;" class="padding-copy">Pengajuan Oleh - `+this.state.nama+`</td>
+                                    <td align="center" style="font-size: 32px; font-family: Helvetica, Arial, sans-serif; color: #333333; padding-top: 30px;" class="padding-copy">Pengajuan Oleh - `+this.state.njop_pass+`</td>
                                 </tr>
                             </table>
                         </td>

@@ -4,15 +4,20 @@ import $ from 'jquery';
 
 
 $(document).ready(function () {
+    var totPinjaman;
+    var njop;
+
+
+    var fc = require("format-currency");
+    var opts = { format: '%s%v ', symbol: 'Rp. ' };
    
     $("#calculate").on('click', function () {
-        var fc = require("format-currency");
-        var opts = { format: '%s%v ', symbol: 'Rp. ' };
-
-
-        var njop = $("#njop").val();
         
-        var totPinjaman = njop*0.5;
+
+
+        njop = $("#njop").val();
+        
+         totPinjaman = njop*0.5;
 
         var totalKeluar = totPinjaman*0.85;
         totalKeluar = totalKeluar.toFixed(0);
@@ -47,6 +52,10 @@ $(document).ready(function () {
 
 
 
+        
+
+
+
       
 
 
@@ -54,6 +63,14 @@ $(document).ready(function () {
     });
       $("#show_formPengajuan").click(function (e) { 
         $("#formPengajuan").css("display", "block");
+        document.getElementById("totPinjaman_pass").value = fc(totPinjaman,opts);
+
+        document.getElementById("njop_pass").value = fc(njop,opts);
+            
+
+            
+
+
                 
         });
 
