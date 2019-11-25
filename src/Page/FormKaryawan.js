@@ -4,6 +4,121 @@ import Form from 'react-bootstrap/Form'
 import { Button, Container} from 'react-bootstrap';
 
 export default class FormKaryawan extends Component {
+
+    state ={
+        nama:'',
+        email:'',
+        alamat1:'',
+        alamat2:'',
+        pekerjaan:'',
+        telp:'',
+        kredit:'',
+        pinjaman:'',
+        plafondKredit:'',
+        jangkaWaktu:'',
+        status:'',
+
+        pertanyaan1:'',
+        pertanyaan2:'',
+        pertanyaan3:'',
+        pertanyaan4:'',
+        pertanyaan5:'',
+        pertanyaan6:'',
+        pertanyaan7:'',
+        pertanyaan8:'',
+    };
+
+    handleChange_nama = event => {
+        this.setState({
+            nama: event.target.value
+        });
+    };
+
+    handleChange_email = event => {
+        this.setState({
+            email: event.target
+        });
+    };
+    
+    handleChange_alamat1 = event => {
+        this.setState({
+            alamat1: event.target
+        });
+    };
+
+    handleChange_alamat2 = event => {
+        this.setState({
+            alamat2: event.target
+        });
+    };
+
+    handleChange_pekerjaan = event => {
+        this.setState({
+            pekerjaan: event.target
+        });
+    };
+
+    handleChange_telp = event => {
+        this.setState({
+            telp: event.target
+        });
+    };
+
+    handleChange_kredit = event => {
+        this.setState({
+            kredit: event.target
+        });
+    };
+
+    handleChange_pinjaman = event => {
+        this.setState({
+            pinjaman: event.target
+        });
+    };
+
+    handleChange_plafondKredit = event => {
+        this.setState({
+            plafondKredit: event.target
+        });
+    };
+
+    handleChange_jangkaWaktu = event => {
+        this.setState({
+            jangkaWaktu: event.target
+        });
+    };
+
+    handleChange_status = event => {
+        this.setState({
+            status: event.target
+        });
+    };
+
+
+    handleSubmit = event =>{
+        event.preventDefault();
+        if (this.state.nama =='' ||
+            this.state.email =='' || 
+            this.state.alamat1 =='' || 
+            this.state.alamat2 == '' || 
+            this.state.pekerjaan == '' || 
+            this.state.telp == '' || 
+            this.state.kredit == '' ||
+            this.state.pinjaman == ''){
+
+                alert("mohon isi dengan lengkap data diri diform.")
+            }
+        
+        else if(this.state.telp.length != 12) {
+            alert("Nomor Hp harus sesuai dan bisa dihubungi")
+        }
+
+        else{
+            alert("OK");
+        }
+    };
+
+
     render(){
         return(
             <Fragment>
@@ -16,11 +131,11 @@ export default class FormKaryawan extends Component {
             <hr/>
 <div class="card">
     <div class="card-content">
-        <Form>
+        <Form onSubmit={this.handleSubmit}>
             <Form.Row>
                 <Form.Group as={Col} controlId="formGridNama" style={{marginTop:"10px"}}>
                     <Form.Label><strong>Nama :</strong></Form.Label>
-                    <Form.Control type="text" placeholder="Nama Lengkap" />
+                    <Form.Control type="text" placeholder="Nama Lengkap" value={this.state.nama} onChange={this.handleChange_nama} />
                 </Form.Group>
 
                 <Form.Group as={Col} controlId="formGridEmail" style={{marginTop:"10px"}}>
@@ -114,49 +229,49 @@ export default class FormKaryawan extends Component {
 
             <Form.Row>
                 <Form.Group as={Col} controlId="formGrid1" style={{marginTop:"10px"}}>
-                    <Form.Label>Berapa nilai angsuran yang ingin bapak/ibu bayar perbulannya ?</Form.Label>
+                    <Form.Label><strong>1. Berapa nilai angsuran yang ingin bapak/ibu bayar perbulannya ?</strong></Form.Label>
                     <Form.Control type="text" />
                 </Form.Group>
             </Form.Row>
             <Form.Row>
                 <Form.Group as={Col} controlId="formGrid2" style={{marginTop:"10px"}}>
-                    <Form.Label>Apakah ada pilihan bank yang ingin digunakan oleh bapak/ibu ?</Form.Label>
+                    <Form.Label><strong>2. Apakah ada pilihan bank yang ingin digunakan oleh bapak/ibu ?</strong></Form.Label>
                     <Form.Control type="text"/>
                 </Form.Group>
             </Form.Row>
             <Form.Row>
                 <Form.Group as={Col} controlId="formGrid3" style={{marginTop:"10px"}}>
-                    <Form.Label>Apakah pernah ada pengalaman yang tidak menyenangkan dengan bank yang pernah dialami oleh bapak/ibu ?</Form.Label>
+                    <Form.Label><strong>3. Apakah pernah ada pengalaman yang tidak menyenangkan dengan bank yang pernah dialami oleh bapak/ibu ?</strong></Form.Label>
                     <Form.Control type="text" />
                 </Form.Group>
             </Form.Row>
             <Form.Row>
                 <Form.Group as={Col} controlId="formGrid4" style={{marginTop:"10px"}}>
-                    <Form.Label>Berapa total penjualan (omset) bapak/ibu perbulannya ?</Form.Label>
+                    <Form.Label><strong>4. Berapa total penjualan (omset) bapak/ibu perbulannya ?</strong></Form.Label>
                     <Form.Control type="text" />
                 </Form.Group>
             </Form.Row>
             <Form.Row>
                 <Form.Group as={Col} controlId="formGrid5" style={{marginTop:"10px"}}>
-                    <Form.Label>Ekspansi bisnis apa yang sedang direncanakan bapak/ibu ?</Form.Label>
+                    <Form.Label><strong>5. Ekspansi bisnis apa yang sedang direncanakan bapak/ibu ?</strong></Form.Label>
                     <Form.Control type="text"/>
                 </Form.Group>
             </Form.Row>
             <Form.Row>
                 <Form.Group as={Col} controlId="formGrid6" style={{marginTop:"10px"}}>
-                    <Form.Label>Berapa lama terms of payment dari customer dan terms of payment ke supplier ?</Form.Label>
+                    <Form.Label><strong>6. Berapa lama terms of payment dari customer dan terms of payment ke supplier ?</strong></Form.Label>
                     <Form.Control type="text" />
                 </Form.Group>
             </Form.Row>
             <Form.Row>
                 <Form.Group as={Col} controlId="formGrid7" style={{marginTop:"10px"}}>
-                    <Form.Label>Berapa total pendapatan gaji dan tunjangan bapak/ibu perbulannya ?</Form.Label>
+                    <Form.Label><strong>7. Berapa total pendapatan gaji dan tunjangan bapak/ibu perbulannya ?</strong></Form.Label>
                     <Form.Control type="text"/>
                 </Form.Group>
             </Form.Row>
             <Form.Row>
                 <Form.Group as={Col} controlId="formGrid8" style={{marginTop:"10px"}}>
-                    <Form.Label>Apakah ada pendapatan lain seperti pendapatan sewa ataupun bisnis lain ?</Form.Label>
+                    <Form.Label><strong>8. Apakah ada pendapatan lain seperti pendapatan sewa ataupun bisnis lain ?</strong></Form.Label>
                     <Form.Control type="text" />
                 </Form.Group>
             </Form.Row>
@@ -167,68 +282,68 @@ export default class FormKaryawan extends Component {
             <hr/>
             <div class="container">
                 <div class="content">
-                    <h5>Persyaratan Dokumen Pemohon :</h5>
+                    <h5><strong> Persyaratan Dokumen Pemohon </strong></h5>
                 </div>
             </div>
             <hr/>
 
             <Form.Row>
                 <Form.Group as={Col} controlId="ktppemohon" style={{marginTop:"10px"}}>
-                    <Form.Label>Fotocopy KTP Pemohon</Form.Label>
+                    <Form.Label><strong>Fotocopy KTP Pemohon</strong></Form.Label>
                     <Form.Control type="file"/>
                 </Form.Group>
                 <Form.Group as={Col} controlId="pasutri" style={{marginTop:"10px"}}>
-                    <Form.Label>Fotocopy KTP Suami/Istri</Form.Label>
+                    <Form.Label><strong>Fotocopy KTP Suami/Istri</strong></Form.Label>
                     <Form.Control type="file"/>
                 </Form.Group>
             </Form.Row>
             
             <Form.Row>
                 <Form.Group as={Col} controlId="kartukeluarga" style={{marginTop:"10px"}}>
-                    <Form.Label>Fotocopy Kartu Keluarga</Form.Label>
+                    <Form.Label><strong>Fotocopy Kartu Keluarga</strong></Form.Label>
                     <Form.Control type="file"/>
                 </Form.Group>
                 <Form.Group as={Col} controlId="aktenikah" style={{marginTop:"10px"}}>
-                    <Form.Label>Fotocopy Akte Nikah/Cerai</Form.Label>
+                    <Form.Label><strong>Fotocopy Akte Nikah/Cerai</strong></Form.Label>
                     <Form.Control type="file"/>
                 </Form.Group>
             </Form.Row>
 
             <Form.Row>
                 <Form.Group as={Col} controlId="npwp" style={{marginTop:"10px"}}>
-                    <Form.Label>Fotocopy NPWP (pemohon)</Form.Label>
+                    <Form.Label><strong>Fotocopy NPWP (pemohon)</strong></Form.Label>
                     <Form.Control type="file"/>
                 </Form.Group>
                 <Form.Group as={Col} controlId="pph" style={{marginTop:"10px"}}>
-                    <Form.Label>Fotocopy SPT/PPh21</Form.Label>
+                    <Form.Label><strong>Fotocopy SPT/PPh21</strong></Form.Label>
                     <Form.Control type="file"/>
                 </Form.Group>
             </Form.Row>
 
             <Form.Row>
                 <Form.Group as={Col} controlId="slipgaji" style={{marginTop:"10px"}}>
-                    <Form.Label>Asli Slip Gaji (1 bulan terakhir)</Form.Label>
+                    <Form.Label><strong>Asli Slip Gaji (1 bulan terakhir)</strong></Form.Label>
                     <Form.Control type="file"/>
                 </Form.Group>
                 <Form.Group as={Col} controlId="tabungan" style={{marginTop:"10px"}}>
-                    <Form.Label>Fotocopy Tabungan (6 bulan terakhir)</Form.Label>
+                    <Form.Label><strong>Fotocopy Tabungan (6 bulan terakhir)</strong></Form.Label>
                     <Form.Control type="file"/>
+                </Form.Group>
+            </Form.Row>
+            <Form.Row>
+                <Form.Group as={Col} controlId="pendukung1" style={{marginTop:"10px"}}>
+                    <Form.Label><strong>Lampiran Pendukung 1</strong></Form.Label>
+                    <Form.Control type="file" placeholder="Lampiran Pendukung 1"/>
+                </Form.Group>                    
+                <Form.Group as={Col} controlId="pendukung2" style={{marginTop:"10px"}}>
+                    <Form.Label><strong>Lampiran Pendukung 2</strong></Form.Label>
+                    <Form.Control type="file" placeholder="Lampiran Pendukung 2"/>
                 </Form.Group>
             </Form.Row>
             <Form.Row>
                 <Form.Group as={Col} controlId="pendukung3" style={{marginTop:"10px"}}>
-                    <Form.Label>Lampiran Pendukung 3</Form.Label>
+                    <Form.Label><strong>Lampiran Pendukung 3</strong></Form.Label>
                     <Form.Control type="file" placeholder="Lampiran Pendukung 3"/>
-                </Form.Group>                    
-                <Form.Group as={Col} controlId="pendukung1" style={{marginTop:"10px"}}>
-                    <Form.Label>Lampiran Pendukung 1</Form.Label>
-                    <Form.Control type="file" placeholder="Lampiran Pendukung 1"/>
-                </Form.Group>
-            </Form.Row>
-            <Form.Row>
-                <Form.Group as={Col} controlId="pendukung2" style={{marginTop:"10px"}}>
-                    <Form.Label>Lampiran Pendukung 2</Form.Label>
-                    <Form.Control type="file" placeholder="Lampiran Pendukung 2"/>
                 </Form.Group>
             </Form.Row>
 
@@ -238,26 +353,26 @@ export default class FormKaryawan extends Component {
             <hr/>
             <div class="container">
                 <div class="content">
-                    <h5>Dokumen Jaminan</h5>
+                    <h5><strong>Dokumen Jaminan</strong></h5>
                 </div>
             </div>
             <hr/>
 
             <Form.Row>
                 <Form.Group as={Col} controlId="hm" style={{marginTop:"10px"}}>
-                    <Form.Label>Fotocopy Sertifikat HM/HGB/Strata Title</Form.Label>
+                    <Form.Label><strong>Fotocopy Sertifikat HM/HGB/Strata Title</strong></Form.Label>
                     <Form.Control type="file"/>
                 </Form.Group>
             </Form.Row>
             <Form.Row>
                 <Form.Group as={Col} controlId="imb" style={{marginTop:"10px"}}>
-                    <Form.Label>Fotocopy IMB</Form.Label>
+                    <Form.Label><strong>Fotocopy IMB</strong></Form.Label>
                     <Form.Control type="file"/>
                 </Form.Group>
             </Form.Row>
             <Form.Row>
                 <Form.Group as={Col} controlId="pbb" style={{marginTop:"10px"}}>
-                    <Form.Label>Fotocopy PBB Terakhir (kecuali properti baru).</Form.Label>
+                    <Form.Label><strong>Fotocopy PBB Terakhir (kecuali properti baru)</strong></Form.Label>
                     <Form.Control type="file"/>
                 </Form.Group>
             </Form.Row>

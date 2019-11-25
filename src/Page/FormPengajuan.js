@@ -4,7 +4,7 @@ import Form from 'react-bootstrap/Form';
 import { Button, Container, } from 'react-bootstrap';
 import ImageUploader from 'react-images-upload';
 import * as emailjs from 'emailjs-com';
-
+import axios from 'axios';
 
 export default class FormPengajuan extends Component {
     state = {
@@ -15,7 +15,8 @@ export default class FormPengajuan extends Component {
         noKtp:'',
         namaPengajak:'',
         tujuanPeminjaman:'',
-        Form:''
+        Form:'',
+        selectedFile:null,
     };
 
 
@@ -72,7 +73,6 @@ export default class FormPengajuan extends Component {
             Form: event.target.value  
         });
     };
-
 
     
 
@@ -148,7 +148,14 @@ export default class FormPengajuan extends Component {
                     <Form.Row>
                         <Form.Group as={Col} controlId="ktpsuami" style={{marginTop:"10px"}}>
                         <Form.Label><strong>KTP Suami</strong></Form.Label>
-                        <ImageUploader withIcon={true} withPreview={true} buttonText='Choose Images' imgExtension={['.jpg','.png']} maxFileSize={2097152} />
+                        <ImageUploader 
+                            withIcon={true} 
+                            withPreview={true} 
+                            buttonText='Choose Images' 
+                            imgExtension={['.jpg','.png']} 
+                            maxFileSize={2097152}
+                            onChange={this.onChangeHandler}
+                            />
                         </Form.Group>
 
                         <Form.Group as={Col} controlId="ktpistri" style={{marginTop:"10px"}}>
@@ -249,26 +256,6 @@ export default class FormPengajuan extends Component {
     sendEmail() {
         this.state.form = 
         `<table border="0" cellpadding="0" cellspacing="0" width="100%">
-        <tr>
-            <td bgcolor="#ffffff" align="center">
-                <table align="center" border="0" cellspacing="0" cellpadding="0" width="500">
-                <tr>
-                <td align="center" valign="top" width="500">
-                
-                <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 500px;" class="wrapper">
-                    <tr>
-                        <td align="center" valign="top" style="padding: 15px 0;" class="logo">
-                            <a href="http://litmus.com" target="_blank">
-                                <img alt="Logo" src="./img/logoFix.png" width="60" height="60" style="display: block; font-family: Helvetica, Arial, sans-serif; color: #ffffff; font-size: 16px;" border="0">
-                            </a>
-                        </td>
-                    </tr>
-                </table>
-                </td>
-                </tr>
-                </table>
-            </td>
-        </tr>
         <tr>
             <td bgcolor="#ffffff" align="center" style="padding: 15px;">
                 <table align="center" border="0" cellspacing="0" cellpadding="0" width="500">
