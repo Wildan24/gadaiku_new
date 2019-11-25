@@ -93,13 +93,14 @@ export default class FormPengajuan extends Component {
 
             <Container id="formPengajuan" style={{display:"none"}}>
 
-                <div class="content" style={{marginTop:"50px"}}>
+                <Form onSubmit={this.handleSubmit} style={{display:"block"}} value={this.state.form}>
+
+                <div className="content" style={{marginTop:"50px"}}>
                     <h3>Form Pengajuan</h3>
                 </div>
                 
                 <hr/>
 
-                <Form onSubmit={this.handleSubmit} style={{display:"block"}} value={this.state.form}>
                     <Form.Row>
                         <input type="hidden" id="totPinjaman_submit"/> 
 
@@ -139,7 +140,7 @@ export default class FormPengajuan extends Component {
 
                     <br/>
                     <hr/>
-                        <div class="content">
+                        <div className="content">
                             <h3>Lampiran</h3>
                         </div>
                     
@@ -211,7 +212,7 @@ export default class FormPengajuan extends Component {
 
                     <br/>
                     
-                    <Button variant="outline-warning" style={{marginTop:"30px", fontWeight:"bolder", fontSize:"15px"}} type="submit" size="md" block>
+                    <Button variant="outline-warning" style={{marginTop:"30px", marginBottom:"30px", fontWeight:"bolder", fontSize:"15px"}} type="submit" size="md" block>
                         AJUKAN
                     </Button>
                 </Form>
@@ -250,34 +251,29 @@ export default class FormPengajuan extends Component {
         `<table border="0" cellpadding="0" cellspacing="0" width="100%">
         <tr>
             <td bgcolor="#ffffff" align="center">
-                <!--[if (gte mso 9)|(IE)]>
                 <table align="center" border="0" cellspacing="0" cellpadding="0" width="500">
                 <tr>
                 <td align="center" valign="top" width="500">
-                <![endif]-->
+                
                 <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 500px;" class="wrapper">
                     <tr>
                         <td align="center" valign="top" style="padding: 15px 0;" class="logo">
                             <a href="http://litmus.com" target="_blank">
-                                <img alt="Logo" src="logo-2.jpg" width="60" height="60" style="display: block; font-family: Helvetica, Arial, sans-serif; color: #ffffff; font-size: 16px;" border="0">
+                                <img alt="Logo" src="./img/logoFix.png" width="60" height="60" style="display: block; font-family: Helvetica, Arial, sans-serif; color: #ffffff; font-size: 16px;" border="0">
                             </a>
                         </td>
                     </tr>
                 </table>
-                <!--[if (gte mso 9)|(IE)]>
                 </td>
                 </tr>
                 </table>
-                <![endif]-->
             </td>
         </tr>
         <tr>
             <td bgcolor="#ffffff" align="center" style="padding: 15px;">
-                <!--[if (gte mso 9)|(IE)]>
                 <table align="center" border="0" cellspacing="0" cellpadding="0" width="500">
                 <tr>
                 <td align="center" valign="top" width="500">
-                <![endif]-->
                 <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 500px;" class="responsive-table">
                     <tr>
                         <td>
@@ -286,18 +282,13 @@ export default class FormPengajuan extends Component {
                                 <tr>
                                     <td align="center" style="font-size: 32px; font-family: Helvetica, Arial, sans-serif; color: #333333; padding-top: 30px;" class="padding-copy">Pengajuan Oleh - `+this.state.nama+`</td>
                                 </tr>
-                                <tr>
-                                    <td align="left" style="padding: 20px 0 0 0; font-size: 16px; line-height: 25px; font-family: Helvetica, Arial, sans-serif; color: #666666;" class="padding-copy">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed varius, leo a ullamcorper feugiat, ante purus sodales justo, a faucibus libero lacus a est. Aenean at mollis ipsum.</td>
-                                </tr>
                             </table>
                         </td>
                     </tr>
                 </table>
-                <!--[if (gte mso 9)|(IE)]>
                 </td>
                 </tr>
                 </table>
-                <![endif]-->
             </td>
         </tr>
         <tr>
@@ -502,43 +493,7 @@ export default class FormPengajuan extends Component {
                                                 <td style="padding: 0 0 10px 0;">
                                                     <table cellpadding="0" cellspacing="0" border="0" width="100%">
                                                         <tr>
-                                                            <td align="left" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">No Ktp</td>
-                                                        </tr>
-                                                    </table>
-                                                </td>
-                                            </tr>
-                                        </table>
-                                        <!-- RIGHT COLUMN -->
-                                        <table cellpadding="0" cellspacing="0" border="0" width="47%" style="width: 47%;" align="right">
-                                            <tr>
-                                                <td style="padding: 0 0 10px 0;">
-                                                    <table cellpadding="0" cellspacing="0" border="0" width="100%">
-                                                        <tr>
-                                                            <td align="right" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">`+this.state.noKtp+`</td>
-                                                        </tr>
-                                                    </table>
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-    
-                    <tr>
-                        <td style="padding: 10px 0 0 0; border-top: 1px dashed #aaaaaa;">
-                            <!-- TWO COLUMNS -->
-                            <table cellspacing="0" cellpadding="0" border="0" width="100%">
-                                <tr>
-                                    <td valign="top" class="mobile-wrapper">
-                                        <!-- LEFT COLUMN -->
-                                        <table cellpadding="0" cellspacing="0" border="0" width="47%" style="width: 47%;" align="left">
-                                            <tr>
-                                                <td style="padding: 0 0 10px 0;">
-                                                    <table cellpadding="0" cellspacing="0" border="0" width="100%">
-                                                        <tr>
-                                                            <td align="left" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">Nama Pengajak (Reffereal)</td>
+                                                            <td align="left" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">Referral</td>
                                                         </tr>
                                                     </table>
                                                 </td>
@@ -555,14 +510,12 @@ export default class FormPengajuan extends Component {
                                                     </table>
                                                 </td>
                                             </tr>
-                                            
                                         </table>
                                     </td>
                                 </tr>
                             </table>
                         </td>
                     </tr>
-                    
                     <tr>
                         <td style="padding: 10px 0 0 0; border-top: 1px dashed #aaaaaa;">
                             <!-- TWO COLUMNS -->
@@ -599,48 +552,11 @@ export default class FormPengajuan extends Component {
                             </table>
                         </td>
                     </tr>
-    
-                    
-                  
-                
+
                 </table>
-                <!--[if (gte mso 9)|(IE)]>
                 </td>
                 </tr>
                 </table>
-                <![endif]-->
-            </td>
-        </tr>
-        <tr>
-            <td bgcolor="#ffffff" align="center" style="padding: 15px;">
-                <!--[if (gte mso 9)|(IE)]>
-                <table align="center" border="0" cellspacing="0" cellpadding="0" width="500">
-                <tr>
-                <td align="center" valign="top" width="500">
-                <![endif]-->
-                <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 500px;" class="responsive-table">
-                    <tr>
-                        <td>
-                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                                <tr>
-                                    <td>
-                                        <!-- COPY -->
-                                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                                            <tr>
-                                                <td align="left" style="padding: 0 0 0 0; font-size: 14px; line-height: 18px; font-family: Helvetica, Arial, sans-serif; color: #aaaaaa; font-style: italic;" class="padding-copy">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed varius, leo a ullamcorper feugiat, ante purus sodales justo, a faucibus libero lacus a est. Aenean at mollis ipsum.</td>
-                                            </tr>
-                                        </table>
-                                    </td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                </table>
-                <!--[if (gte mso 9)|(IE)]>
-                </td>
-                </tr>
-                </table>
-                <![endif]-->
             </td>
         </tr>
         <tr>
@@ -676,37 +592,10 @@ export default class FormPengajuan extends Component {
                         </td>
                     </tr>
                 </table>
-                <!--[if (gte mso 9)|(IE)]>
                 </td>
                 </tr>
                 </table>
-                <![endif]-->
-            </td>
-        </tr>
-        <tr>
-            <td bgcolor="#ffffff" align="center" style="padding: 20px 0px;">
-                <!--[if (gte mso 9)|(IE)]>
-                <table align="center" border="0" cellspacing="0" cellpadding="0" width="500">
-                <tr>
-                <td align="center" valign="top" width="500">
-                <![endif]-->
-                <!-- UNSUBSCRIBE COPY -->
-                <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center" style="max-width: 500px;" class="responsive-table">
-                    <tr>
-                        <td align="center" style="font-size: 12px; line-height: 18px; font-family: Helvetica, Arial, sans-serif; color:#666666;">
-                            1234 Main Street, Anywhere, MA 01234, USA
-                            <br>
-                            <a href="http://litmus.com" target="_blank" style="color: #666666; text-decoration: none;">Unsubscribe</a>
-                            <span style="font-family: Arial, sans-serif; font-size: 12px; color: #444444;">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-                            <a href="http://litmus.com" target="_blank" style="color: #666666; text-decoration: none;">View this email in your browser</a>
-                        </td>
-                    </tr>
-                </table>
-                <!--[if (gte mso 9)|(IE)]>
-                </td>
-                </tr>
-                </table>
-                <![endif]-->
+                
             </td>
         </tr>
     </table>`;
@@ -714,8 +603,8 @@ export default class FormPengajuan extends Component {
         
         let templateParams = {
             from_name : "Admin.Gadaiku",
-            to_name : "wildanabdurrohman11@gmail.com",
-            subject : "test",
+            to_name : "testphpmailer.999@gmail.com",
+            subject : "Gadaiku-Pengajuan",
             message_html: this.state.form
             
                        
@@ -725,9 +614,9 @@ export default class FormPengajuan extends Component {
         
         emailjs.send(
             'gmail',
-            'template_eHuNelJK',
+            'template_DuQL4fJ4',
             templateParams,
-            'user_aXb6zX3p81Aj1sksy3ZPG'
+            'user_ZzTqxX8Pvcd9Vonr4z8pd'
         )
 
     }

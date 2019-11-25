@@ -15,15 +15,15 @@ export default function App() {
   return (
 <Router>
     <div>
-        <section class="py-3 bg-image-ful">
-            <img style={{width: "2048px"}} src="img/gadaiku/bannerFix.png" alt="Gadaiku.Com"/>
+        <section className="py-3 bg-image-ful">
+            <img style={{width: "2048px"}} src="./img/gadaiku/bannerloan.jpg" alt="Gadaiku.Com"/>
         </section>
     </div>
         <CardGroup style={{width:"70%",marginLeft:"15%", marginRight:"15%" , marginBottom:"50px"}}>
             <Card style={{ width: '18rem' }}>
                 <Card.Body>
                 <Link to="/Karyawan">
-                    <img class="img-fluid rounded" src="./img/worker.png"/>
+                    <img style={{width: "150px"}} className="img-fluid rounded" src="./img/gadaiku/personal.jpg" alt="gadaiku.com"/>
                 </Link>
                 <Card.Text>
                     Some quick example text to build on the card title and make up the bulk
@@ -34,7 +34,7 @@ export default function App() {
             <Card style={{ width: '18rem' }}>
                 <Card.Body>
                 <Link to="/PT">
-                    <img class="img-fluid rounded" src="./img/company.png"/>
+                    <img style={{width: "150px"}} className="img-fluid rounded" src="./img/gadaiku/company1.jpg" alt="gadaiku.com"/>
                 </Link>
                 <Card.Text>
                     Some quick example text to build on the card title and make up the bulk
@@ -45,7 +45,7 @@ export default function App() {
             <Card style={{ width: '18rem' }}>
                 <Card.Body>
                 <Link to="/CV">
-                    <img class="img-fluid rounded" src="./img/cv.png" />
+                    <img style={{width: "150px"}} className="img-fluid rounded" src="./img/gadaiku/handshake.jpg" alt="gadaiku.com"/>
                 </Link>
                 <Card.Text>
                     Some quick example text to build on the card title and make up the bulk
@@ -79,12 +79,12 @@ function Karyawan() {
 
 function PT() {
     return(
-        <FormPerusahaan/>
+            <FormPerusahaan/>
      );
 }
 
 function CV() {
   return (
-        <FormCV/>
+            <FormCV/>
     );
 }
