@@ -236,8 +236,14 @@ export default class FormPengajuan extends Component {
         }
 
         else{
-            alert("OK");
-            this.sendEmail();
+            
+            
+           var temp =  window.confirm("Pastikan data yang anda masukan sudah benar. ");
+
+           if (temp == true){
+                this.sendEmail();
+                alert("silahkan Cek Email anda");
+           }
         }
 
         
