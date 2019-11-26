@@ -104,11 +104,11 @@ export default class FormPengajuan extends Component {
                 <Form onSubmit={this.handleSubmit} style={{display:"block"}} value={this.state.form}>
 
                 <div className="content" style={{marginTop:"50px"}}>
-                    <h3>Form Pengajuan</h3>
+                    <h3>&nbsp; Form Pengajuan</h3>
                 </div>
                 
                 <hr/>
-
+                
                     <Form.Row>
                         <input type="text" id="njop_pass" value={this.state.njop_pass} onChange={this.handleChange_njop_pass} />
                         <input type="hidden" id="totPinjaman_pass" value=""  /> 

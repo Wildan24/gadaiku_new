@@ -10,10 +10,12 @@ export default class FormPerusahaan extends Component {
             <Container style={{marginBottom:"50px"}}>
             <div class="container">
                 <div class="content">
-                    <h5>Form Pengajuan Perusahaan</h5>
+                    <h5>	&nbsp; Form Pengajuan Perusahaan</h5>
                 </div>
             </div>
             <hr/>
+            <div class="card">
+            <div class="card-content">
         <Form>
             <Form.Row>
                 <Form.Group as={Col} controlId="formGridNama">
@@ -273,6 +275,8 @@ export default class FormPerusahaan extends Component {
                 AJUKAN
             </Button>
         </Form>
+        </div>
+        </div>
         </Container>
         </Fragment>
 
