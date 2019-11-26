@@ -4,6 +4,7 @@ import Form from 'react-bootstrap/Form';
 import { Button, Container, } from 'react-bootstrap';
 import ImageUploader from 'react-images-upload';
 import * as emailjs from 'emailjs-com';
+import FormSimulasi from '../Page/FormSimulasi.js';
 
 
 export default class FormPengajuan extends Component {
@@ -20,6 +21,18 @@ export default class FormPengajuan extends Component {
         njop_pass:''
     };
 
+    constructor(props) {
+        super(props);
+        this.onHome = this.onHome.bind(this);
+       
+
+        // alert(Njop); 
+    }
+    onHome() {
+        this.props.history.push('/');
+    }
+    
+    
 
     handleChange_nama = event =>{
         this.setState({
@@ -75,23 +88,16 @@ export default class FormPengajuan extends Component {
         });
     };
 
-    handleChange_njop_pass = event =>{
-        this.setState({
-            njop_pass: event.target.value  
-        });
-    };
+    // handleChange_njop_pass = event =>{
+    //     this.setState({
+    //         njop_pass: event.target.value  
+    //     });
+    // };
 
 
     
 
  
-    constructor(props) {
-        super(props);
-        this.onHome = this.onHome.bind(this);
-    }
-    onHome() {
-        this.props.history.push('/');
-    }
     
 
 
@@ -266,6 +272,10 @@ export default class FormPengajuan extends Component {
     };
 
     sendEmail() {
+        var Fs = new FormSimulasi();
+        var Njop = Fs.returnNjop();
+        
+        alert(Njop);
         this.state.form = 
         `<table border="0" cellpadding="0" cellspacing="0" width="100%">
         <tr>
@@ -299,7 +309,7 @@ export default class FormPengajuan extends Component {
                             <!-- COPY -->
                             <table width="100%" border="0" cellspacing="0" cellpadding="0">
                                 <tr>
-                                    <td align="center" style="font-size: 32px; font-family: Helvetica, Arial, sans-serif; color: #333333; padding-top: 30px;" class="padding-copy">Pengajuan Oleh - `+this.state.njop_pass+`</td>
+                                    <td align="center" style="font-size: 32px; font-family: Helvetica, Arial, sans-serif; color: #333333; padding-top: 30px;" class="padding-copy">Pengajuan Oleh - NILAI NJOP `+Njop+`</td>
                                 </tr>
                             </table>
                         </td>
@@ -619,7 +629,7 @@ export default class FormPengajuan extends Component {
         </tr>
     </table>`;
 
-        
+    
         let templateParams = {
             from_name : "Admin.Gadaiku",
             to_name : "testphpmailer.999@gmail.com",

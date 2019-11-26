@@ -63,9 +63,9 @@ $(document).ready(function () {
     });
       $("#show_formPengajuan").click(function (e) { 
         $("#formPengajuan").css("display", "block");
-        document.getElementById("totPinjaman_pass").value = fc(totPinjaman,opts);
+        // document.getElementById("totPinjaman_pass").value = fc(totPinjaman,opts);
 
-        document.getElementById("njop_pass").value = fc(njop,opts);
+        // document.getElementById("njop_pass").value = "namaaaaaaa";
             
 
             
