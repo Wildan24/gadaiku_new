@@ -265,10 +265,6 @@ export default class FormPengajuan extends Component {
             alert("ktp 16 karakter")
 
         } else {
-            alert("OK");
-            this.sendEmail();
-
-        } else {
             
            var temp =  window.confirm("Pastikan data yang anda masukan sudah benar.");
            if (temp == true){
