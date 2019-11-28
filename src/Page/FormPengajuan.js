@@ -4,13 +4,10 @@ import Form from 'react-bootstrap/Form';
 import { Button, Container, } from 'react-bootstrap';
 import ImageUploader from 'react-images-upload';
 import * as emailjs from 'emailjs-com';
-<<<<<<< HEAD
 import axios from 'axios';
 import { FilePond } from 'react-filepond';
 import 'filepond/dist/filepond.min.css';
-=======
 import FormSimulasi from '../Page/FormSimulasi.js';
->>>>>>> 4331d9906f76fc3cf9f2bf5e9d82b74b1681936e
 
 
 export default class FormPengajuan extends Component {
@@ -23,12 +20,10 @@ export default class FormPengajuan extends Component {
         namaPengajak:'',
         tujuanPeminjaman:'',
         Form:'',
-<<<<<<< HEAD
         selectedFile: null,
-=======
 
         njop_pass:''
->>>>>>> 4331d9906f76fc3cf9f2bf5e9d82b74b1681936e
+
     };
 
     constructor(props) {
@@ -92,17 +87,8 @@ export default class FormPengajuan extends Component {
             Form: event.target.value  
         });
     };
-<<<<<<< HEAD
  
-    constructor(props) {
-        super(props);
-        this.onHome = this.onHome.bind(this);
-    }
 
-    onHome() {
-        this.props.history.push('/');
-    }
-=======
 
     // handleChange_njop_pass = event =>{
     //     this.setState({
@@ -111,10 +97,6 @@ export default class FormPengajuan extends Component {
     // };
 
 
-    
-
- 
->>>>>>> 4331d9906f76fc3cf9f2bf5e9d82b74b1681936e
     
     fileSelectedHandler = event => {
         this.setState({
@@ -285,12 +267,10 @@ export default class FormPengajuan extends Component {
     //         alert("ktp 16 karakter")
     //     }
 
-<<<<<<< HEAD
     //     else{
     //         alert("OK");
     //         this.sendEmail();
     //     }
-=======
         else{
             
             
@@ -301,7 +281,7 @@ export default class FormPengajuan extends Component {
                 alert("silahkan Cek Email anda");
            }
         }
->>>>>>> 4331d9906f76fc3cf9f2bf5e9d82b74b1681936e
+
 
         
     //  //as
