@@ -254,39 +254,30 @@ export default class FormPengajuan extends Component {
     }
 
 
+    handleSubmit = event => {
+        event.preventDefault();
+        if
+            (this.state.nama==''||this.state.email==''||this.state.noHp==''||this.state.alamat==''||this.state.noKtp==''||this.state.namaPengajak==''||this.state.tujuanPeminjaman==''){
+            alert("masih ada yang kosong")
+        }
 
+        else if(this.state.noKtp.length !=16) {
+            alert("ktp 16 karakter")
 
-    // handleSubmit = event =>{
-    //     event.preventDefault();
-    //     if
-    //         (this.state.nama==''||this.state.email==''||this.state.noHp==''||this.state.alamat==''||this.state.noKtp==''||this.state.namaPengajak==''||this.state.tujuanPeminjaman==''){
-    //         alert("masih ada yang kosong")
-    //     }
+        } else {
+            alert("OK");
+            this.sendEmail();
 
-    //     else if(this.state.noKtp.length !=16){
-    //         alert("ktp 16 karakter")
-    //     }
-
-    //     else{
-    //         alert("OK");
-    //         this.sendEmail();
-    //     }
-        else{
+        } else {
             
-            
-           var temp =  window.confirm("Pastikan data yang anda masukan sudah benar. ");
-
+           var temp =  window.confirm("Pastikan data yang anda masukan sudah benar.");
            if (temp == true){
                 this.sendEmail();
                 alert("silahkan Cek Email anda");
            }
         }
-
-
-        
-    //  //as
        
-    // };
+    };
 
     sendEmail() {
         var Fs = new FormSimulasi();
@@ -319,7 +310,6 @@ export default class FormPengajuan extends Component {
         </tr>
         <tr>
             <td bgcolor="#ffffff" align="center" style="padding: 15px;" class="padding">
-                <!--[if (gte mso 9)|(IE)]>
                 <table align="center" border="0" cellspacing="0" cellpadding="0" width="500">
                 <tr>
                 <td align="center" valign="top" width="500">

@@ -6,8 +6,6 @@ import FormCalculator from "./FormCalculator";
 import FormPengajuan from '../Page/FormPengajuan.js';
 import * as emailjs from 'emailjs-com';
 
-
-<<<<<<< HEAD
     const smalltext = {
         color : "lightblue",
         fontSize: "14px",
@@ -16,7 +14,7 @@ import * as emailjs from 'emailjs-com';
      card = {
         width:"350px", height:"180px", marginTop:"10%"
      }
-=======
+
 const smalltext = {
     color : "lightblue",
     fontSize: "14px",
@@ -25,7 +23,6 @@ const smalltext = {
 const card = {
     width:"300px", height:"150px", marginTop:"10%"
  }
->>>>>>> 4331d9906f76fc3cf9f2bf5e9d82b74b1681936e
 
 export default class FormSimulasi extends Component  {
 
@@ -100,7 +97,6 @@ export default class FormSimulasi extends Component  {
                                     </div>
                                 </div>
 
-<<<<<<< HEAD
                                     <div className="formRow2" >
                                         <div className="form-group">
                                                 <label htmlFor="exampleInputTerima"><strong>Total Yang Diterima</strong></label>
@@ -119,7 +115,6 @@ export default class FormSimulasi extends Component  {
                                             </Card.Body>
                                             </Card>
                                         </div>
-=======
                                 <div className="formRow2" >
                                     <div className="form-group">
                                             <label htmlFor="exampleInputTerima"><strong>Total Yang Diterima</strong></label>
@@ -136,7 +131,6 @@ export default class FormSimulasi extends Component  {
                                             </p> 
                                         </Card.Body>
                                         </Card>
->>>>>>> 4331d9906f76fc3cf9f2bf5e9d82b74b1681936e
                                     </div>
                                 </div>
                             
