@@ -13,7 +13,7 @@ export default function App() {
         fontWeight:"bold"
     },
      card = {
-        width:"300px", height:"150px", marginTop:"10%"
+        width:"350px", height:"180px", marginTop:"10%"
      }
 
   return (
@@ -73,10 +73,11 @@ export default function App() {
                                         </div>
                                         <div>
                                             <Card border="danger" style={card}>
-                                            <Card.Body>
-                                            <label htmlFor="exampleInputBunga"><strong>Bunga Per Bulan</strong></label>
+                                            <Card.Body class="text-center">
+                                            <label style={{marginTop:"5%", marginBottom:"5%"}} htmlFor="exampleInputBunga"><strong>Bunga Per Bulan</strong></label>
+                                            <br/>
                                             <input type="text" style={{fontWeight:"bold", backgroundColor:"#fdc66c"}} className="form-control" id="BungaPerBulan" placeholder="Bunga Per Bulan" disabled/>
-                                                <p style={{fontSize:"12px"}}>
+                                                <p style={{fontSize:"16px"}}>
                                                     Note: Perhitungan ini sifatnya simulasi belaka. Untuk lebih jelasnya silakan hubungi pemberi kredit
                                                 </p> 
                                             </Card.Body>

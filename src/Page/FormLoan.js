@@ -12,50 +12,56 @@ import FormCV from "./FormCV";
 
 
 export default function App() {
+    const iconButton = {
+        marginLeft: 'auto',
+        marginRight: 'auto',
+        width: '40%'
+        }
+
   return (
-<Router>
-    <div>
-        <section className="py-3 bg-image-ful">
-            <img style={{width: "2048px"}} src="./img/gadaiku/bannerloan.jpg" alt="Gadaiku.Com"/>
-        </section>
-    </div>
-        <CardGroup style={{width:"70%",marginLeft:"15%", marginRight:"15%" , marginBottom:"50px"}}>
-            <Card style={{ width: '18rem' }}>
-                <Card.Body>
+    <Router>
+        <div>
+            <section className="py-3 bg-image-ful">
+                <img style={{width:"2048px"}} src="./img/gadaiku/bannerloan.jpg" alt="Gadaiku.Com"/>
+            </section>
+        </div>
+
+        <br/>
+            
+        <div className="form-row row mt-5">
+            <div className="col-md-12">
+                <p style={{margin:"none", textAlign:"center"}}><strong>Kami memiliki Loan Adviser yang selalu siap membantu Anda
+                Dengan lebih 100 Loan Adviser di seluruh Indonesia, 
+                kami selalu memiliki seseorang yang selalu siap membantu Anda. 
+                Loan Adviser kami akan menghubungi dan bertemu Anda kapan pun Anda mau.</strong></p>
+            </div>
+            <div className="col-md-2" style={iconButton}>
+                <p className="text-center"><strong>Form Personal</strong></p>
                 <Link to="/Karyawan">
-                    <img style={{width: "150px"}} className="img-fluid rounded" src="./img/gadaiku/personal.jpg" alt="gadaiku.com"/>
+                  <img className="img-fluid rounded" style={{width:"200px"}} src="./img/gadaiku/personal.jpg"  alt="form personal"/>
                 </Link>
-                <Card.Text>
-                    Some quick example text to build on the card title and make up the bulk
-                    of the card's content.
-                </Card.Text>
-                </Card.Body>
-            </Card>
-            <Card style={{ width: '18rem' }}>
-                <Card.Body>
+            </div>
+              
+            <div className="col-md-2" style={iconButton}>
+                <p className="text-center"><strong>Form Company</strong></p>
                 <Link to="/PT">
-                    <img style={{width: "150px"}} className="img-fluid rounded" src="./img/gadaiku/company1.jpg" alt="gadaiku.com"/>
+                  <img className="img-fluid rounded" style={{width:"200px"}} src="./img/gadaiku/company1.jpg" alt="form company"/>
                 </Link>
-                <Card.Text>
-                    Some quick example text to build on the card title and make up the bulk
-                    of the card's content.
-                </Card.Text>
-                </Card.Body>
-            </Card>
-            <Card style={{ width: '18rem' }}>
-                <Card.Body>
+            </div>
+
+            <div className="col-md-2" style={iconButton}>
+                <p className="text-center"><strong>Form CV</strong></p>
                 <Link to="/CV">
-                    <img style={{width: "150px"}} className="img-fluid rounded" src="./img/gadaiku/handshake.jpg" alt="gadaiku.com"/>
+                  <img className="img-fluid rounded" style={{width:"200px"}} src="./img/gadaiku/handshake.jpg" alt="Simulasi"/>
                 </Link>
-                <Card.Text>
-                    Some quick example text to build on the card title and make up the bulk
-                    of the card's content.
-                </Card.Text>
-                </Card.Body>
-            </Card>
-        </CardGroup>   
+            </div>
+
+        </div>   
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
+        <br/>
+            <br/>
+
         <Switch>
             <Route path="/Karyawan">
                 <Karyawan />
@@ -67,9 +73,10 @@ export default function App() {
                 <CV />
             </Route>
         </Switch>
-</Router>
+    </Router>
   );
 }
+
 
 function Karyawan() {
   return (

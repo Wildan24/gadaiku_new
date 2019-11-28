@@ -5,6 +5,9 @@ import { Button, Container, } from 'react-bootstrap';
 import ImageUploader from 'react-images-upload';
 import * as emailjs from 'emailjs-com';
 import axios from 'axios';
+import { FilePond } from 'react-filepond';
+import 'filepond/dist/filepond.min.css';
+
 
 export default class FormPengajuan extends Component {
     state = {
@@ -16,8 +19,9 @@ export default class FormPengajuan extends Component {
         namaPengajak:'',
         tujuanPeminjaman:'',
         Form:'',
-        selectedFile:null,
+        selectedFile: null,
     };
+
 
 
     handleChange_nama = event =>{
@@ -44,12 +48,6 @@ export default class FormPengajuan extends Component {
         });
     };
 
-    handleChange_email = event =>{
-        this.setState({
-            email: event.target.value  
-        });
-    };
-
     handleChange_noKtp = event =>{
         this.setState({
             noKtp: event.target.value  
@@ -73,19 +71,30 @@ export default class FormPengajuan extends Component {
             Form: event.target.value  
         });
     };
-
-    
-
  
     constructor(props) {
         super(props);
         this.onHome = this.onHome.bind(this);
     }
+
     onHome() {
         this.props.history.push('/');
     }
     
+    fileSelectedHandler = event => {
+        this.setState({
+            selectedFile:event.target.files[0]
+        })
+    }
 
+    fileUploadHandler = () => {
+        const fd = new FormData ();
+        fd.append('image', this.state.selectedFile, this.state.selectedFile.name);
+        axios.post('gs://gadaiku-9cdca.appspot.com', fd)
+        .then(res => {
+            console.log(res);
+        })
+    }
 
     render(){
 
@@ -93,7 +102,7 @@ export default class FormPengajuan extends Component {
 
             <Container id="formPengajuan" style={{display:"none"}}>
 
-                <Form onSubmit={this.handleSubmit} style={{display:"block"}} value={this.state.form}>
+                <Form onSubmit={this.onHandleSubmit} onClick={this.fileUploadHandler} style={{display:"block"}} value={this.state.form}>
 
                 <div className="content" style={{marginTop:"50px"}}>
                     <h3>Form Pengajuan</h3>
@@ -148,14 +157,7 @@ export default class FormPengajuan extends Component {
                     <Form.Row>
                         <Form.Group as={Col} controlId="ktpsuami" style={{marginTop:"10px"}}>
                         <Form.Label><strong>KTP Suami</strong></Form.Label>
-                        <ImageUploader 
-                            withIcon={true} 
-                            withPreview={true} 
-                            buttonText='Choose Images' 
-                            imgExtension={['.jpg','.png']} 
-                            maxFileSize={2097152}
-                            onChange={this.onChangeHandler}
-                            />
+                        <input type="file" name="ktpSuami" onChange={this.fileSelectedHandler}/>
                         </Form.Group>
 
                         <Form.Group as={Col} controlId="ktpistri" style={{marginTop:"10px"}}>
@@ -232,26 +234,26 @@ export default class FormPengajuan extends Component {
 
 
 
-    handleSubmit = event =>{
-        event.preventDefault();
-        if
-            (this.state.nama==''||this.state.email==''||this.state.noHp==''||this.state.alamat==''||this.state.noKtp==''||this.state.namaPengajak==''||this.state.tujuanPeminjaman==''){
-            alert("masih ada yang kosong")
-        }
+    // handleSubmit = event =>{
+    //     event.preventDefault();
+    //     if
+    //         (this.state.nama==''||this.state.email==''||this.state.noHp==''||this.state.alamat==''||this.state.noKtp==''||this.state.namaPengajak==''||this.state.tujuanPeminjaman==''){
+    //         alert("masih ada yang kosong")
+    //     }
 
-        else if(this.state.noKtp.length !=16){
-            alert("ktp 16 karakter")
-        }
+    //     else if(this.state.noKtp.length !=16){
+    //         alert("ktp 16 karakter")
+    //     }
 
-        else{
-            alert("OK");
-            this.sendEmail();
-        }
+    //     else{
+    //         alert("OK");
+    //         this.sendEmail();
+    //     }
 
         
-     //as
+    //  //as
        
-    };
+    // };
 
     sendEmail() {
         this.state.form = 

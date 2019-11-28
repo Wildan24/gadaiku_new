@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from "react";
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form'
+import Card from 'react-bootstrap/Card';
 import { Button, Container} from 'react-bootstrap';
 
 export default class FormKaryawan extends Component {
@@ -120,6 +121,12 @@ export default class FormKaryawan extends Component {
 
 
     render(){
+
+    const 
+        card = {
+            width:"300px", height:"150px", marginTop:"10%"
+         };
+
         return(
             <Fragment>
             <Container style={{marginBottom:"20px"}}>
@@ -128,9 +135,11 @@ export default class FormKaryawan extends Component {
                     <strong><h5>Form Pengajuan Karyawan</h5></strong>
                 </div>
             </div>
+
             <hr/>
-<div class="card">
-    <div class="card-content">
+
+    <div class="card">
+      <div class="card-content">
         <Form onSubmit={this.handleSubmit}>
             <Form.Row>
                 <Form.Group as={Col} controlId="formGridNama" style={{marginTop:"10px"}}>
@@ -379,6 +388,16 @@ export default class FormKaryawan extends Component {
 
             <br/>
             <br/>
+
+            <Card border="danger" style={{marginBottom:"30px"}}>
+                <Card.Body>
+                    <p class="text-center" style={{fontSize:"18px", text:"center"}}>
+                    I authorize prospective Credit Grantors/Lending/Leasing Companies to obtain personal and credit information about me from my employer and credit bureau, or credit reporting agency, any person who has or may have any financial dealing with me, or from any references I have provided. 
+                    This information, as well as that provided by me in the application, will be referred to in connection with this lease and any other relationships we may establish from time to time. 
+                    Any personal and credit information obtained may be disclosed from time to time to other lenders, credit bureaus or other credit reporting agencies. *
+                    </p> 
+                </Card.Body>
+            </Card>
 
             <Button variant="outline-primary" type="submit" size="md" block>
                 AJUKAN
