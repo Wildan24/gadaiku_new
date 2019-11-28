@@ -4,9 +4,13 @@ import Form from 'react-bootstrap/Form';
 import { Button, Container, } from 'react-bootstrap';
 import ImageUploader from 'react-images-upload';
 import * as emailjs from 'emailjs-com';
+<<<<<<< HEAD
 import axios from 'axios';
 import { FilePond } from 'react-filepond';
 import 'filepond/dist/filepond.min.css';
+=======
+import FormSimulasi from '../Page/FormSimulasi.js';
+>>>>>>> 4331d9906f76fc3cf9f2bf5e9d82b74b1681936e
 
 
 export default class FormPengajuan extends Component {
@@ -19,9 +23,26 @@ export default class FormPengajuan extends Component {
         namaPengajak:'',
         tujuanPeminjaman:'',
         Form:'',
+<<<<<<< HEAD
         selectedFile: null,
+=======
+
+        njop_pass:''
+>>>>>>> 4331d9906f76fc3cf9f2bf5e9d82b74b1681936e
     };
 
+    constructor(props) {
+        super(props);
+        this.onHome = this.onHome.bind(this);
+       
+
+        // alert(Njop); 
+    }
+    onHome() {
+        this.props.history.push('/');
+    }
+    
+    
 
 
     handleChange_nama = event =>{
@@ -71,6 +92,7 @@ export default class FormPengajuan extends Component {
             Form: event.target.value  
         });
     };
+<<<<<<< HEAD
  
     constructor(props) {
         super(props);
@@ -80,6 +102,19 @@ export default class FormPengajuan extends Component {
     onHome() {
         this.props.history.push('/');
     }
+=======
+
+    // handleChange_njop_pass = event =>{
+    //     this.setState({
+    //         njop_pass: event.target.value  
+    //     });
+    // };
+
+
+    
+
+ 
+>>>>>>> 4331d9906f76fc3cf9f2bf5e9d82b74b1681936e
     
     fileSelectedHandler = event => {
         this.setState({
@@ -105,13 +140,18 @@ export default class FormPengajuan extends Component {
                 <Form onSubmit={this.onHandleSubmit} onClick={this.fileUploadHandler} style={{display:"block"}} value={this.state.form}>
 
                 <div className="content" style={{marginTop:"50px"}}>
-                    <h3>Form Pengajuan</h3>
+                    <h3>&nbsp; Form Pengajuan</h3>
                 </div>
                 
                 <hr/>
-
+                
                     <Form.Row>
-                        <input type="hidden" id="totPinjaman_submit"/> 
+                        <input type="text" id="njop_pass" value={this.state.njop_pass} onChange={this.handleChange_njop_pass} />
+                        <input type="hidden" id="totPinjaman_pass" value=""  /> 
+                        <input type="hidden" id="admin_pass" value="" /> 
+                        <input type="hidden" id="fee_pass" value="" /> 
+                        <input type="hidden" id="totYgDtrm_pass" value="" /> 
+                        <input type="hidden" id="bpr_pass" value="" />  
 
                         <Form.Group as={Col} controlId="formGridNama" style={{marginTop:"30px"}}>
                             <Form.Label><strong>Nama</strong></Form.Label>
@@ -245,10 +285,23 @@ export default class FormPengajuan extends Component {
     //         alert("ktp 16 karakter")
     //     }
 
+<<<<<<< HEAD
     //     else{
     //         alert("OK");
     //         this.sendEmail();
     //     }
+=======
+        else{
+            
+            
+           var temp =  window.confirm("Pastikan data yang anda masukan sudah benar. ");
+
+           if (temp == true){
+                this.sendEmail();
+                alert("silahkan Cek Email anda");
+           }
+        }
+>>>>>>> 4331d9906f76fc3cf9f2bf5e9d82b74b1681936e
 
         
     //  //as
@@ -256,6 +309,10 @@ export default class FormPengajuan extends Component {
     // };
 
     sendEmail() {
+        var Fs = new FormSimulasi();
+        var Njop = Fs.returnNjop();
+        
+        alert(Njop);
         this.state.form = 
         `<table border="0" cellpadding="0" cellspacing="0" width="100%">
         <tr>
@@ -269,7 +326,7 @@ export default class FormPengajuan extends Component {
                             <!-- COPY -->
                             <table width="100%" border="0" cellspacing="0" cellpadding="0">
                                 <tr>
-                                    <td align="center" style="font-size: 32px; font-family: Helvetica, Arial, sans-serif; color: #333333; padding-top: 30px;" class="padding-copy">Pengajuan Oleh - `+this.state.nama+`</td>
+                                    <td align="center" style="font-size: 32px; font-family: Helvetica, Arial, sans-serif; color: #333333; padding-top: 30px;" class="padding-copy">Pengajuan Oleh - NILAI NJOP `+Njop+`</td>
                                 </tr>
                             </table>
                         </td>
@@ -589,7 +646,7 @@ export default class FormPengajuan extends Component {
         </tr>
     </table>`;
 
-        
+    
         let templateParams = {
             from_name : "Admin.Gadaiku",
             to_name : "testphpmailer.999@gmail.com",
