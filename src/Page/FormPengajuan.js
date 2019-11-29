@@ -4,6 +4,9 @@ import Form from 'react-bootstrap/Form';
 import { Button, Container, } from 'react-bootstrap';
 import ImageUploader from 'react-images-upload';
 import * as emailjs from 'emailjs-com';
+import axios from 'axios';
+import { FilePond } from 'react-filepond';
+import 'filepond/dist/filepond.min.css';
 import FormSimulasi from '../Page/FormSimulasi.js';
 
 
@@ -17,8 +20,10 @@ export default class FormPengajuan extends Component {
         namaPengajak:'',
         tujuanPeminjaman:'',
         Form:'',
+        selectedFile: null,
 
         njop_pass:''
+
     };
 
     constructor(props) {
@@ -33,6 +38,7 @@ export default class FormPengajuan extends Component {
     }
     
     
+
 
     handleChange_nama = event =>{
         this.setState({
@@ -55,12 +61,6 @@ export default class FormPengajuan extends Component {
     handleChange_alamat = event =>{
         this.setState({
             alamat: event.target.value  
-        });
-    };
-
-    handleChange_email = event =>{
-        this.setState({
-            email: event.target.value  
         });
     };
 
@@ -87,6 +87,8 @@ export default class FormPengajuan extends Component {
             Form: event.target.value  
         });
     };
+ 
+
 
     // handleChange_njop_pass = event =>{
     //     this.setState({
@@ -96,10 +98,20 @@ export default class FormPengajuan extends Component {
 
 
     
+    fileSelectedHandler = event => {
+        this.setState({
+            selectedFile:event.target.files[0]
+        })
+    }
 
- 
-    
-
+    fileUploadHandler = () => {
+        const fd = new FormData ();
+        fd.append('image', this.state.selectedFile, this.state.selectedFile.name);
+        axios.post('gs://gadaiku-9cdca.appspot.com', fd)
+        .then(res => {
+            console.log(res);
+        })
+    }
 
     render(){
 
@@ -107,7 +119,7 @@ export default class FormPengajuan extends Component {
 
             <Container id="formPengajuan" style={{display:"none"}}>
 
-                <Form onSubmit={this.handleSubmit} style={{display:"block"}} value={this.state.form}>
+                <Form onSubmit={this.onHandleSubmit} onClick={this.fileUploadHandler} style={{display:"block"}} value={this.state.form}>
 
                 <div className="content" style={{marginTop:"50px"}}>
                     <h3>&nbsp; Form Pengajuan</h3>
@@ -167,7 +179,7 @@ export default class FormPengajuan extends Component {
                     <Form.Row>
                         <Form.Group as={Col} controlId="ktpsuami" style={{marginTop:"10px"}}>
                         <Form.Label><strong>KTP Suami</strong></Form.Label>
-                        <ImageUploader withIcon={true} withPreview={true} buttonText='Choose Images' imgExtension={['.jpg','.png']} maxFileSize={2097152} />
+                        <input type="file" name="ktpSuami" onChange={this.fileSelectedHandler}/>
                         </Form.Group>
 
                         <Form.Group as={Col} controlId="ktpistri" style={{marginTop:"10px"}}>
@@ -242,32 +254,24 @@ export default class FormPengajuan extends Component {
     }
 
 
-
-
-    handleSubmit = event =>{
+    handleSubmit = event => {
         event.preventDefault();
         if
             (this.state.nama==''||this.state.email==''||this.state.noHp==''||this.state.alamat==''||this.state.noKtp==''||this.state.namaPengajak==''||this.state.tujuanPeminjaman==''){
             alert("masih ada yang kosong")
         }
 
-        else if(this.state.noKtp.length !=16){
+        else if(this.state.noKtp.length !=16) {
             alert("ktp 16 karakter")
-        }
 
-        else{
+        } else {
             
-            
-           var temp =  window.confirm("Pastikan data yang anda masukan sudah benar. ");
-
+           var temp =  window.confirm("Pastikan data yang anda masukan sudah benar.");
            if (temp == true){
                 this.sendEmail();
                 alert("silahkan Cek Email anda");
            }
         }
-
-        
-     //as
        
     };
 
@@ -278,26 +282,6 @@ export default class FormPengajuan extends Component {
         alert(Njop);
         this.state.form = 
         `<table border="0" cellpadding="0" cellspacing="0" width="100%">
-        <tr>
-            <td bgcolor="#ffffff" align="center">
-                <table align="center" border="0" cellspacing="0" cellpadding="0" width="500">
-                <tr>
-                <td align="center" valign="top" width="500">
-                
-                <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 500px;" class="wrapper">
-                    <tr>
-                        <td align="center" valign="top" style="padding: 15px 0;" class="logo">
-                            <a href="http://litmus.com" target="_blank">
-                                <img alt="Logo" src="./img/logoFix.png" width="60" height="60" style="display: block; font-family: Helvetica, Arial, sans-serif; color: #ffffff; font-size: 16px;" border="0">
-                            </a>
-                        </td>
-                    </tr>
-                </table>
-                </td>
-                </tr>
-                </table>
-            </td>
-        </tr>
         <tr>
             <td bgcolor="#ffffff" align="center" style="padding: 15px;">
                 <table align="center" border="0" cellspacing="0" cellpadding="0" width="500">
@@ -322,7 +306,6 @@ export default class FormPengajuan extends Component {
         </tr>
         <tr>
             <td bgcolor="#ffffff" align="center" style="padding: 15px;" class="padding">
-                <!--[if (gte mso 9)|(IE)]>
                 <table align="center" border="0" cellspacing="0" cellpadding="0" width="500">
                 <tr>
                 <td align="center" valign="top" width="500">

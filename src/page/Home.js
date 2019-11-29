@@ -20,12 +20,54 @@ class Home extends Component{
           </section>
 
           <div className="container">
-              <div className="row">
-                <div className="col-md-12">
-                  <h3 style={{margin:"none"}} className="section-title">Kenapa memilih <strong>GADAIKU ?</strong></h3>
-                </div>
+              
+            <div className="row">
+              <div className="col-md-12">
+                <h3 style={{margin:"none"}} className="section-title">Kenapa memilih <strong>GADAIKU ?</strong></h3>
               </div>
-              <br/>
+            </div>
+            
+            <div className="row mt-5">
+              <div className="col-md-12">
+                <p style={{margin:"none", textAlign:"center"}}><strong>Kami memiliki Loan Adviser yang selalu siap membantu Anda
+                Dengan lebih 100 Loan Adviser di seluruh Indonesia, 
+                kami selalu memiliki seseorang yang selalu siap membantu Anda. 
+                Loan Adviser kami akan menghubungi dan bertemu Anda kapan pun Anda mau.</strong></p>
+              </div>
+
+              <div className="col-md-2" style={iconButton}>
+                <Link to="/FormSimulasi">
+                  <img className="img-fluid rounded" style={{width: "200px"}} src="./img/gadaiku/calculator1.jpg"  alt="calculator"/>
+                </Link>
+                <br/>
+                <br/>
+                <p className="text-center"><strong>Simulasi Kalkulator</strong></p>
+                <br/>
+                <br/>
+              </div>
+              
+              <div className="col-md-2" style={iconButton}>
+                <Link to="/FormLoan">
+                  <img className="img-fluid rounded" style={{width: "200px"}} src="./img/gadaiku/handshake.jpg" alt="Simulasi"/>
+                </Link>
+                <br/>
+                <br/>
+                <p className="text-center"><strong>Form Loan</strong></p>
+                <br/>
+                <br/>
+              </div>
+            </div>
+
+            <hr/>
+
+            <div className="row">
+              <div className="col-md-12">
+                <h3 style={{margin:"none"}} className="section-title">Kenapa memilih <strong>GADAIKU ?</strong></h3>
+              </div>
+            </div>
+
+            <br/>
+
             <div id="services" style={{textAlign:"center"}}>
 
                 <div className="row">
@@ -64,38 +106,9 @@ class Home extends Component{
               </div>
           
             </div>
-              
+            
             <hr/>
 
-            <div className="row mt-5">
-
-              <div className="col-md-12">
-                <p style={{margin:"none", textAlign:"center"}}><strong>Kami memiliki Loan Adviser yang selalu siap membantu Anda
-                Dengan lebih 100 Loan Adviser di seluruh Indonesia, 
-                kami selalu memiliki seseorang yang selalu siap membantu Anda. 
-                Loan Adviser kami akan menghubungi dan bertemu Anda kapan pun Anda mau.</strong></p>
-              </div>
-
-              <div className="col-md-2" style={iconButton}>
-              <Link to="/FormSimulasi">
-                <img className="img-fluid rounded" style={{width: "200px"}} src="./img/gadaiku/calculator1.jpg"  alt="calculator"/>
-              </Link>
-              <p className="text-center">Simulasi Kalkulator</p>
-              <br/>
-              <br/>
-              </div>
-              
-              <div className="col-md-2" style={iconButton}>
-                <Link to="/FormLoan">
-                  <img className="img-fluid rounded" style={{width: "200px"}} src="./img/gadaiku/handshake.jpg" alt="Simulasi"/>
-                </Link>
-                <p className="text-center">Form Loan</p>
-                <br/>
-                <br/>
-              </div>
-
-            </div>
-            
             
           </div>
         </div>

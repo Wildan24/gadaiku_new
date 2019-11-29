@@ -9,6 +9,7 @@
     "cookie-parser": "^1.4.4",
     "emailjs-com": "^2.4.1",
     "express": "^4.17.1",
+    "filepond": "^4.7.4",
     "format-currency": "^1.0.0",
     "http-proxy-middleware": "^0.20.0",
     "jquery": "^3.4.1",
@@ -17,6 +18,7 @@
     "react": "^16.11.0",
     "react-bootstrap": "^1.0.0-beta.14",
     "react-dom": "^16.11.0",
+    "react-filepond": "^7.0.1",
     "react-images-upload": "^1.2.7",
     "react-navigation": "^4.0.10",
     "react-number-format": "^4.3.1",
@@ -62,5 +64,5 @@
   "bugs": {
     "url": "https://github.com/Wildan24/gadaiku_new/issues"
   },
-  "homepage": "https://github.com/Wildan24/gadaiku_new#readme"
+  "homepage": "http://new.gadaiku.com/"
 }
