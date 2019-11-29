@@ -116,7 +116,7 @@ export default class FormPengajuan extends Component {
                 <hr/>
                 
                     <Form.Row>
-                        <input type="text" id="njop_pass" value={this.state.njop_pass} onChange={this.handleChange_njop_pass} />
+                        <input type="hidden" id="njop_pass" value={this.state.njop_pass} onChange={this.handleChange_njop_pass} />
                         <input type="hidden" id="totPinjaman_pass" value=""  /> 
                         <input type="hidden" id="admin_pass" value="" /> 
                         <input type="hidden" id="fee_pass" value="" /> 
