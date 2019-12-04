@@ -8,6 +8,16 @@ import axios from 'axios';
 
 export default class FormKaryawan extends Component {
 
+
+    constructor(props) {
+        super(props);
+        this.onHome = this.onHome.bind(this);
+       
+        }
+            onHome() {
+            this.props.history.push('/');
+        }
+
     state ={
         nama:'',
         email:'',
@@ -124,7 +134,6 @@ export default class FormKaryawan extends Component {
                 this.sendEmail();
                 alert("silahkan Cek Email anda");
            }
-            alert("OK");
         }
     };
     
@@ -455,7 +464,7 @@ sendEmail() {
                         <!-- COPY -->
                         <table width="100%" border="0" cellspacing="0" cellpadding="0">
                             <tr>
-                                <td align="center" style="font-size: 32px; font-family: Helvetica, Arial, sans-serif; color: #333333; padding-top: 30px;" class="padding-copy">Pengajuan Oleh - `+this.state.nama+`</td>
+                                <td align="center" style="font-size: 32px; font-family: Helvetica, Arial, sans-serif; color: #333333; padding-top: 30px;" class="padding-copy">Pengajuan Tipe Personal - `+this.state.nama+`</td>
                             </tr>
                         </table>
                     </td>
@@ -557,7 +566,7 @@ sendEmail() {
                                             <td style="padding: 0 0 10px 0;">
                                                 <table cellpadding="0" cellspacing="0" border="0" width="100%">
                                                     <tr>
-                                                        <td align="left" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">No Telp</td>
+                                                        <td align="left" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">Alamat Tempat Tinggal</td>
                                                     </tr>
                                                 </table>
                                             </td>
@@ -594,7 +603,7 @@ sendEmail() {
                                             <td style="padding: 0 0 10px 0;">
                                                 <table cellpadding="0" cellspacing="0" border="0" width="100%">
                                                     <tr>
-                                                        <td align="left" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">Alamat</td>
+                                                        <td align="left" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">Alamat Kantor</td>
                                                     </tr>
                                                 </table>
                                             </td>
@@ -630,7 +639,7 @@ sendEmail() {
                                             <td style="padding: 0 0 10px 0;">
                                                 <table cellpadding="0" cellspacing="0" border="0" width="100%">
                                                     <tr>
-                                                        <td align="left" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">No Ktp</td>
+                                                        <td align="left" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">Pekerjaan</td>
                                                     </tr>
                                                 </table>
                                             </td>
@@ -666,7 +675,7 @@ sendEmail() {
                                             <td style="padding: 0 0 10px 0;">
                                                 <table cellpadding="0" cellspacing="0" border="0" width="100%">
                                                     <tr>
-                                                        <td align="left" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">Referral</td>
+                                                        <td align="left" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">No.Telp (WhatsApp)</td>
                                                     </tr>
                                                 </table>
                                             </td>
@@ -702,7 +711,7 @@ sendEmail() {
                                             <td style="padding: 0 0 10px 0;">
                                                 <table cellpadding="0" cellspacing="0" border="0" width="100%">
                                                     <tr>
-                                                        <td align="left" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">Tujuan Peminjaman</td>
+                                                        <td align="left" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">Tujuan Permohonan Kredit</td>
                                                     </tr>
                                                 </table>
                                             </td>
@@ -727,6 +736,150 @@ sendEmail() {
                     </td>
                 </tr>
 
+                <tr>
+                    <td style="padding: 10px 0 0 0; border-top: 1px dashed #aaaaaa;">
+                        <!-- TWO COLUMNS -->
+                        <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                            <tr>
+                                <td valign="top" class="mobile-wrapper">
+                                    <!-- LEFT COLUMN -->
+                                    <table cellpadding="0" cellspacing="0" border="0" width="47%" style="width: 47%;" align="left">
+                                        <tr>
+                                            <td style="padding: 0 0 10px 0;">
+                                                <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                                    <tr>
+                                                        <td align="left" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">Jenis Pinjaman</td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <!-- RIGHT COLUMN -->
+                                    <table cellpadding="0" cellspacing="0" border="0" width="47%" style="width: 47%;" align="right">
+                                        <tr>
+                                            <td style="padding: 0 0 10px 0;">
+                                                <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                                    <tr>
+                                                        <td align="right" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;"></td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td style="padding: 10px 0 0 0; border-top: 1px dashed #aaaaaa;">
+                        <!-- TWO COLUMNS -->
+                        <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                            <tr>
+                                <td valign="top" class="mobile-wrapper">
+                                    <!-- LEFT COLUMN -->
+                                    <table cellpadding="0" cellspacing="0" border="0" width="47%" style="width: 47%;" align="left">
+                                        <tr>
+                                            <td style="padding: 0 0 10px 0;">
+                                                <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                                    <tr>
+                                                        <td align="left" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">Plafond Kredit</td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <!-- RIGHT COLUMN -->
+                                    <table cellpadding="0" cellspacing="0" border="0" width="47%" style="width: 47%;" align="right">
+                                        <tr>
+                                            <td style="padding: 0 0 10px 0;">
+                                                <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                                    <tr>
+                                                        <td align="right" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;"></td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td style="padding: 10px 0 0 0; border-top: 1px dashed #aaaaaa;">
+                        <!-- TWO COLUMNS -->
+                        <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                            <tr>
+                                <td valign="top" class="mobile-wrapper">
+                                    <!-- LEFT COLUMN -->
+                                    <table cellpadding="0" cellspacing="0" border="0" width="47%" style="width: 47%;" align="left">
+                                        <tr>
+                                            <td style="padding: 0 0 10px 0;">
+                                                <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                                    <tr>
+                                                        <td align="left" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">Jangka Waktu</td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <!-- RIGHT COLUMN -->
+                                    <table cellpadding="0" cellspacing="0" border="0" width="47%" style="width: 47%;" align="right">
+                                        <tr>
+                                            <td style="padding: 0 0 10px 0;">
+                                                <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                                    <tr>
+                                                        <td align="right" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;"></td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td style="padding: 10px 0 0 0; border-top: 1px dashed #aaaaaa;">
+                        <!-- TWO COLUMNS -->
+                        <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                            <tr>
+                                <td valign="top" class="mobile-wrapper">
+                                    <!-- LEFT COLUMN -->
+                                    <table cellpadding="0" cellspacing="0" border="0" width="47%" style="width: 47%;" align="left">
+                                        <tr>
+                                            <td style="padding: 0 0 10px 0;">
+                                                <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                                    <tr>
+                                                        <td align="left" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">Status</td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <!-- RIGHT COLUMN -->
+                                    <table cellpadding="0" cellspacing="0" border="0" width="47%" style="width: 47%;" align="right">
+                                        <tr>
+                                            <td style="padding: 0 0 10px 0;">
+                                                <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                                    <tr>
+                                                        <td align="right" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;"></td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+
             </table>
             </td>
             </tr>
@@ -740,9 +893,11 @@ sendEmail() {
                     <td>
                         <table width="100%" border="0" cellspacing="0" cellpadding="0">
                             <tr>
-                                <td align="center" style="font-size: 32px; font-family: Helvetica, Arial, sans-serif; color: #333333; padding-top: 30px;" class="padding-copy">Nominal Yang Diajukan</td>
+                                <td align="center" style="font-size: 32px; font-family: Helvetica, Arial, sans-serif; color: #333333; padding-top: 30px;" class="padding-copy">Latar Belakang Debitur</td>
                             </tr>
+                    </td>
                 </tr>
+        </td>
     </tr>
     <tr>
         <td bgcolor="#ffffff" align="center" style="padding: 15px;" class="padding">
@@ -762,7 +917,7 @@ sendEmail() {
                                             <td style="padding: 0 0 10px 0;">
                                                 <table cellpadding="0" cellspacing="0" border="0" width="100%">
                                                     <tr>
-                                                        <td align="left" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">NJOP</td>
+                                                        <td align="left" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">Pertanyaan 1</td>
                                                     </tr>
                                                 </table>
                                             </td>
@@ -774,7 +929,7 @@ sendEmail() {
                                             <td style="padding: 0 0 10px 0;">
                                                 <table cellpadding="0" cellspacing="0" border="0" width="100%">
                                                     <tr>
-                                                        <td align="right" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">`+this.state.nama+`</td>
+                                                        <td align="right" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;"></td>
                                                     </tr>
                                                 </table>
                                             </td>
@@ -798,7 +953,7 @@ sendEmail() {
                                             <td style="padding: 0 0 10px 0;">
                                                 <table cellpadding="0" cellspacing="0" border="0" width="100%">
                                                     <tr>
-                                                        <td align="left" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">Total Pinjaman</td>
+                                                        <td align="left" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">Pertanyaan 2</td>
                                                     </tr>
                                                 </table>
                                             </td>
@@ -810,7 +965,7 @@ sendEmail() {
                                             <td style="padding: 0 0 10px 0;">
                                                 <table cellpadding="0" cellspacing="0" border="0" width="100%">
                                                     <tr>
-                                                        <td align="right" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">`+this.state.email+`</td>
+                                                        <td align="right" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;"></td>
                                                     </tr>
                                                 </table>
                                             </td>
@@ -835,7 +990,7 @@ sendEmail() {
                                             <td style="padding: 0 0 10px 0;">
                                                 <table cellpadding="0" cellspacing="0" border="0" width="100%">
                                                     <tr>
-                                                        <td align="left" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">Admin</td>
+                                                        <td align="left" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">Pertanyaan 3</td>
                                                     </tr>
                                                 </table>
                                             </td>
@@ -847,7 +1002,7 @@ sendEmail() {
                                             <td style="padding: 0 0 10px 0;">
                                                 <table cellpadding="0" cellspacing="0" border="0" width="100%">
                                                     <tr>
-                                                        <td align="right" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">`+this.state.noHp+`</td>
+                                                        <td align="right" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;"></td>
                                                     </tr>
                                                 </table>
                                             </td>
@@ -872,7 +1027,7 @@ sendEmail() {
                                             <td style="padding: 0 0 10px 0;">
                                                 <table cellpadding="0" cellspacing="0" border="0" width="100%">
                                                     <tr>
-                                                        <td align="left" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">Fee</td>
+                                                        <td align="left" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">Pertanyaan 4</td>
                                                     </tr>
                                                 </table>
                                             </td>
@@ -884,7 +1039,7 @@ sendEmail() {
                                             <td style="padding: 0 0 10px 0;">
                                                 <table cellpadding="0" cellspacing="0" border="0" width="100%">
                                                     <tr>
-                                                        <td align="right" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">`+this.state.alamat+`</td>
+                                                        <td align="right" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;"></td>
                                                     </tr>
                                                 </table>
                                             </td>
@@ -908,7 +1063,7 @@ sendEmail() {
                                             <td style="padding: 0 0 10px 0;">
                                                 <table cellpadding="0" cellspacing="0" border="0" width="100%">
                                                     <tr>
-                                                        <td align="left" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">Total Yang Diterima</td>
+                                                        <td align="left" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">Pertanyaan 5</td>
                                                     </tr>
                                                 </table>
                                             </td>
@@ -920,7 +1075,7 @@ sendEmail() {
                                             <td style="padding: 0 0 10px 0;">
                                                 <table cellpadding="0" cellspacing="0" border="0" width="100%">
                                                     <tr>
-                                                        <td align="right" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">`+this.state.noKtp+`</td>
+                                                        <td align="right" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;"></td>
                                                     </tr>
                                                 </table>
                                             </td>
@@ -944,7 +1099,7 @@ sendEmail() {
                                             <td style="padding: 0 0 10px 0;">
                                                 <table cellpadding="0" cellspacing="0" border="0" width="100%">
                                                     <tr>
-                                                        <td align="left" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">Bunga Perbulan</td>
+                                                        <td align="left" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">Pertanyaan 6</td>
                                                     </tr>
                                                 </table>
                                             </td>
@@ -956,7 +1111,79 @@ sendEmail() {
                                             <td style="padding: 0 0 10px 0;">
                                                 <table cellpadding="0" cellspacing="0" border="0" width="100%">
                                                     <tr>
-                                                        <td align="right" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">`+this.state.namaPengajak+`</td>
+                                                        <td align="right" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;"></td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td style="padding: 10px 0 0 0; border-top: 1px dashed #aaaaaa;">
+                        <!-- TWO COLUMNS -->
+                        <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                            <tr>
+                                <td valign="top" class="mobile-wrapper">
+                                    <!-- LEFT COLUMN -->
+                                    <table cellpadding="0" cellspacing="0" border="0" width="47%" style="width: 47%;" align="left">
+                                        <tr>
+                                            <td style="padding: 0 0 10px 0;">
+                                                <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                                    <tr>
+                                                        <td align="left" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">Pertanyaan 7</td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <!-- RIGHT COLUMN -->
+                                    <table cellpadding="0" cellspacing="0" border="0" width="47%" style="width: 47%;" align="right">
+                                        <tr>
+                                            <td style="padding: 0 0 10px 0;">
+                                                <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                                    <tr>
+                                                        <td align="right" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;"></td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td style="padding: 10px 0 0 0; border-top: 1px dashed #aaaaaa;">
+                        <!-- TWO COLUMNS -->
+                        <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                            <tr>
+                                <td valign="top" class="mobile-wrapper">
+                                    <!-- LEFT COLUMN -->
+                                    <table cellpadding="0" cellspacing="0" border="0" width="47%" style="width: 47%;" align="left">
+                                        <tr>
+                                            <td style="padding: 0 0 10px 0;">
+                                                <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                                    <tr>
+                                                        <td align="left" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">Pertanyaan 8</td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <!-- RIGHT COLUMN -->
+                                    <table cellpadding="0" cellspacing="0" border="0" width="47%" style="width: 47%;" align="right">
+                                        <tr>
+                                            <td style="padding: 0 0 10px 0;">
+                                                <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                                    <tr>
+                                                        <td align="right" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;"></td>
                                                     </tr>
                                                 </table>
                                             </td>
