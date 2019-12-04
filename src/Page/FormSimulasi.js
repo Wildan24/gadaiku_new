@@ -13,31 +13,10 @@ const smalltext = {
     fontWeight:"bold"
 }
 const card = {
-    width:"300px", height:"150px", marginTop:"10%"
+    width:"320px", height:"200px", marginTop:"10%"
  }
 
 export default class FormSimulasi extends Component  {
-
-     state={
-         njop:"343434343"
-     };
-
-     
-
-     handleChange_njop = event =>{
-        this.setState({
-            njop: event.target.value  
-        });
-
-       
-
-        
-        
-    };
-
-    returnNjop(){
-        return this.state.njop;
-    }
 
     render(){ 
         return (
@@ -52,7 +31,6 @@ export default class FormSimulasi extends Component  {
             <div className="container">
                 <div className="column is-two-quarters">
                     <div className="card">
-                    
                         <div className="card-content">
                             <form>
                                 <h3 className="center">KALKULATOR SIMULASI</h3>        
@@ -62,7 +40,7 @@ export default class FormSimulasi extends Component  {
                                     <label htmlFor="exampleInputNjop"><strong>NJOP</strong></label>
                                     <InputGroup.Prepend>
                                         <InputGroup.Text><strong>Rp</strong></InputGroup.Text>
-                                        <Form.Control type="text" className="form-control" id="njop" aria-describedby="Njop" placeholder="NJOP" value={this.state.njop} onInput={this.handleChange_njop} />
+                                        <Form.Control type="text" className="form-control" id="njop" aria-describedby="Njop" placeholder="NJOP" onInput={this.handleChange_njop} />
                                     </InputGroup.Prepend>
                                 </div>
                                 <div className="form-group col-md-3">
@@ -100,34 +78,16 @@ export default class FormSimulasi extends Component  {
                                             <Card.Body class="text-center">
                                             <label style={{marginTop:"5%", marginBottom:"5%"}} htmlFor="exampleInputBunga"><strong>Bunga Per Bulan</strong></label>
                                             <br/>
-                                            <input type="text" style={{fontWeight:"bold", backgroundColor:"#fdc66c"}} className="form-control" id="BungaPerBulan" placeholder="Bunga Per Bulan" disabled/>
-                                                <p style={{fontSize:"16px"}}>
-                                                    Note: Perhitungan ini sifatnya simulasi belaka. Untuk lebih jelasnya silakan hubungi pemberi kredit
+                                            <input type="text" style={{fontWeight:"bold", backgroundColor:"#fdc66c"}} className="form-control" id="BungaPerBulan" placeholder="Bunga Per Bulan" disabled />
+                                                <p class="text-center" style={{fontSize:"16px"}}>
+                                                    <strong>Note: Perhitungan ini sifatnya simulasi belaka. Untuk lebih jelasnya silakan hubungi pemberi kredit</strong>
                                                 </p> 
                                             </Card.Body>
                                             </Card>
                                         </div>
                                     </div>
-                                <div className="formRow2" >
-                                    <div className="form-group">
-                                            <label htmlFor="exampleInputTerima"><strong>Total Yang Diterima</strong></label>
-                                            <input type="text" style={{fontWeight:"bold", backgroundColor:"#fee8c4"}} className="form-control" id="total_terima" placeholder="Total Yang Diterima" disabled/>
-                                            <small style={smalltext} className="form-text text-muted">*Maksimal yang bisa diapprove</small>
-                                    </div>
-                                    <div>
-                                        <Card border="danger" style={card}>
-                                        <Card.Body>
-                                        <label htmlFor="exampleInputBunga"><strong>Bunga Per Bulan</strong></label>
-                                        <input type="text" style={{fontWeight:"bold", backgroundColor:"#fdc66c"}} className="form-control" id="BungaPerBulan" placeholder="Bunga Per Bulan" disabled/>
-                                            <p style={{fontSize:"12px"}}>
-                                                Note: Perhitungan ini sifatnya simulasi belaka. Untuk lebih jelasnya silakan hubungi pemberi kredit
-                                            </p> 
-                                        </Card.Body>
-                                        </Card>
-                                    </div>
-                                </div>
                             
-                                <Button variant="outline-warning" style={{marginTop:"60px", marginBottom:"30px", fontWeight:"bolder", fontSize:"20px"}} type="button" id="show_formPengajuan" size="md" block>Form Pengajuan</Button>
+                                    <Button variant="outline-warning" style={{marginTop:"60px", marginBottom:"30px", fontWeight:"bolder", fontSize:"20px"}} type="button" id="show_formPengajuan" size="md" block>Form Pengajuan</Button>
                                 
                                 <FormPengajuan />
 

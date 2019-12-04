@@ -22,8 +22,6 @@ export default class FormPengajuan extends Component {
         Form:'',
         selectedFile: null,
 
-        njop_pass:''
-
     };
 
     constructor(props) {
@@ -98,20 +96,22 @@ export default class FormPengajuan extends Component {
 
 
     
-    fileSelectedHandler = event => {
-        this.setState({
-            selectedFile:event.target.files[0]
-        })
-    }
+    // fileSelectedHandler = event => {
+    //     this.setState({
+    //         selectedFile:event.target.files[0]
+    //     })
+    // }
 
-    fileUploadHandler = () => {
-        const fd = new FormData ();
-        fd.append('image', this.state.selectedFile, this.state.selectedFile.name);
-        axios.post('gs://gadaiku-9cdca.appspot.com', fd)
-        .then(res => {
-            console.log(res);
-        })
-    }
+    // fileUploadHandler = () => {
+    //     const fd = new FormData ();
+    //     fd.append('image', this.state.selectedFile, this.state.selectedFile.name);
+    //     axios.post('gs://gadaiku-9cdca.appspot.com', fd)
+    //     .then(res => {
+    //         console.log(res);
+    //     })
+    // }
+
+    
 
     render(){
 
@@ -119,7 +119,7 @@ export default class FormPengajuan extends Component {
 
             <Container id="formPengajuan" style={{display:"none"}}>
 
-                <Form onSubmit={this.onHandleSubmit} onClick={this.fileUploadHandler} style={{display:"block"}} value={this.state.form}>
+                <Form onSubmit={this.onHandleSubmit} style={{display:"block"}} value={this.state.form}>
 
                 <div className="content" style={{marginTop:"50px"}}>
                     <h3>&nbsp; Form Pengajuan</h3>
@@ -128,7 +128,6 @@ export default class FormPengajuan extends Component {
                 <hr/>
                 
                     <Form.Row>
-                        <input type="text" id="njop_pass" value={this.state.njop_pass} onChange={this.handleChange_njop_pass} />
                         <input type="hidden" id="totPinjaman_pass" value=""  /> 
                         <input type="hidden" id="admin_pass" value="" /> 
                         <input type="hidden" id="fee_pass" value="" /> 
@@ -141,7 +140,7 @@ export default class FormPengajuan extends Component {
                         </Form.Group>
 
                         <Form.Group as={Col} controlId="formGridNoHp" style={{marginTop:"30px"}}>
-                            <Form.Label><strong>No.HP</strong></Form.Label>
+                            <Form.Label><strong>No.HP (WhatsApp)</strong></Form.Label>
                             <Form.Control type="number" value={this.state.noHp} onChange={this.handleChange_noHp} placeholder="No.HP" />
                         </Form.Group>
                     </Form.Row>
@@ -169,17 +168,26 @@ export default class FormPengajuan extends Component {
                         </Form.Group>
                     </Form.Row>
 
+                    <Form.Row>
+                        <Form.Group as={Col} controlId="tujuanpeminjaman" style={{marginTop:"10px"}}>
+                        <Form.Label><strong>Tujuan Pengajuan Peminjaman</strong></Form.Label>
+                        <Form.Control type="text" placeholder="Tujuan Pengajuan Peminjaman" value={this.state.tujuanPeminjaman} onChange={this.handleChange_tujuanPeminjaman} />
+                        </Form.Group>
+                    </Form.Row>
+
                     <br/>
                     <hr/>
+
                         <div className="content">
                             <h3>Lampiran</h3>
                         </div>
                     
                     <hr/>
+
                     <Form.Row>
                         <Form.Group as={Col} controlId="ktpsuami" style={{marginTop:"10px"}}>
                         <Form.Label><strong>KTP Suami</strong></Form.Label>
-                        <input type="file" name="ktpSuami" onChange={this.fileSelectedHandler}/>
+                        <ImageUploader withIcon={true} withPreview={true} buttonText='Choose Images' imgExtension={['.jpg','.png']} maxFileSize={2097152} />
                         </Form.Group>
 
                         <Form.Group as={Col} controlId="ktpistri" style={{marginTop:"10px"}}>
@@ -233,15 +241,6 @@ export default class FormPengajuan extends Component {
                     </Form.Row>
 
                     <br/>
-
-                    <Form.Row>
-                        <Form.Group as={Col} controlId="tujuanpeminjaman" style={{marginTop:"10px"}}>
-                        <Form.Label><strong>Tujuan Pengajuan Peminjaman</strong></Form.Label>
-                        <Form.Control type="text" placeholder="Tujuan Pengajuan Peminjaman" value={this.state.tujuanPeminjaman} onChange={this.handleChange_tujuanPeminjaman} />
-                        </Form.Group>
-                    </Form.Row>
-
-                    <br/>
                     
                     <Button variant="outline-warning" style={{marginTop:"30px", marginBottom:"30px", fontWeight:"bolder", fontSize:"15px"}} type="submit" size="md" block>
                         AJUKAN
@@ -254,10 +253,11 @@ export default class FormPengajuan extends Component {
     }
 
 
-    handleSubmit = event => {
+    onHandleSubmit = event => {
         event.preventDefault();
         if
-            (this.state.nama==''||this.state.email==''||this.state.noHp==''||this.state.alamat==''||this.state.noKtp==''||this.state.namaPengajak==''||this.state.tujuanPeminjaman==''){
+            (this.state.nama==''||this.state.email==''||this.state.noHp==''||this.state.alamat==''||this.state.noKtp==''||this.state.namaPengajak==''||this.state.tujuanPeminjaman=='')
+        {
             alert("masih ada yang kosong")
         }
 
@@ -267,19 +267,18 @@ export default class FormPengajuan extends Component {
         } else {
             
            var temp =  window.confirm("Pastikan data yang anda masukan sudah benar.");
-           if (temp == true){
+           if (temp == true)
+           {
                 this.sendEmail();
                 alert("silahkan Cek Email anda");
            }
+
         }
-       
+
+        
     };
 
     sendEmail() {
-        var Fs = new FormSimulasi();
-        var Njop = Fs.returnNjop();
-        
-        alert(Njop);
         this.state.form = 
         `<table border="0" cellpadding="0" cellspacing="0" width="100%">
         <tr>
@@ -293,7 +292,7 @@ export default class FormPengajuan extends Component {
                             <!-- COPY -->
                             <table width="100%" border="0" cellspacing="0" cellpadding="0">
                                 <tr>
-                                    <td align="center" style="font-size: 32px; font-family: Helvetica, Arial, sans-serif; color: #333333; padding-top: 30px;" class="padding-copy">Pengajuan Oleh - NILAI NJOP `+Njop+`</td>
+                                    <td align="center" style="font-size: 32px; font-family: Helvetica, Arial, sans-serif; color: #333333; padding-top: 30px;" class="padding-copy">Pengajuan Oleh - `+this.state.nama+`</td>
                                 </tr>
                             </table>
                         </td>
@@ -309,7 +308,6 @@ export default class FormPengajuan extends Component {
                 <table align="center" border="0" cellspacing="0" cellpadding="0" width="500">
                 <tr>
                 <td align="center" valign="top" width="500">
-                <![endif]-->
                 <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 500px;" class="responsive-table">
                     <tr>
                         <td style="padding: 10px 0 0 0; border-top: 1px dashed #aaaaaa;">
@@ -528,6 +526,7 @@ export default class FormPengajuan extends Component {
                             </table>
                         </td>
                     </tr>
+
                     <tr>
                         <td style="padding: 10px 0 0 0; border-top: 1px dashed #aaaaaa;">
                             <!-- TWO COLUMNS -->
@@ -578,21 +577,41 @@ export default class FormPengajuan extends Component {
                         <td>
                             <table width="100%" border="0" cellspacing="0" cellpadding="0">
                                 <tr>
-                                    <!-- COPY -->
-                                    <td align="center" style="font-size: 32px; font-family: Helvetica, Arial, sans-serif; color: #333333; padding-top: 30px;" class="padding-copy">How did we do?</td>
+                                    <td align="center" style="font-size: 32px; font-family: Helvetica, Arial, sans-serif; color: #333333; padding-top: 30px;" class="padding-copy">Nominal Yang Diajukan</td>
                                 </tr>
+                    </tr>
+        </tr>
+        <tr>
+            <td bgcolor="#ffffff" align="center" style="padding: 15px;" class="padding">
+                <table align="center" border="0" cellspacing="0" cellpadding="0" width="500">
+                <tr>
+                <td align="center" valign="top" width="500">
+                <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 500px;" class="responsive-table">
+                    <tr>
+                        <td style="padding: 10px 0 0 0; border-top: 1px dashed #aaaaaa;">
+                            <!-- TWO COLUMNS -->
+                            <table cellspacing="0" cellpadding="0" border="0" width="100%">
                                 <tr>
-                                    <td align="left" style="padding: 20px 0 0 0; font-size: 16px; line-height: 25px; font-family: Helvetica, Arial, sans-serif; color: #666666;" class="padding-copy">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed varius, leo a ullamcorper feugiat, ante purus sodales justo, a faucibus libero lacus a est. Aenean at mollis ipsum.</td>
-                                </tr>
-                                <tr>
-                                    <td align="center">
-                                        <!-- BULLETPROOF BUTTON -->
-                                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                    <td valign="top" class="mobile-wrapper">
+                                        <!-- LEFT COLUMN -->
+                                        <table cellpadding="0" cellspacing="0" border="0" width="47%" style="width: 47%;" align="left">
                                             <tr>
-                                                <td align="center" style="padding-top: 25px;" class="padding">
-                                                    <table border="0" cellspacing="0" cellpadding="0" class="mobile-button-container">
+                                                <td style="padding: 0 0 10px 0;">
+                                                    <table cellpadding="0" cellspacing="0" border="0" width="100%">
                                                         <tr>
-                                                            <td align="center" style="border-radius: 3px;" bgcolor="#256F9C"><a href="https://litmus.com" target="_blank" style="font-size: 16px; font-family: Helvetica, Arial, sans-serif; color: #ffffff; text-decoration: none; color: #ffffff; text-decoration: none; border-radius: 3px; padding: 15px 25px; border: 1px solid #256F9C; display: inline-block;" class="mobile-button">Let Us Know</a></td>
+                                                            <td align="left" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">NJOP</td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                        <!-- RIGHT COLUMN -->
+                                        <table cellpadding="0" cellspacing="0" border="0" width="47%" style="width: 47%;" align="right">
+                                            <tr>
+                                                <td style="padding: 0 0 10px 0;">
+                                                    <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                                        <tr>
+                                                            <td align="right" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">`+this.state.nama+`</td>
                                                         </tr>
                                                     </table>
                                                 </td>
@@ -600,6 +619,192 @@ export default class FormPengajuan extends Component {
                                         </table>
                                     </td>
                                 </tr>
+                            </table>
+                        </td>
+                    </tr>
+    
+                     <tr>
+                        <td style="padding: 10px 0 0 0; border-top: 1px dashed #aaaaaa;">
+                            <!-- TWO COLUMNS -->
+                            <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                                <tr>
+                                    <td valign="top" class="mobile-wrapper">
+                                        <!-- LEFT COLUMN -->
+                                        <table cellpadding="0" cellspacing="0" border="0" width="47%" style="width: 47%;" align="left">
+                                            <tr>
+                                                <td style="padding: 0 0 10px 0;">
+                                                    <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                                        <tr>
+                                                            <td align="left" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">Total Pinjaman</td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                        <!-- RIGHT COLUMN -->
+                                        <table cellpadding="0" cellspacing="0" border="0" width="47%" style="width: 47%;" align="right">
+                                            <tr>
+                                                <td style="padding: 0 0 10px 0;">
+                                                    <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                                        <tr>
+                                                            <td align="right" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">`+this.state.email+`</td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+    
+                    
+                    <tr>
+                        <td style="padding: 10px 0 0 0; border-top: 1px dashed #aaaaaa;">
+                            <!-- TWO COLUMNS -->
+                            <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                                <tr>
+                                    <td valign="top" class="mobile-wrapper">
+                                        <!-- LEFT COLUMN -->
+                                        <table cellpadding="0" cellspacing="0" border="0" width="47%" style="width: 47%;" align="left">
+                                            <tr>
+                                                <td style="padding: 0 0 10px 0;">
+                                                    <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                                        <tr>
+                                                            <td align="left" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">Admin</td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                        <!-- RIGHT COLUMN -->
+                                        <table cellpadding="0" cellspacing="0" border="0" width="47%" style="width: 47%;" align="right">
+                                            <tr>
+                                                <td style="padding: 0 0 10px 0;">
+                                                    <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                                        <tr>
+                                                            <td align="right" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">`+this.state.noHp+`</td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+    
+                    
+                    <tr>
+                        <td style="padding: 10px 0 0 0; border-top: 1px dashed #aaaaaa;">
+                            <!-- TWO COLUMNS -->
+                            <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                                <tr>
+                                    <td valign="top" class="mobile-wrapper">
+                                        <!-- LEFT COLUMN -->
+                                        <table cellpadding="0" cellspacing="0" border="0" width="47%" style="width: 47%;" align="left">
+                                            <tr>
+                                                <td style="padding: 0 0 10px 0;">
+                                                    <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                                        <tr>
+                                                            <td align="left" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">Fee</td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                        <!-- RIGHT COLUMN -->
+                                        <table cellpadding="0" cellspacing="0" border="0" width="47%" style="width: 47%;" align="right">
+                                            <tr>
+                                                <td style="padding: 0 0 10px 0;">
+                                                    <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                                        <tr>
+                                                            <td align="right" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">`+this.state.alamat+`</td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+    
+                    <tr>
+                        <td style="padding: 10px 0 0 0; border-top: 1px dashed #aaaaaa;">
+                            <!-- TWO COLUMNS -->
+                            <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                                <tr>
+                                    <td valign="top" class="mobile-wrapper">
+                                        <!-- LEFT COLUMN -->
+                                        <table cellpadding="0" cellspacing="0" border="0" width="47%" style="width: 47%;" align="left">
+                                            <tr>
+                                                <td style="padding: 0 0 10px 0;">
+                                                    <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                                        <tr>
+                                                            <td align="left" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">Total Yang Diterima</td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                        <!-- RIGHT COLUMN -->
+                                        <table cellpadding="0" cellspacing="0" border="0" width="47%" style="width: 47%;" align="right">
+                                            <tr>
+                                                <td style="padding: 0 0 10px 0;">
+                                                    <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                                        <tr>
+                                                            <td align="right" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">`+this.state.noKtp+`</td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+    
+                    <tr>
+                        <td style="padding: 10px 0 0 0; border-top: 1px dashed #aaaaaa;">
+                            <!-- TWO COLUMNS -->
+                            <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                                <tr>
+                                    <td valign="top" class="mobile-wrapper">
+                                        <!-- LEFT COLUMN -->
+                                        <table cellpadding="0" cellspacing="0" border="0" width="47%" style="width: 47%;" align="left">
+                                            <tr>
+                                                <td style="padding: 0 0 10px 0;">
+                                                    <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                                        <tr>
+                                                            <td align="left" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">Bunga Perbulan</td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                        <!-- RIGHT COLUMN -->
+                                        <table cellpadding="0" cellspacing="0" border="0" width="47%" style="width: 47%;" align="right">
+                                            <tr>
+                                                <td style="padding: 0 0 10px 0;">
+                                                    <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                                        <tr>
+                                                            <td align="right" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">`+this.state.namaPengajak+`</td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                        
                             </table>
                         </td>
                     </tr>
@@ -614,12 +819,11 @@ export default class FormPengajuan extends Component {
 
     
         let templateParams = {
-            from_name : "Admin.Gadaiku",
-            to_name : "testphpmailer.999@gmail.com",
-            subject : "Gadaiku-Pengajuan",
+            from_name   : "Admin.Gadaiku",
+            to_name     : "testphpmailer.999@gmail.com",
+            subject     : "Gadaiku-Pengajuan",
             message_html: this.state.form
-            
-                       
+                  
             
 
         };
@@ -627,7 +831,7 @@ export default class FormPengajuan extends Component {
         emailjs.send(
             'gmail',
             'template_DuQL4fJ4',
-            templateParams,
+             templateParams,
             'user_ZzTqxX8Pvcd9Vonr4z8pd'
         )
 
