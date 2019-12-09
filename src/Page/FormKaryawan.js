@@ -2,7 +2,7 @@ import React, { Component, Fragment } from "react";
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form'
 import Card from 'react-bootstrap/Card';
-import { Button, Container} from 'react-bootstrap';
+import { Button, Container, Select} from 'react-bootstrap';
 import * as emailjs from 'emailjs-com';
 import axios from 'axios';
 
@@ -23,12 +23,14 @@ export default class FormKaryawan extends Component {
         email:'',
         alamat1:'',
         alamat2:'',
+        nama_perusahaan:'',
+        lama:'',
         pekerjaan:'',
         telp:'',
-        kredit:'',
-        pinjaman:'',
-        plafondKredit:'',
-        jangkaWaktu:'',
+        permohonan_kredit:'',
+        jenis_pinjaman:'',
+        plafond_kredit:'',
+        jangka_waktu:'',
         status:'',
 
         pertanyaan1:'',
@@ -65,6 +67,18 @@ export default class FormKaryawan extends Component {
         });
     };
 
+    handleChange_nama_perusahaan = event => {
+        this.setState({
+            nama_perusahaan: event.target.value
+        });
+    };
+
+    handleChange_lama = event => {
+        this.setState({
+            lama: event.target.value
+        });
+    };
+
     handleChange_pekerjaan = event => {
         this.setState({
             pekerjaan: event.target.value
@@ -77,46 +91,53 @@ export default class FormKaryawan extends Component {
         });
     };
 
-    handleChange_kredit = event => {
+    handleChange_permohonan_kredit = event => {
         this.setState({
-            kredit: event.target.value
+            permohonan_kredit: event.target.value
         });
     };
 
-    handleChange_pinjaman = event => {
+    handleChange_jenis_pinjaman = event => {
         this.setState({
-            pinjaman: event.target.value
+            jenis_pinjaman: event.target.value
         });
     };
 
-    handleChange_plafondKredit = event => {
+    handleChange_plafond_kredit = event => {
         this.setState({
-            plafondKredit: event.target.value
+            plafond_kredit:event.target.value
         });
     };
 
-    handleChange_jangkaWaktu = event => {
+    handleChange_jangka_waktu = event => {
         this.setState({
-            jangkaWaktu: event.target.value
+            jangka_waktu:event.target.value
         });
     };
 
     handleChange_status = event => {
         this.setState({
-            status: event.target.value
+            status:event.target.value
         });
     };
-
 
     onHandleSubmit = event => {
         event.preventDefault();
         if (this.state.nama =='' ||
             this.state.email =='' || 
             this.state.alamat1 =='' || 
-            this.state.alamat2 == '' || 
+            this.state.alamat2 == '' ||
+            this.state.nama_perusahaan == '' ||
+            this.state.lama == '' || 
             this.state.pekerjaan == '' || 
-            this.state.telp == '' )
-            
+            this.state.telp == '' || 
+            this.state.permohonan_kredit == '' ||
+            this.state.jenis_pinjaman == '' ||
+            this.state.plafond_kredit == '' ||
+            this.state.jangka_waktu == '' ||
+            this.state.status == '' 
+            )
+
             {
 
                 alert("mohon isi dengan lengkap data diri diform.")
@@ -185,13 +206,25 @@ export default class FormKaryawan extends Component {
             </Form.Row>
             <br/>
             <Form.Row>
+                <Form.Group as={Col} controlId="formGridNamaPerusahaan" style={{marginTop:"10px"}}>
+                    <Form.Label><strong>Nama Perusahaan :</strong></Form.Label>
+                    <Form.Control type="text" placeholder="Nama Perusahaan" value={this.state.nama_perusahaan} onChange={this.handleChange_nama_perusahaan} />
+                </Form.Group>
+                <br/>
+                <Form.Group as={Col} controlId="formGridLamaUsaha" style={{marginTop:"10px"}}>
+                    <Form.Label><strong>Lama Usaha/Lama Bekerja :</strong></Form.Label>
+                    <Form.Control type="text" placeholder="Lama Usaha/Lama Bekerja" value={this.state.lama} onChange={this.handleChange_lama} />
+                </Form.Group>
+            </Form.Row>
+            <br/>
+            <Form.Row>
                 <Form.Group as={Col} controlId="formGridPekerjaan" style={{marginTop:"10px"}}>
                     <Form.Label><strong>Pekerjaan :</strong></Form.Label>
                     <Form.Control type="text" placeholder="Pekerjaan" value={this.state.pekerjaan} onChange={this.handleChange_pekerjaan} />
                 </Form.Group>
                 <br/>
                 <Form.Group as={Col} controlId="formGridTelp" style={{marginTop:"10px"}}>
-                    <Form.Label><strong>No. Telp/Hp :</strong></Form.Label>
+                    <Form.Label><strong>No.Telp/Hp (WhatsApp) :</strong></Form.Label>
                     <Form.Control type="text" placeholder="No.Telp/Handphone" value={this.state.telp} onChange={this.handleChange_telp}/>
                 </Form.Group>
             </Form.Row>
@@ -199,48 +232,42 @@ export default class FormKaryawan extends Component {
             <Form.Row>
                 <Form.Group as={Col} style={{marginTop:"10px"}}>
                     <Form.Label><strong>Tujuan Permohonan Kredit :</strong></Form.Label>
-                    {['checkbox'].map(type => (
-                        <div key={`inline-${type}`} className="mb-3">
-                        <Form.Check inline label="Modal Kerja" type={type} id={`inline-${type}-modal`} />
-                        <Form.Check inline label="Investasi" type={type} id={`inline-${type}-inves`} />
-                        <Form.Check inline label="Lainnya" type={type} id={`inline-${type}-lain`} />
-                        </div>
-                    ))}
+                    <select className="form-control" value={this.state.permohonan_kredit} onChange={this.handleChange_permohonan_kredit}>
+                        <option value="modal_kerja"> Modal Kerja</option>
+                        <option value="investasi">Investasi</option>
+                        <option value="lainnya">Lainnya</option>
+                    </select>
                 </Form.Group>
                 <br/>
                 <Form.Group as={Col} style={{marginTop:"10px"}}>
                     <Form.Label><strong>Jenis Pinjaman :</strong></Form.Label>
-                    {['checkbox'].map(type => (
-                        <div key={`inline-${type}`} className="mb-3">
-                            <Form.Check inline label="Kredit Rekening Koran" type={type} id={`inline-${type}-koran`} />
-                            <Form.Check inline label="Angsuran" type={type} id={`inline-${type}-angsur`} />
-                            <Form.Check inline label="Investasi" type={type} id={`inline-${type}-inves2`} />
-                        </div>
-                    ))}
+                    <select className="form-control" value={this.state.jenis_pinjaman} onChange={this.handleChange_jenis_pinjaman}>
+                        <option value="kredit_rekening_koran">Kredit Rekening Koran</option>
+                        <option value="angsuran">Angsuran</option>
+                        <option value="investasi">Investasi</option>
+                    </select>
                 </Form.Group>
             </Form.Row>
             <br/>
             <Form.Row>
                 <Form.Group as={Col} controlId="formGridKredit" style={{marginTop:"10px"}}>
                     <Form.Label><strong>Plafond Kredit :</strong></Form.Label>
-                    <Form.Control type="text" placeholder="Plafond Kredit" value={this.state.plafondKredit} onChange={this.handleChange_plafondKredit}/>
+                    <Form.Control type="text" placeholder="Plafond Kredit" value={this.state.plafond_kredit} onChange={this.handleChange_plafond_kredit} />
                 </Form.Group>
                 <br/>
                 <Form.Group as={Col} controlId="formGridWaktu" style={{marginTop:"10px"}}>
                     <Form.Label><strong>Jangka Waktu :</strong></Form.Label>
-                    <Form.Control type="text" placeholder="Jangka Waktu" />
+                    <Form.Control type="text" placeholder="Jangka Waktu" value={this.state.jangka_waktu} onChange={this.handleChange_jangka_waktu}/>
                 </Form.Group>
             </Form.Row>
             <br/>
             <Form.Row>
                 <Form.Group as={Col} style={{marginTop:"30px"}}>
                     <Form.Label><strong>Status :</strong></Form.Label>
-                    {['checkbox'].map(type => (
-                        <div key={`inline-${type}`} className="mb-3">
-                            <Form.Check inline label="Menikah" type={type} id={`inline-${type}-menikah`} />
-                            <Form.Check inline label="Belum Menikah" type={type} id={`inline-${type}-belummenikah`} />
-                        </div>
-                    ))}
+                    <select className="form-control" value={this.state.status} onChange={this.handleChange_status}>
+                        <option value="Menikah">Menikah</option>
+                        <option value="belum_menikah">Belum Menikah</option>
+                    </select>
                 </Form.Group>
             </Form.Row>
 
@@ -259,7 +286,7 @@ export default class FormKaryawan extends Component {
             <Form.Row>
                 <Form.Group as={Col} controlId="formGrid1" style={{marginTop:"10px"}}>
                     <Form.Label><strong>1. Berapa nilai angsuran yang ingin bapak/ibu bayar perbulannya ?</strong></Form.Label>
-                    <Form.Control type="text" />
+                    <Form.Control type="text" onChange={this.state.pertanyaan1}/>
                 </Form.Group>
             </Form.Row>
             <br/>
@@ -318,7 +345,7 @@ export default class FormKaryawan extends Component {
 
             <div class="container">
                 <div class="content">
-                    <h5><strong> Persyaratan Dokumen Pemohon </strong></h5>
+                    <h5><strong> Persyaratan Dokumen Pemohon - Karyawan</strong></h5>
                 </div>
             </div>
 
@@ -350,7 +377,7 @@ export default class FormKaryawan extends Component {
             <br/>
             <Form.Row>
                 <Form.Group as={Col} controlId="npwp" style={{marginTop:"10px"}}>
-                    <Form.Label><strong>Fotocopy NPWP (pemohon)</strong></Form.Label>
+                    <Form.Label><strong>Fotocopy NPWP Pemohon *</strong></Form.Label>
                     <Form.Control type="file"/>
                 </Form.Group>
                 <br/>
@@ -362,33 +389,43 @@ export default class FormKaryawan extends Component {
             <br/>
             <Form.Row>
                 <Form.Group as={Col} controlId="slipgaji" style={{marginTop:"10px"}}>
-                    <Form.Label><strong>Asli Slip Gaji (1 bulan terakhir)</strong></Form.Label>
+                    <Form.Label><strong>Asli Slip Gaji (1 bulan terakhir) *</strong></Form.Label>
                     <Form.Control type="file"/>
                 </Form.Group>
                 <br/>
                 <Form.Group as={Col} controlId="tabungan" style={{marginTop:"10px"}}>
-                    <Form.Label><strong>Fotocopy Tabungan (6 bulan terakhir)</strong></Form.Label>
+                    <Form.Label><strong>Fotocopy Tabungan (6 bulan terakhir) *</strong></Form.Label>
                     <Form.Control type="file"/>
                 </Form.Group>
             </Form.Row>
             <br/>
             <Form.Row>
                 <Form.Group as={Col} controlId="pendukung1" style={{marginTop:"10px"}}>
-                    <Form.Label><strong>Lampiran Pendukung 1</strong></Form.Label>
+                    <Form.Label><strong>Surat Keterangan/Rekomendasi Perusahaan</strong></Form.Label>
                     <Form.Control type="file" placeholder="Lampiran Pendukung 1"/>
                 </Form.Group>
                 <br/>                    
                 <Form.Group as={Col} controlId="pendukung2" style={{marginTop:"10px"}}>
-                    <Form.Label><strong>Lampiran Pendukung 2</strong></Form.Label>
+                    <Form.Label><strong>Akta pisah harta notaril dan didaftarkan ke KUA atau catatan sipil (jika ada)</strong></Form.Label>
                     <Form.Control type="file" placeholder="Lampiran Pendukung 2"/>
                 </Form.Group>
             </Form.Row>
             <br/>
             <Form.Row>
                 <Form.Group as={Col} controlId="pendukung3" style={{marginTop:"10px"}}>
-                    <Form.Label><strong>Lampiran Pendukung 3</strong></Form.Label>
+                    <Form.Label><strong>Asli pernyataan mengenai kredit pemilikan properti atau kredit 
+                    beranggun properti yang sedang diajukan atau dimiliki</strong></Form.Label>
                     <Form.Control type="file" placeholder="Lampiran Pendukung 3"/>
                 </Form.Group>
+            </Form.Row>
+            <br/>
+                <br/>
+            <Form.Row>
+                <p style={{fontSize:"14px", textAlign:"left", fontWeight: 'bold'}}>
+                    Keterangan :<br/>
+                    *) Untuk Joint income suami dan istri, dokumen pasangan harus dilampirkan.<br/>
+                    **) Khusus untuk pengusaha dengan badan hukum PT.
+                </p>
             </Form.Row>
 
             <br/>
@@ -723,7 +760,7 @@ sendEmail() {
                                             <td style="padding: 0 0 10px 0;">
                                                 <table cellpadding="0" cellspacing="0" border="0" width="100%">
                                                     <tr>
-                                                        <td align="right" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">`+this.state.kredit+`</td>
+                                                        <td align="right" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">`+this.state.permohonan_kredit+`</td>
                                                     </tr>
                                                 </table>
                                             </td>
@@ -760,7 +797,7 @@ sendEmail() {
                                             <td style="padding: 0 0 10px 0;">
                                                 <table cellpadding="0" cellspacing="0" border="0" width="100%">
                                                     <tr>
-                                                        <td align="right" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;"></td>
+                                                        <td align="right" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">`+this.state.koran+`</td>
                                                     </tr>
                                                 </table>
                                             </td>
@@ -1211,7 +1248,7 @@ sendEmail() {
     let templateParams = {
         from_name   : "Admin.Gadaiku",
         to_name     : "testphpmailer.999@gmail.com",
-        subject     : "Gadaiku-Pengajuan",
+        subject     : "Gadaiku-FormLoan-Personal",
         message_html: this.state.form
               
         

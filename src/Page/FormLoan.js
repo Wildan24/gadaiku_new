@@ -56,6 +56,7 @@ export default function App() {
                     <img className="img-fluid rounded" style={{width:"200px"}} src="./img/gadaiku/handshake.jpg" alt="Simulasi"/>
                     </Link>
                 </div>
+        
             </div>    
          </div>
         {/* A <Switch> looks through its children <Route>s and
