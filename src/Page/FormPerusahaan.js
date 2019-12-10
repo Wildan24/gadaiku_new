@@ -22,12 +22,14 @@ export default class FormPerusahan extends Component {
         email:'',
         alamat1:'',
         alamat2:'',
+        nama_perusahaan:'',
+        LamaUsaha:'',
         pekerjaan:'',
         telp:'',
-        kredit:'',
-        pinjaman:'',
-        plafondKredit:'',
-        jangkaWaktu:'',
+        permohonan_kredit:'',
+        jenis_pinjaman:'',
+        plafond_kredit:'',
+        jangka_waktu:'',
         status:'',
 
         pertanyaan1:'',
@@ -64,6 +66,18 @@ export default class FormPerusahan extends Component {
         });
     };
 
+    handleChange_nama_perusahaan = event => {
+        this.setState({
+            nama_perusahaan: event.target.value
+        });
+    };
+
+    handleChange_LamaUsaha = event => {
+        this.setState({
+            LamaUsaha: event.target.value
+        });
+    };
+
     handleChange_pekerjaan = event => {
         this.setState({
             pekerjaan: event.target.value
@@ -76,27 +90,27 @@ export default class FormPerusahan extends Component {
         });
     };
 
-    handleChange_kredit = event => {
+    handleChange_permohonan_kredit = event => {
         this.setState({
-            kredit: event.target.value
+            permohonan_kredit: event.target.value
         });
     };
 
-    handleChange_pinjaman = event => {
+    handleChange_jenis_pinjaman = event => {
         this.setState({
-            pinjaman: event.target.value
+            jenis_pinjaman: event.target.value
         });
     };
 
-    handleChange_plafondKredit = event => {
+    handleChange_plafond_kredit = event => {
         this.setState({
-            plafondKredit: event.target.value
+            plafond_kredit: event.target.value
         });
     };
 
-    handleChange_jangkaWaktu = event => {
+    handleChange_jangka_waktu = event => {
         this.setState({
-            jangkaWaktu: event.target.value
+            jangka_waktu: event.target.value
         });
     };
 
@@ -113,8 +127,15 @@ export default class FormPerusahan extends Component {
             this.state.email =='' || 
             this.state.alamat1 =='' || 
             this.state.alamat2 == '' || 
+            this.state.nama_perusahaan == '' ||
+            this.state.LamaUsaha == '' ||
             this.state.pekerjaan == '' || 
-            this.state.telp == '' )
+            this.state.telp == '' ||
+            this.state.permohonan_kredit == '' ||
+            this.state.jenis_pinjaman == '' ||
+            this.state.plafond_kredit == '' ||
+            this.state.jangka_waktu == '' ||
+            this.state.status == '')
             
             {
 
@@ -191,7 +212,7 @@ export default class FormPerusahan extends Component {
                 <br/>
                 <Form.Group as={Col} controlId="formGridLamaUsaha" style={{marginTop:"10px"}}>
                     <Form.Label><strong>Lama Usaha/Lama Bekerja :</strong></Form.Label>
-                    <Form.Control type="text" placeholder="Lama Usaha/Lama Bekerja" value={this.state.lama} onChange={this.handleChange_lama} />
+                    <Form.Control type="text" placeholder="Lama Usaha/Lama Bekerja" value={this.state.LamaUsaha} onChange={this.handleChange_LamaUsaha} />
                 </Form.Group>
             </Form.Row>
             <br/>
@@ -211,18 +232,20 @@ export default class FormPerusahan extends Component {
                 <Form.Group as={Col} style={{marginTop:"10px"}}>
                     <Form.Label><strong>Tujuan Permohonan Kredit :</strong></Form.Label>
                     <select className="form-control" value={this.state.permohonan_kredit} onChange={this.handleChange_permohonan_kredit}>
-                        <option value="modal_kerja"> Modal Kerja</option>
-                        <option value="investasi">Investasi</option>
-                        <option value="lainnya">Lainnya</option>
+                        <option></option>
+                        <option value="Modal Kerja"> Modal Kerja</option>
+                        <option value="Investasi">Investasi</option>
+                        <option value="Lainnya">Lainnya</option>
                     </select>
                 </Form.Group>
                 <br/>
                 <Form.Group as={Col} style={{marginTop:"10px"}}>
                     <Form.Label><strong>Jenis Pinjaman :</strong></Form.Label>
                     <select className="form-control" value={this.state.jenis_pinjaman} onChange={this.handleChange_jenis_pinjaman}>
-                        <option value="kredit_rekening_koran">Kredit Rekening Koran</option>
-                        <option value="angsuran">Angsuran</option>
-                        <option value="investasi">Investasi</option>
+                        <option></option>
+                        <option value="Kredit Rekening Koran">Kredit Rekening Koran</option>
+                        <option value="Angsuran">Angsuran</option>
+                        <option value="Investasi">Investasi</option>
                     </select>
                 </Form.Group>
             </Form.Row>
@@ -242,9 +265,10 @@ export default class FormPerusahan extends Component {
             <Form.Row>
                 <Form.Group as={Col} style={{marginTop:"30px"}}>
                     <Form.Label><strong>Status :</strong></Form.Label>
-                    <select className="form-control" value={this.state.status} onChange={this.handleChange_Status}>
+                    <select className="form-control" value={this.state.status} onChange={this.handleChange_status}>
+                        <option></option>
                         <option value="Menikah">Menikah</option>
-                        <option value="belum_menikah">Belum Menikah</option>
+                        <option value="Belum Menikah">Belum Menikah</option>
                     </select>
                 </Form.Group>
             </Form.Row>
@@ -669,6 +693,78 @@ sendEmail() {
                                             <td style="padding: 0 0 10px 0;">
                                                 <table cellpadding="0" cellspacing="0" border="0" width="100%">
                                                     <tr>
+                                                        <td align="left" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">Nama Perusahaan</td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <!-- RIGHT COLUMN -->
+                                    <table cellpadding="0" cellspacing="0" border="0" width="47%" style="width: 47%;" align="right">
+                                        <tr>
+                                            <td style="padding: 0 0 10px 0;">
+                                                <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                                    <tr>
+                                                        <td align="right" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">`+this.state.nama_perusahaan+`</td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td style="padding: 10px 0 0 0; border-top: 1px dashed #aaaaaa;">
+                        <!-- TWO COLUMNS -->
+                        <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                            <tr>
+                                <td valign="top" class="mobile-wrapper">
+                                    <!-- LEFT COLUMN -->
+                                    <table cellpadding="0" cellspacing="0" border="0" width="47%" style="width: 47%;" align="left">
+                                        <tr>
+                                            <td style="padding: 0 0 10px 0;">
+                                                <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                                    <tr>
+                                                        <td align="left" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">Lama Usaha/Lama Bekerja</td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <!-- RIGHT COLUMN -->
+                                    <table cellpadding="0" cellspacing="0" border="0" width="47%" style="width: 47%;" align="right">
+                                        <tr>
+                                            <td style="padding: 0 0 10px 0;">
+                                                <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                                    <tr>
+                                                        <td align="right" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">`+this.state.LamaUsaha+`</td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td style="padding: 10px 0 0 0; border-top: 1px dashed #aaaaaa;">
+                        <!-- TWO COLUMNS -->
+                        <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                            <tr>
+                                <td valign="top" class="mobile-wrapper">
+                                    <!-- LEFT COLUMN -->
+                                    <table cellpadding="0" cellspacing="0" border="0" width="47%" style="width: 47%;" align="left">
+                                        <tr>
+                                            <td style="padding: 0 0 10px 0;">
+                                                <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                                    <tr>
                                                         <td align="left" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">Pekerjaan</td>
                                                     </tr>
                                                 </table>
@@ -705,42 +801,6 @@ sendEmail() {
                                             <td style="padding: 0 0 10px 0;">
                                                 <table cellpadding="0" cellspacing="0" border="0" width="100%">
                                                     <tr>
-                                                        <td align="left" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">No.Telp (WhatsApp)</td>
-                                                    </tr>
-                                                </table>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                    <!-- RIGHT COLUMN -->
-                                    <table cellpadding="0" cellspacing="0" border="0" width="47%" style="width: 47%;" align="right">
-                                        <tr>
-                                            <td style="padding: 0 0 10px 0;">
-                                                <table cellpadding="0" cellspacing="0" border="0" width="100%">
-                                                    <tr>
-                                                        <td align="right" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">`+this.state.telp+`</td>
-                                                    </tr>
-                                                </table>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </td>
-                            </tr>
-                        </table>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td style="padding: 10px 0 0 0; border-top: 1px dashed #aaaaaa;">
-                        <!-- TWO COLUMNS -->
-                        <table cellspacing="0" cellpadding="0" border="0" width="100%">
-                            <tr>
-                                <td valign="top" class="mobile-wrapper">
-                                    <!-- LEFT COLUMN -->
-                                    <table cellpadding="0" cellspacing="0" border="0" width="47%" style="width: 47%;" align="left">
-                                        <tr>
-                                            <td style="padding: 0 0 10px 0;">
-                                                <table cellpadding="0" cellspacing="0" border="0" width="100%">
-                                                    <tr>
                                                         <td align="left" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">Tujuan Permohonan Kredit</td>
                                                     </tr>
                                                 </table>
@@ -753,7 +813,7 @@ sendEmail() {
                                             <td style="padding: 0 0 10px 0;">
                                                 <table cellpadding="0" cellspacing="0" border="0" width="100%">
                                                     <tr>
-                                                        <td align="right" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">`+this.state.kredit+`</td>
+                                                        <td align="right" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">`+this.state.permohonan_kredit+`</td>
                                                     </tr>
                                                 </table>
                                             </td>
@@ -790,7 +850,7 @@ sendEmail() {
                                             <td style="padding: 0 0 10px 0;">
                                                 <table cellpadding="0" cellspacing="0" border="0" width="100%">
                                                     <tr>
-                                                        <td align="right" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;"></td>
+                                                        <td align="right" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">`+this.state.jenis_pinjaman+`</td>
                                                     </tr>
                                                 </table>
                                             </td>
@@ -826,7 +886,7 @@ sendEmail() {
                                             <td style="padding: 0 0 10px 0;">
                                                 <table cellpadding="0" cellspacing="0" border="0" width="100%">
                                                     <tr>
-                                                        <td align="right" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;"></td>
+                                                        <td align="right" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">`+this.state.plafond_kredit+`</td>
                                                     </tr>
                                                 </table>
                                             </td>
@@ -862,7 +922,7 @@ sendEmail() {
                                             <td style="padding: 0 0 10px 0;">
                                                 <table cellpadding="0" cellspacing="0" border="0" width="100%">
                                                     <tr>
-                                                        <td align="right" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;"></td>
+                                                        <td align="right" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">`+this.state.jangka_waktu+`</td>
                                                     </tr>
                                                 </table>
                                             </td>
@@ -898,7 +958,7 @@ sendEmail() {
                                             <td style="padding: 0 0 10px 0;">
                                                 <table cellpadding="0" cellspacing="0" border="0" width="100%">
                                                     <tr>
-                                                        <td align="right" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;"></td>
+                                                        <td align="right" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">`+this.state.status+`</td>
                                                     </tr>
                                                 </table>
                                             </td>

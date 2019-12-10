@@ -5,12 +5,17 @@ import { Button, Container, } from 'react-bootstrap';
 import ImageUploader from 'react-images-upload';
 import * as emailjs from 'emailjs-com';
 import axios from 'axios';
-import { FilePond } from 'react-filepond';
 import 'filepond/dist/filepond.min.css';
 import FormSimulasi from '../Page/FormSimulasi.js';
+import { file } from '@babel/types';
 
 
 export default class FormPengajuan extends Component {
+    constructor(){
+        super();
+        this.UploadFile=this.UploadFile.bind();
+
+    }
     state = {
         nama: '', 
         email:'',
@@ -20,23 +25,11 @@ export default class FormPengajuan extends Component {
         namaPengajak:'',
         tujuanPeminjaman:'',
         Form:'',
-        selectedFile: null,
+        fileSuami:'',
+        fileIstri:''
 
     };
-
-    constructor(props) {
-        super(props);
-        this.onHome = this.onHome.bind(this);
-       
-
-        // alert(Njop); 
-    }
-    onHome() {
-        this.props.history.push('/');
-    }
     
-    
-
 
     handleChange_nama = event =>{
         this.setState({
@@ -86,32 +79,46 @@ export default class FormPengajuan extends Component {
         });
     };
  
+    onChangeHandler=event=> {
+        var files = event.target.files
+            this.setState({
+                KtpSuami: files,
+                loaded: 0,
+            });
+    };
 
+    onChangeHandler_ktpIstri=event=> {
+        var files = event.target.files
+            this.setState({
+                KtpIstri: files,
+                loaded: 0,
+            });
+    };
 
-    // handleChange_njop_pass = event =>{
+    // onChangeHandler_KtpIstri=event=> {
     //     this.setState({
-    //         njop_pass: event.target.value  
+    //         selectedFile: event.target.files,
+    //     });
+    // };
+
+    // onChangeHandler_KartuKeluarga=event=> {
+    //     this.setState({
+    //         selectedFile: event.target.files,
     //     });
     // };
 
 
-    
-    // fileSelectedHandler = event => {
-    //     this.setState({
-    //         selectedFile:event.target.files[0]
-    //     })
-    // }
+    maxSelectFile = (event) => {
+        let files = event.target.files
+        if (file.length > 8 ) {
+            const msg = 'only 8 images can be uploaded at a time'
+            event.target.value = null
+            console.log(msg)
+            return false;
+        }
 
-    // fileUploadHandler = () => {
-    //     const fd = new FormData ();
-    //     fd.append('image', this.state.selectedFile, this.state.selectedFile.name);
-    //     axios.post('gs://gadaiku-9cdca.appspot.com', fd)
-    //     .then(res => {
-    //         console.log(res);
-    //     })
-    // }
-
-    
+        return true;
+    }
 
     render(){
 
@@ -186,64 +193,33 @@ export default class FormPengajuan extends Component {
                     <hr/>
 
                     <Form.Row>
-                        <Form.Group as={Col} controlId="ktpsuami" style={{marginTop:"10px"}}>
+                        <Form.Group class="form-group files" as={Col} controlId="ktpsuami" style={{marginTop:"10px"}}>
                         <Form.Label><strong>KTP Suami</strong></Form.Label>
-                        <ImageUploader withIcon={true} withPreview={true} buttonText='Choose Images' imgExtension={['.jpg','.png']} maxFileSize={2097152} />
+                            <input class="form-control" type="file" name="KtpSuami" multiple onChange={this.onChangeHandler} />
                         </Form.Group>
+                        <br/>
+                        <Form.Group class="form-group files" as={Col} controlId="ktpsuami" style={{marginTop:"10px"}}>
+                        <Form.Label><strong>KTP Suami</strong></Form.Label>
+                            <input class="form-control" type="file" name="KtpSuami" multiple onChange={this.onChangeHandler} />
+                        </Form.Group>
+                    </Form.Row>
 
-                        <Form.Group as={Col} controlId="ktpistri" style={{marginTop:"10px"}}>
-                        <Form.Label><strong>KTP Istri</strong></Form.Label>
-                        <ImageUploader withIcon={true} withPreview={true} buttonText='Choose Images' imgExtension={['.jpg','.png']} maxFileSize={2097152} />
+                    <Form.Row>
+                        <Form.Group class="form-group files" as={Col} controlId="ktpsuami" style={{marginTop:"10px"}}>
+                        <Form.Label><strong>KTP istri</strong></Form.Label>
+                            <input class="form-control" type="file" name="KtpSuami" multiple onChange={this.onChangeHandler_ktpIstri} />
                         </Form.Group>
+                        <br/>
+                        <Form.Group class="form-group files" as={Col} controlId="ktpsuami" style={{marginTop:"10px"}}>
+                        <Form.Label><strong>KTP Suami</strong></Form.Label>
+                            <input class="form-control" type="file" name="KtpSuami" multiple onChange={this.onChangeHandler} />
+                        </Form.Group> 
                     </Form.Row>
                     
-
-                    <Form.Row>
-                        <Form.Group as={Col} controlId="kartukeluarga" style={{marginTop:"10px"}}>
-                        <Form.Label><strong>Kartu Keluarga</strong></Form.Label>
-                        <ImageUploader withIcon={true} withPreview={true} buttonText='Choose Images' imgExtension={['.jpg','.png']} maxFileSize={2097152} />
-                        </Form.Group>
-
-                        <Form.Group as={Col} controlId="pbb" style={{marginTop:"10px"}}>
-                        <Form.Label><strong>PBB</strong></Form.Label>
-                        <ImageUploader withIcon={true} withPreview={true} buttonText='Choose Images' imgExtension={['.jpg','.png']} maxFileSize={2097152} />
-                        </Form.Group>
-                    </Form.Row>
-
-                    <Form.Row>
-                        <Form.Group as={Col} controlId="shm" style={{marginTop:"10px"}}>
-                        <Form.Label><strong>SHM</strong></Form.Label>
-                        <ImageUploader withIcon={true} withPreview={true} buttonText='Choose Images' imgExtension={['.jpg','.png']} maxFileSize={2097152} />
-                        </Form.Group>
-
-                        <Form.Group as={Col} controlId="imb" style={{marginTop:"10px"}}>
-                        <Form.Label><strong>IMB</strong></Form.Label>
-                        <ImageUploader withIcon={true} withPreview={true} buttonText='Choose Images' imgExtension={['.jpg','.png']} maxFileSize={2097152} />
-                        </Form.Group>
-                    </Form.Row>
-
-                    <Form.Row>
-                        <Form.Group as={Col} controlId="pendukung1" style={{marginTop:"10px"}}>
-                        <Form.Label><strong>Lampiran Pendukung 1</strong></Form.Label>
-                        <ImageUploader withIcon={true} withPreview={true} buttonText='Choose Images' imgExtension={['.jpg','.png']} maxFileSize={2097152} />
-                        </Form.Group>
-
-                        <Form.Group as={Col} controlId="pendukung2" style={{marginTop:"10px"}}>
-                        <Form.Label><strong>Lampiran Pendukung 2</strong></Form.Label>
-                        <ImageUploader withIcon={true} withPreview={true} buttonText='Choose Images' imgExtension={['.jpg','.png']} maxFileSize={2097152} />
-                        </Form.Group>
-                    </Form.Row>
-
-                    <Form.Row>
-                        <Form.Group as={Col} controlId="pendukung3" style={{marginTop:"10px"}}>
-                        <Form.Label><strong>Lampiran Pendukung 3</strong></Form.Label>
-                        <ImageUploader withIcon={true} withPreview={true} buttonText='Choose Images' imgExtension={['.jpg','.png']} maxFileSize={2097152} />
-                        </Form.Group>
-                    </Form.Row>
 
                     <br/>
                     
-                    <Button variant="outline-warning" style={{marginTop:"30px", marginBottom:"30px", fontWeight:"bolder", fontSize:"15px"}} type="submit" size="md" block>
+                    <Button variant="outline-warning" style={{marginTop:"30px", marginBottom:"30px", fontWeight:"bolder", fontSize:"15px"}} type="submit" size="md" onClick={this.onClickHandler} block>
                         AJUKAN
                     </Button>
                 </Form>
@@ -253,11 +229,35 @@ export default class FormPengajuan extends Component {
         );
     }
 
+    onClickHandler = () =>{
+        this.UploadFile(this.state.KtpSuami);
+        this.UploadFile(this.state.KtpIstri);
+        
+    };
+
+    UploadFile(stateFile){
+        const data = new FormData()
+        data.append('file',stateFile[0])
+
+        axios.post("http://localhost:8000/upload", data, {
+        })
+            .then(res => { //then print response status
+            console.log(res.statusText)
+        })
+    }
 
     onHandleSubmit = event => {
         event.preventDefault();
         if
-            (this.state.nama==''||this.state.email==''||this.state.noHp==''||this.state.alamat==''||this.state.noKtp==''||this.state.namaPengajak==''||this.state.tujuanPeminjaman=='')
+            (
+                this.state.nama==''||
+                this.state.email==''||
+                this.state.noHp==''||
+                this.state.alamat==''||
+                this.state.noKtp==''||
+                this.state.namaPengajak==''||
+                this.state.tujuanPeminjaman==''
+             )
         {
             alert("masih ada yang kosong")
         }
@@ -271,7 +271,7 @@ export default class FormPengajuan extends Component {
            if (temp == true)
            {
                 this.sendEmail();
-                alert("silahkan Cek Email anda");
+                alert("Terima Kasih sudah menggunakan gadaiku.com, nanti team kami akan menghubungi anda.");
            }
 
         }

@@ -33,14 +33,11 @@ export default class FormKaryawan extends Component {
         jangka_waktu:'',
         status:'',
 
-        pertanyaan1:'',
-        pertanyaan2:'',
-        pertanyaan3:'',
-        pertanyaan4:'',
-        pertanyaan5:'',
-        pertanyaan6:'',
-        pertanyaan7:'',
-        pertanyaan8:'',
+        // pertanyaan1:'',
+        // pertanyaan2:'',
+        // pertanyaan3:'',
+        // pertanyaan4:'',
+        
     };
 
     handleChange_nama = event => {
@@ -121,8 +118,33 @@ export default class FormKaryawan extends Component {
         });
     };
 
+    // handleChange_pertanyaan1 = event => {
+    //     this.setState({
+    //         pertanyaan1:event.target.value
+    //     });
+    // };
+
+    // handleChange_pertanyaan2 = event => {
+    //     this.setState({
+    //         pertanyaan2:event.target.value
+    //     });
+    // };
+
+    // handleChange_pertanyaan3 = event => {
+    //     this.setState({
+    //         pertanyaan3:event.target.value
+    //     });
+    // };
+
+    // handleChange_pertanyaan4 = event => {
+    //     this.setState({
+    //         pertanyaan4:event.target.value
+    //     });
+    // };
+
     onHandleSubmit = event => {
         event.preventDefault();
+        
         if (this.state.nama =='' ||
             this.state.email =='' || 
             this.state.alamat1 =='' || 
@@ -136,6 +158,10 @@ export default class FormKaryawan extends Component {
             this.state.plafond_kredit == '' ||
             this.state.jangka_waktu == '' ||
             this.state.status == '' 
+            // this.state.pertanyaan1 == '' ||
+            // this.state.pertanyaan2 == '' ||
+            // this.state.pertanyaan3 == '' ||
+            // this.state.pertanyaan4 == '' 
             )
 
             {
@@ -153,19 +179,13 @@ export default class FormKaryawan extends Component {
             if (temp == true)
            {
                 this.sendEmail();
-                alert("silahkan Cek Email anda");
+                alert("admin akan menghubungi anda dalam 1x24 jam, Pastikan nomor yang anda isi aktif.");
            }
         }
     };
     
 
     render(){
-
-    const 
-
-        card = {
-            width:"300px", height:"150px", marginTop:"10%"
-         };
 
         return(
             <Fragment>
@@ -233,6 +253,7 @@ export default class FormKaryawan extends Component {
                 <Form.Group as={Col} style={{marginTop:"10px"}}>
                     <Form.Label><strong>Tujuan Permohonan Kredit :</strong></Form.Label>
                     <select className="form-control" value={this.state.permohonan_kredit} onChange={this.handleChange_permohonan_kredit}>
+                        <option></option>
                         <option value="modal_kerja"> Modal Kerja</option>
                         <option value="investasi">Investasi</option>
                         <option value="lainnya">Lainnya</option>
@@ -242,6 +263,7 @@ export default class FormKaryawan extends Component {
                 <Form.Group as={Col} style={{marginTop:"10px"}}>
                     <Form.Label><strong>Jenis Pinjaman :</strong></Form.Label>
                     <select className="form-control" value={this.state.jenis_pinjaman} onChange={this.handleChange_jenis_pinjaman}>
+                        <option></option>
                         <option value="kredit_rekening_koran">Kredit Rekening Koran</option>
                         <option value="angsuran">Angsuran</option>
                         <option value="investasi">Investasi</option>
@@ -252,7 +274,7 @@ export default class FormKaryawan extends Component {
             <Form.Row>
                 <Form.Group as={Col} controlId="formGridKredit" style={{marginTop:"10px"}}>
                     <Form.Label><strong>Plafond Kredit :</strong></Form.Label>
-                    <Form.Control type="text" placeholder="Plafond Kredit" value={this.state.plafond_kredit} onChange={this.handleChange_plafond_kredit} />
+                    <Form.Control type="text" placeholder="Plafond Kredit" value={this.state.plafond_kredit} onChange={this.handleChange_plafond_kredit}/>
                 </Form.Group>
                 <br/>
                 <Form.Group as={Col} controlId="formGridWaktu" style={{marginTop:"10px"}}>
@@ -265,7 +287,8 @@ export default class FormKaryawan extends Component {
                 <Form.Group as={Col} style={{marginTop:"30px"}}>
                     <Form.Label><strong>Status :</strong></Form.Label>
                     <select className="form-control" value={this.state.status} onChange={this.handleChange_status}>
-                        <option value="Menikah">Menikah</option>
+                        <option></option>
+                        <option value="menikah">Menikah</option>
                         <option value="belum_menikah">Belum Menikah</option>
                     </select>
                 </Form.Group>
@@ -286,14 +309,14 @@ export default class FormKaryawan extends Component {
             <Form.Row>
                 <Form.Group as={Col} controlId="formGrid1" style={{marginTop:"10px"}}>
                     <Form.Label><strong>1. Berapa nilai angsuran yang ingin bapak/ibu bayar perbulannya ?</strong></Form.Label>
-                    <Form.Control type="text" onChange={this.state.pertanyaan1}/>
+                    <Form.Control type="text" />
                 </Form.Group>
             </Form.Row>
             <br/>
             <Form.Row>
                 <Form.Group as={Col} controlId="formGrid2" style={{marginTop:"10px"}}>
                     <Form.Label><strong>2. Apakah ada pilihan bank yang ingin digunakan oleh bapak/ibu ?</strong></Form.Label>
-                    <Form.Control type="text"/>
+                    <Form.Control type="text" />
                 </Form.Group>
             </Form.Row>
             <br/>
@@ -314,28 +337,28 @@ export default class FormKaryawan extends Component {
             <Form.Row>
                 <Form.Group as={Col} controlId="formGrid5" style={{marginTop:"10px"}}>
                     <Form.Label><strong>5. Ekspansi bisnis apa yang sedang direncanakan bapak/ibu ?</strong></Form.Label>
-                    <Form.Control type="text"/>
+                    <Form.Control type="text" />
                 </Form.Group>
             </Form.Row>
             <br/>
             <Form.Row>
                 <Form.Group as={Col} controlId="formGrid6" style={{marginTop:"10px"}}>
                     <Form.Label><strong>6. Berapa lama terms of payment dari customer dan terms of payment ke supplier ?</strong></Form.Label>
-                    <Form.Control type="text" />
+                    <Form.Control type="text"  />
                 </Form.Group>
             </Form.Row>
             <br/>
             <Form.Row>
                 <Form.Group as={Col} controlId="formGrid7" style={{marginTop:"10px"}}>
                     <Form.Label><strong>7. Berapa total pendapatan gaji dan tunjangan bapak/ibu perbulannya ?</strong></Form.Label>
-                    <Form.Control type="text"/>
+                    <Form.Control type="text"  />
                 </Form.Group>
             </Form.Row>
             <br/>
             <Form.Row>
                 <Form.Group as={Col} controlId="formGrid8" style={{marginTop:"10px"}}>
                     <Form.Label><strong>8. Apakah ada pendapatan lain seperti pendapatan sewa ataupun bisnis lain ?</strong></Form.Label>
-                    <Form.Control type="text" />
+                    <Form.Control type="text"  />
                 </Form.Group>
             </Form.Row>
             <br/>
@@ -423,8 +446,8 @@ export default class FormKaryawan extends Component {
             <Form.Row>
                 <p style={{fontSize:"14px", textAlign:"left", fontWeight: 'bold'}}>
                     Keterangan :<br/>
-                    *) Untuk Joint income suami dan istri, dokumen pasangan harus dilampirkan.<br/>
-                    **) Khusus untuk pengusaha dengan badan hukum PT.
+                    (*) Untuk Joint income suami dan istri, dokumen pasangan harus dilampirkan.<br/>
+                    (**) Khusus untuk pengusaha dengan badan hukum PT.
                 </p>
             </Form.Row>
 
@@ -676,6 +699,78 @@ sendEmail() {
                                             <td style="padding: 0 0 10px 0;">
                                                 <table cellpadding="0" cellspacing="0" border="0" width="100%">
                                                     <tr>
+                                                        <td align="left" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">Nama Perusahaan</td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <!-- RIGHT COLUMN -->
+                                    <table cellpadding="0" cellspacing="0" border="0" width="47%" style="width: 47%;" align="right">
+                                        <tr>
+                                            <td style="padding: 0 0 10px 0;">
+                                                <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                                    <tr>
+                                                        <td align="right" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">`+this.state.nama_perusahaan+`</td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td style="padding: 10px 0 0 0; border-top: 1px dashed #aaaaaa;">
+                        <!-- TWO COLUMNS -->
+                        <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                            <tr>
+                                <td valign="top" class="mobile-wrapper">
+                                    <!-- LEFT COLUMN -->
+                                    <table cellpadding="0" cellspacing="0" border="0" width="47%" style="width: 47%;" align="left">
+                                        <tr>
+                                            <td style="padding: 0 0 10px 0;">
+                                                <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                                    <tr>
+                                                        <td align="left" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">Lama Usaha/Lama Bekerja</td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <!-- RIGHT COLUMN -->
+                                    <table cellpadding="0" cellspacing="0" border="0" width="47%" style="width: 47%;" align="right">
+                                        <tr>
+                                            <td style="padding: 0 0 10px 0;">
+                                                <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                                    <tr>
+                                                        <td align="right" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">`+this.state.lama+`</td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td style="padding: 10px 0 0 0; border-top: 1px dashed #aaaaaa;">
+                        <!-- TWO COLUMNS -->
+                        <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                            <tr>
+                                <td valign="top" class="mobile-wrapper">
+                                    <!-- LEFT COLUMN -->
+                                    <table cellpadding="0" cellspacing="0" border="0" width="47%" style="width: 47%;" align="left">
+                                        <tr>
+                                            <td style="padding: 0 0 10px 0;">
+                                                <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                                    <tr>
                                                         <td align="left" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">Pekerjaan</td>
                                                     </tr>
                                                 </table>
@@ -712,7 +807,7 @@ sendEmail() {
                                             <td style="padding: 0 0 10px 0;">
                                                 <table cellpadding="0" cellspacing="0" border="0" width="100%">
                                                     <tr>
-                                                        <td align="left" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">No.Telp (WhatsApp)</td>
+                                                        <td align="left" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">No.Telp/Hp (WhatsApp)</td>
                                                     </tr>
                                                 </table>
                                             </td>
@@ -797,7 +892,7 @@ sendEmail() {
                                             <td style="padding: 0 0 10px 0;">
                                                 <table cellpadding="0" cellspacing="0" border="0" width="100%">
                                                     <tr>
-                                                        <td align="right" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">`+this.state.koran+`</td>
+                                                        <td align="right" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">`+this.state.jenis_pinjaman+`</td>
                                                     </tr>
                                                 </table>
                                             </td>
@@ -833,7 +928,7 @@ sendEmail() {
                                             <td style="padding: 0 0 10px 0;">
                                                 <table cellpadding="0" cellspacing="0" border="0" width="100%">
                                                     <tr>
-                                                        <td align="right" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;"></td>
+                                                        <td align="right" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">`+this.state.plafond_kredit+`</td>
                                                     </tr>
                                                 </table>
                                             </td>
@@ -869,7 +964,7 @@ sendEmail() {
                                             <td style="padding: 0 0 10px 0;">
                                                 <table cellpadding="0" cellspacing="0" border="0" width="100%">
                                                     <tr>
-                                                        <td align="right" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;"></td>
+                                                        <td align="right" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">`+this.state.jangka_waktu+`</td>
                                                     </tr>
                                                 </table>
                                             </td>
@@ -905,7 +1000,7 @@ sendEmail() {
                                             <td style="padding: 0 0 10px 0;">
                                                 <table cellpadding="0" cellspacing="0" border="0" width="100%">
                                                     <tr>
-                                                        <td align="right" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;"></td>
+                                                        <td align="right" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">`+this.state.status+`</td>
                                                     </tr>
                                                 </table>
                                             </td>
