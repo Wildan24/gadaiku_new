@@ -66,11 +66,7 @@ $(document).ready(function () {
         // document.getElementById("totPinjaman_pass").value = fc(totPinjaman,opts);
 
         // document.getElementById("njop_pass").value = "namaaaaaaa";
-            
-
-            
-
-
+          
                 
         });
 

@@ -3,8 +3,7 @@ import { Card, InputGroup, Button} from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
 import FormCalculator from "./FormCalculator";
 // import NumberFormat from 'react-number-format';
-import FormPengajuan from '../Page/FormPengajuan.js';
-import * as emailjs from 'emailjs-com';
+import FormPengajuan from './FormPengajuan.js';
 
 
 const smalltext = {
@@ -17,6 +16,24 @@ const card = {
  }
 
 export default class FormSimulasi extends Component  {
+    constructor() {
+        super();
+        this.state = { itung: [] }
+    }
+
+    addItung = (e) => {
+        e.preventDefault();
+
+        let njop            = this.refs.njop.value;
+        let totalpjm        = this.refs.totalpjm.value;
+        let adm             = this.refs.adm.value;
+        let fee             = this.refs.fee.value;
+        let total_terima    = this.refs.total_terima.value;
+        let bungaperbulan   = this.refs.bungaperbulan.value;
+
+        this.state.itung.push({njop});
+        this.setState({ itung: this.state.itung});
+    }
 
     render(){ 
         return (
@@ -32,7 +49,7 @@ export default class FormSimulasi extends Component  {
                 <div className="column is-two-quarters">
                     <div className="card">
                         <div className="card-content">
-                            <form>
+                            <form ref="formcalculator">
                                 <h3 className="center">KALKULATOR SIMULASI</h3>        
                                 <hr/>
                                 <div className="formRow" >
@@ -40,7 +57,7 @@ export default class FormSimulasi extends Component  {
                                     <label htmlFor="exampleInputNjop"><strong>NJOP</strong></label>
                                     <InputGroup.Prepend>
                                         <InputGroup.Text><strong>Rp</strong></InputGroup.Text>
-                                        <Form.Control type="text" className="form-control" id="njop" aria-describedby="Njop" placeholder="NJOP" onInput={this.handleChange_njop} />
+                                        <Form.Control type="text" className="form-control" ref="njop" id="njop" aria-describedby="Njop" placeholder="NJOP" />
                                     </InputGroup.Prepend>
                                 </div>
                                 <div className="form-group col-md-3">
@@ -53,24 +70,24 @@ export default class FormSimulasi extends Component  {
                                 <div className="formRow" >
                                     <div className="form-group">
                                         <label htmlFor="exampleInputTotalpjm"><strong>Total Pinjaman</strong></label> 
-                                        <input type="text" className="form-control" id="totalpjm" aria-describedby="Pinjaman" placeholder="Total Pinjaman" disabled/>
+                                        <input type="text" className="form-control" ref="totalpjm" id="totalpjm" aria-describedby="Pinjaman" placeholder="Total Pinjaman" disabled/>
                                     </div>
 
                                     <div className="form-group">
                                         <label htmlFor="exampleInputAdmin"><strong>Admin</strong></label>
-                                        <input type="text" className="form-control" id="adm" aria-describedby="Admin" placeholder="Admin" disabled/>
+                                        <input type="text" className="form-control" ref="adm" id="adm" aria-describedby="Admin" placeholder="Admin" disabled/>
                                     </div>
 
                                     <div className="form-group">
                                         <label htmlFor="exampleInputFee"><strong>Fee</strong></label>
-                                        <input type="text" className="form-control" id="fee" aria-describedby="Fee" placeholder="Fee" disabled/>
+                                        <input type="text" className="form-control" ref="fee" id="fee" aria-describedby="Fee" placeholder="Fee" disabled/>
                                     </div>
                                 </div>
 
                                     <div className="formRow2" >
                                         <div className="form-group">
                                                 <label htmlFor="exampleInputTerima"><strong>Total Yang Diterima</strong></label>
-                                                <input type="text" style={{fontWeight:"bold", backgroundColor:"#fee8c4"}} className="form-control" id="total_terima" placeholder="Total Yang Diterima" disabled/>
+                                                <input type="text" style={{fontWeight:"bold", backgroundColor:"#fee8c4"}} className="form-control" ref="total_terima" id="total_terima" placeholder="Total Yang Diterima" disabled/>
                                                 <small style={smalltext} className="form-text text-muted">*Maksimal yang bisa diapprove</small>
                                         </div>
                                         <div>
@@ -78,7 +95,7 @@ export default class FormSimulasi extends Component  {
                                             <Card.Body class="text-center">
                                             <label style={{marginTop:"5%", marginBottom:"5%"}} htmlFor="exampleInputBunga"><strong>Bunga Per Bulan</strong></label>
                                             <br/>
-                                            <input type="text" style={{fontWeight:"bold", backgroundColor:"#fdc66c"}} className="form-control" id="BungaPerBulan" placeholder="Bunga Per Bulan" disabled />
+                                            <input type="text" style={{fontWeight:"bold", backgroundColor:"#fdc66c"}} className="form-control" ref="bungaperbulan" id="BungaPerBulan" placeholder="Bunga Per Bulan" disabled />
                                                 <p class="text-center" style={{fontSize:"16px"}}>
                                                     <strong>Note: Perhitungan ini sifatnya simulasi belaka. Untuk lebih jelasnya silakan hubungi pemberi kredit</strong>
                                                 </p> 
@@ -87,9 +104,14 @@ export default class FormSimulasi extends Component  {
                                         </div>
                                     </div>
                             
-                                    <Button variant="outline-warning" style={{marginTop:"60px", marginBottom:"30px", fontWeight:"bolder", fontSize:"20px"}} type="button" id="show_formPengajuan" size="md" block>Form Pengajuan</Button>
+                                    <Button variant="outline-warning" style={{marginTop:"60px", marginBottom:"30px", fontWeight:"bolder", fontSize:"20px"}} type="button" onClick={this.addItung}
+                                         id="show_formPengajuan" size="md" block>Form Pengajuan</Button>
                                 
-                                <FormPengajuan />
+                                
+                                
+                                            <FormPengajuan itung={this.state.itung}/>
+
+                                
 
                             </form>
                         </div>

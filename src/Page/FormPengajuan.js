@@ -1,12 +1,10 @@
 import React,{Component} from 'react';
-import Col from 'react-bootstrap/Col';
-import Form from 'react-bootstrap/Form';
-import { Button, Container, } from 'react-bootstrap';
+import { Button, Container, Col, Form } from 'react-bootstrap';
 import ImageUploader from 'react-images-upload';
 import * as emailjs from 'emailjs-com';
 import axios from 'axios';
 import 'filepond/dist/filepond.min.css';
-import FormSimulasi from '../Page/FormSimulasi.js';
+import FormSimulasi from './FormSimulasi';
 import { file } from '@babel/types';
 
 
@@ -14,8 +12,9 @@ export default class FormPengajuan extends Component {
     constructor(){
         super();
         this.UploadFile=this.UploadFile.bind();
-
+        
     }
+
     state = {
         nama: '', 
         email:'',
@@ -133,15 +132,10 @@ export default class FormPengajuan extends Component {
                 </div>
                 
                 <hr/>
-                
+                    <div>
+                       <input type="text" value={this.props.itung}/>
+                    </div>
                     <Form.Row>
-                        <input type="hidden" id="njop_pass" value={this.state.njop_pass} onChange={this.handleChange_njop_pass} />
-                        <input type="hidden" id="totPinjaman_pass" value=""  /> 
-                        <input type="hidden" id="admin_pass" value="" /> 
-                        <input type="hidden" id="fee_pass" value="" /> 
-                        <input type="hidden" id="totYgDtrm_pass" value="" /> 
-                        <input type="hidden" id="bpr_pass" value="" />  
-
                         <Form.Group as={Col} controlId="formGridNama" style={{marginTop:"30px"}}>
                             <Form.Label><strong>Nama</strong></Form.Label>
                             <Form.Control type="text" placeholder="Nama Lengkap" value={this.state.nama} onChange={this.handleChange_nama}  />
